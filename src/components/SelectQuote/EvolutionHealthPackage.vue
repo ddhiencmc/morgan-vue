@@ -75,7 +75,7 @@
 
             <!-- body -->
             <div class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3">
-                Choose an Excess @ </br>
+                Choose an Excess @
 
                 <select class="form-select mb-1" aria-label="Default select example">
                   <option selected>0 per person per</option>
@@ -136,7 +136,7 @@
 
             <!-- body -->
             <div class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3">
-                Choose an Excess @ </br>
+                Choose an Excess @
 
                 <select class="form-select mb-1" aria-label="Default select example">
                   <option selected>0 per person per</option>
@@ -197,7 +197,7 @@
 
             <!-- body -->
             <div class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3">
-                Choose an Excess @ </br>
+                Choose an Excess @
 
                 <select class="form-select mb-1" aria-label="Default select example">
                   <option selected>0 per person per</option>
@@ -258,7 +258,7 @@
 
           <!-- body -->
           <div class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3">
-              Choose an Excess @ </br>
+              Choose an Excess @
 
               <select class="form-select mb-1" aria-label="Default select example">
                 <option selected>0 per person per</option>
