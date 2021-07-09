@@ -6,5 +6,10 @@
   color: #1076bc;
 }
 
-.show {
+.step-show {
+  visibility: visible;
+}
+
+.step-hidden {
+  visibility: hidden;
 }

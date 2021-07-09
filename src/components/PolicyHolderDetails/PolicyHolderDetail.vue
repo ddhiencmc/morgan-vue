@@ -85,7 +85,9 @@
       </div>
 
       <div class="d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary">Next</button>
+        <button type="submit" class="btn btn-primary" @click="nextStep">
+          Next
+        </button>
       </div>
 
       <div
@@ -119,10 +121,7 @@ import PolicyHolderDetailInfo from "./PolicyHolderDetailInfo.vue";
 import AdditionalFamilyMember from "./AdditionalFamilyMember";
 import ContactDetail from "./ContactDetail";
 
-import { currencies, relationships } from "../../data/optionData";
-
-//step
-import { steps, setStep, isActive } from "../../data/stepActiveStatus";
+import { currencies } from "../../data/optionData";
 
 export default {
   name: "PolicyHolderDetail",
@@ -160,7 +159,9 @@ export default {
         isAnUnmarriedChildAndInFurtherEducation: false,
       };
     },
+    nextStep() {
+      this.$formData.currentStep++;
+    },
   },
 };
 </script>
-

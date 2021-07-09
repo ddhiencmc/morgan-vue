@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <PolicyHolderDetail msg="Hello Vue in CodeSandbox!" />
-    <EvolutionHealthPackage />
+    <PolicyHolderDetail v-if="$formData.currentStep === 1"/>
+    <EvolutionHealthPackage v-if="$formData.currentStep === 2" />
   </div>
 </template>
 
@@ -15,6 +15,9 @@ export default {
     PolicyHolderDetail,
     EvolutionHealthPackage,
   },
+  data(){
+    return{};
+  }
 };
 </script>
 
