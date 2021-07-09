@@ -1,11 +1,11 @@
 export const steps = [
   {
     id: 1,
-    step: 'PolicyHolderDetail'
+    step: "PolicyHolderDetail"
   },
   {
     id: 2,
-    step: 'SelectQuote'
+    step: "SelectQuote"
   }
 ];
 

@@ -70,6 +70,7 @@
                 <option value="3">Semi-Annual: 1009.26$</option>
                 <option value="4">Annual: 1940.88$</option>
               </select>
+              <strong>Standard Plus</strong>
             </div>
           </div>
         </div>
@@ -122,6 +123,7 @@
               <label class="form-check-label" for="flexRadioDefault2">
                 10% co-insuarance on all out-patient claims
               </label>
+                </select>
             </div>
             <div class="form-check">
               <input
@@ -173,6 +175,7 @@
             class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3"
           >
             Choose an Excess @
+                </div>
 
             <select
               class="form-select mb-1"
@@ -224,6 +227,7 @@
             </div>
 
             <div class="my-2 text-center">Additional Benefits</div>
+                </div>
 
             <div class="form-check">
               <input
@@ -422,8 +426,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script>
