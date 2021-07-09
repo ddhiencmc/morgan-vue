@@ -54,7 +54,7 @@
               <input
                 type="date"
                 class="form-control"
-                v-model="policyStartDate"
+                v-model="form.policyStartDate"
               />
             </div>
 
@@ -120,6 +120,9 @@ import AdditionalFamilyMember from "./AdditionalFamilyMember";
 import ContactDetail from "./ContactDetail";
 
 import { currencies, relationships } from "../../data/optionData";
+
+//step
+import { steps, setStep, isActive } from "../../data/stepActiveStatus";
 
 export default {
   name: "PolicyHolderDetail",

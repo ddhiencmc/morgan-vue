@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
-    "bootstrap": "5.0.2",
     "vue": "^2.6.11",
     "vue-multiselect": "2.1.6",
     "vue2-datepicker": "3.9.1"
@@ -28,10 +27,7 @@
     "env": {
       "node": true
     },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
+    "extends": ["plugin:vue/essential", "eslint:recommended"],
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
@@ -42,11 +38,7 @@
       "autoprefixer": {}
     }
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
   "keywords": [],
   "description": ""
 }
