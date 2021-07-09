@@ -3,7 +3,7 @@ import Vue from "vue";
 const formData = new Vue({
   data() {
     return {
-      currentStep: 1,
+      currentStep: 2,
       policyHolderDetails: {
         applicationId: 0,
         details: {
