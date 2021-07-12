@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-75 mx-auto">
     <div class="card shadow-sm p-5 border-0 my-5">
       <div class="form-group">
         <!-- <input asp-for="ApplicationId" class="form-control" /> -->

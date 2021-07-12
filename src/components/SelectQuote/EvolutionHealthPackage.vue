@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
-    <!-- info -->
-    <div class="w-75 mx-auto">
+<div class="w-100 mx-auto">
+  <div class="card shadow-sm p-5 border-0 my-5">
+      <!-- info -->
       <h2 class="text-center text-primary">Evolution Health ROW</h2>
 
       <!-- header -->
-      <div class="Form border-top border-bottom">
+      <div class="Form border-top border-bottom mx-auto">
         <div class="m-2">
           <button class="btn btn-light border-primary ml-1 m-1 fs-15px">
             Europe
@@ -424,8 +424,8 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
+</div>
 </template>
 
 <script>

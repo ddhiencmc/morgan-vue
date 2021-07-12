@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- info -->
-    <div class="w-75 mx-auto">
+    <div class="">
       <h2 class="text-center text-primary">Evolution Health ROW</h2>
 
       <!-- header -->

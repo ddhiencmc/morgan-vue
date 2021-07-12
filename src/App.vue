@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <div class="container">
-      <div class="w-75 mx-auto">
-        <PolicyHolderDetail v-if="$formData.currentStep === 1"/>
-        <EvolutionHealthPackage v-if="$formData.currentStep === 2" />
-        <AdditionalDetails v-if="$formData.currentStep === 3" />
-      </div>
+      <PolicyHolderDetail v-if="$formData.currentStep === 1"/>
+      <EvolutionHealthPackage v-if="$formData.currentStep === 2" />
+      <AdditionalDetails v-if="$formData.currentStep === 3" />
     </div>
   </div>
 </template>
