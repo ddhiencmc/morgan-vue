@@ -1,9 +1,11 @@
 import Vue from "vue";
 
+const queryParams = new URLSearchParams(window.location.search);
+
 const formData = new Vue({
   data() {
     return {
-      currentStep: 2,
+      currentStep: parseInt(queryParams.get('step') || 1),
       policyHolderDetails: {
         applicationId: 0,
         details: {
