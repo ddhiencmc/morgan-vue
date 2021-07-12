@@ -60,8 +60,9 @@
             <select
               class="form-select mb-3 fs-15px"
               aria-label="Default select example"
+              v-model="service.selectedExcess"
             >
-              <option selected>0 per person per</option>
+              <option value="0">0 per person per</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
@@ -129,14 +130,14 @@
             aria-label="Default select example"
             v-model="service.frequency"
           >
-            <option selected>Select package</option>
+            <option value="">Select package</option>
 
             <option
               v-for="option in service.frequencyOptions"
               :key="option.type"
-              value="option.type"
+              :value="option.type"
             >
-              {{ `${option.type}: ${option.price}` }}
+              {{ `${option.type}: $${option.price}` }}
             </option>
           </select>
         </div>
