@@ -1,323 +1,90 @@
 <template>
   <div class="container">
-    <!-- info -->
-    <div class="">
-      <h2 class="text-center text-primary">Evolution Health ROW</h2>
-
-      <!-- header -->
-      <div class="Form border-top border-bottom">
-        <div class="m-2">
-          <button class="btn btn-light border-primary ml-1 m-1">
-            Europe
-          </button>
-
-          <button class="btn btn-primary border-primary m-1">
-            Worldwide (excluding USA, China, Singapore and Hong Kong)
-          </button>
-
-          <button class="btn btn-light border-primary m-1">
-            Worldwide (excluidng USA)
-          </button>
-
-          <button class="btn btn-light border-primary mr-1 m-1">
-            Worldwide
-          </button>
-        </div>
+    <div class="card shadow-sm p-5 border-0 my-5">
+      <div>
+        <!-- <input asp-for="ApplicationId" class="form-control" /> -->
+        <EvolutionHealthPackage class="mb-5" />
       </div>
 
-      <div class="d-flex justify-content-between">
-        <!-- package -->
-        <div class="mx-1 w-20">
-          <!-- title -->
-          <div class="container bg-light mt-3 mb-2 text-center">
-            <strong>Standard</strong>
-          </div>
-
-          <!-- body -->
-          <div class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3">
-            <div>
-                <div>Choose an Excess @</div>
-                <select class="form-select mb-2" aria-label="Default select example">
-                    <option selected>0 per person per</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-  
-                  <div class="mb-2">Additional Henefits @</div>
-  
-                  <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Home country Evacuation
-                      </label>
-                  </div>
-            </div>
-            <div>
-              <!-- body3 -->
-              <select class="form-select" aria-label="Default select example">
-                  <option selected>Select package</option>
-                  <option value="1">Monthly: 174.68$</option>
-                  <option value="2">Quarterly: 509.48$</option>
-                  <option value="3">Semi-Annual: 1009.26$</option>
-                  <option value="4">Annual: 1940.88$</option>
-              </select>
+      <div class="mt-5">
+        <h2>Underwriting Type</h2>
+        <div class="alert alert-warning" role="alert">
+          <span class="text-danger">Please note:</span> it is very important you
+          understand the difference between the types of underwriting and that
+          you chose the option that is right for you.
+        </div>
+        <div class="text-center">
+          <div class=" d-flex justify-content-center">
+            <div
+              class="p-2 gap-4 bd-highlight w-100"
+              v-for="underwriting in underwritingTypes"
+              :key="underwriting.id"
+            >
+              <input
+                type="radio"
+                class="btn-check"
+                :name="`underwritingType`"
+                :id="underwriting.id"
+                :autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary btn-lg w-100"
+                :for="underwriting.id"
+                >{{ underwriting.value }}</label
+              >
             </div>
           </div>
-        </div>
-
-        <!-- package -->
-        <div class="mx-1 w-20">
-            <!-- title -->
-            <div class="container bg-light mt-3 mb-2 text-center">
-              <strong>Standard Plus</strong>
-            </div>
-
-            <!-- body -->
-            <div class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3">
-                Choose an Excess @ </br>
-
-                <select class="form-select mb-1" aria-label="Default select example">
-                  <option selected>0 per person per</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-
-                <div class="mb-2 text-center">Co-insurance @</div>
-
-                <!-- radio -->
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      0% co-insuarance  on all out-patient claims
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        10% co-insuarance  on all out-patient claims
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
-                    <label class="form-check-label" for="flexRadioDefault3">
-                        20% co-insuarance  on all out-patient claims
-                    </label>
-                </div>
-
-                <div class="my-2 text-center">Additional Benefits</div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Home country Evacuation
-                    </label>
-                </div>
-
-                
-                <!-- body3 -->
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Select package</option>
-                    <option value="1">Monthly: 174.68$</option>
-                    <option value="2">Quarterly: 509.48$</option>
-                    <option value="3">Semi-Annual: 1009.26$</option>
-                    <option value="4">Annual: 1940.88$</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- package -->
-        <div class="mx-1 w-20">
-            <!-- title -->
-            <div class="container bg-light mt-3 mb-2 text-center">
-              <strong>Standard Plus</strong>
-            </div>
-
-            <!-- body -->
-            <div class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3">
-                Choose an Excess @ </br>
-
-                <select class="form-select mb-1" aria-label="Default select example">
-                  <option selected>0 per person per</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-
-                <div class="mb-2 text-center">Co-insurance @</div>
-
-                <!-- radio -->
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      0% co-insuarance  on all out-patient claims
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        10% co-insuarance  on all out-patient claims
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
-                    <label class="form-check-label" for="flexRadioDefault3">
-                        20% co-insuarance  on all out-patient claims
-                    </label>
-                </div>
-
-                <div class="my-2 text-center">Additional Benefits</div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Home country Evacuation
-                    </label>
-                </div>
-
-                
-                <!-- body3 -->
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Select package</option>
-                    <option value="1">Monthly: 174.68$</option>
-                    <option value="2">Quarterly: 509.48$</option>
-                    <option value="3">Semi-Annual: 1009.26$</option>
-                    <option value="4">Annual: 1940.88$</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- package -->
-        <div class="mx-1 w-20">
-            <!-- title -->
-            <div class="container bg-light mt-3 mb-2 text-center">
-              <strong>Standard Plus</strong>
-            </div>
-
-            <!-- body -->
-            <div class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3">
-                Choose an Excess @ </br>
-
-                <select class="form-select mb-1" aria-label="Default select example">
-                  <option selected>0 per person per</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-
-                <div class="mb-2 text-center">Co-insurance @</div>
-
-                <!-- radio -->
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      0% co-insuarance  on all out-patient claims
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        10% co-insuarance  on all out-patient claims
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
-                    <label class="form-check-label" for="flexRadioDefault3">
-                        20% co-insuarance  on all out-patient claims
-                    </label>
-                </div>
-
-                <div class="my-2 text-center">Additional Benefits</div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Home country Evacuation
-                    </label>
-                </div>
-
-                
-                <!-- body3 -->
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Select package</option>
-                    <option value="1">Monthly: 174.68$</option>
-                    <option value="2">Quarterly: 509.48$</option>
-                    <option value="3">Semi-Annual: 1009.26$</option>
-                    <option value="4">Annual: 1940.88$</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- package -->
-        <div class="mx-1 w-20">
-          <!-- title -->
-          <div class="container bg-light mt-3 mb-2 text-center">
-            <strong>Standard Plus</strong>
-          </div>
-
-          <!-- body -->
-          <div class="container bg-light m-1 text-center px-2 h-100 d-flex flex-column justify-content-between pb-3">
-              Choose an Excess @ </br>
-
-              <select class="form-select mb-1" aria-label="Default select example">
-                <option selected>0 per person per</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-
-              <div class="mb-2 text-center">Co-insurance @</div>
-
-              <!-- radio -->
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    0% co-insuarance  on all out-patient claims
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <label class="form-check-label" for="flexRadioDefault2">
-                      10% co-insuarance  on all out-patient claims
-                  </label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
-                  <label class="form-check-label" for="flexRadioDefault3">
-                      20% co-insuarance  on all out-patient claims
-                  </label>
-              </div>
-
-              <div class="my-2 text-center">Additional Benefits</div>
-
-              <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Home country Evacuation
-                  </label>
-              </div>
-
-              <!-- body3 -->
-              <select class="form-select" aria-label="Default select example">
-                  <option selected>Select package</option>
-                  <option value="1">Monthly: 174.68$</option>
-                  <option value="2">Quarterly: 509.48$</option>
-                  <option value="3">Semi-Annual: 1009.26$</option>
-                  <option value="4">Annual: 1940.88$</option>
-              </select>
+          <div class="mt-3 mb-5">
+            <i class="fas fa-exclamation-circle me-2 text-primary"></i
+            ><a
+              href="#"
+              role="button"
+              class=""
+              data-bs-toggle="modal"
+              data-bs-target="#underwritingTypeModal"
+              >HELP ME CHOOSE</a
+            >
           </div>
         </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-outline-primary" type="button">
+        Save As Draft
+      </button>
+      <div>
+        <button class="btn btn-secondary" @click="previousStep()">
+          Previous
+        </button>
+        <button type="submit" class="btn btn-primary">Next</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { underwritingTypes } from "../../data/optionData";
+import EvolutionHealthPackage from "./EvolutionHealthPackage.vue";
+
 export default {
   name: "EvolutionHealth",
   props: {},
-  components: {},
-  data() {},
+  components: {
+    EvolutionHealthPackage,
+  },
+  data() {
+    return {
+      services: this.$formData.services,
+      underwritingTypes: underwritingTypes,
+    };
+  },
+  methods: {
+    previousStep() {
+      this.$formData.currentStep--;
+    },
+  },
+  mounted() {
+    console.log("services", this.$formData.services);
+  },
 };
 </script>

@@ -45,3 +45,14 @@ export const countryCodes = [
   { text: "+93", value: "1" },
   { text: "+84", value: "2" }
 ];
+
+export const insuarancesOption = [
+  '0% co-insuarance on all out-patient claims',
+  '10% co-insuarance on all out-patient claims',
+  '20% co-insuarance on all out-patient claims',
+]
+
+export const underwritingTypes = [
+  { id: 1, value: 'Moratorium' },
+  { id: 2, value: 'Full Medical Underwriting' },
+]

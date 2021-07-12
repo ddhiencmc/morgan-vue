@@ -15,9 +15,22 @@
 }
 
 .fs-15px {
-  font-size: 15px !important;
+  font-size: 16px !important;
 }
 
 .fs-17px {
   font-size: 17px !important;
+}
+
+.fs-20px {
+  font-size: 21px !important;
+}
+
+.question-tooltips {
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+   border: 1 solid rgba(0, 0, 0, 0.8);
+   border-radius: 50%;
+  height: 15px;
+  width: 15px;
 }
