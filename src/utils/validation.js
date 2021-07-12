@@ -10,6 +10,18 @@ Object.keys(rules).forEach(rule => {
     });
 });
 
+extend('phoneNumber', {
+    validate: (value) => {
+        var phoneRegex = /^\d{10}$/;
+
+        if (value.match(phoneRegex)) {
+            return true;
+        }
+        return false;
+    },
+    message: 'Please enter valid phone number.'
+})
+
 
 
 Vue.component('ValidationProvider', ValidationProvider);

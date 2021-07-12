@@ -13,7 +13,6 @@
         Family member #{{ memberIndex + 1 }}
       </button>
     </div>
-    <!-- content -->
     <div
       class="accordion-collapse collapse"
       :class="{ show: isOpen }"
@@ -24,7 +23,6 @@
           <div class="form-group border-start p-3 my-3 border-primary">
             <div class="mb-4">
               <div class="row">
-                <!-- title -->
                 <div class="col-md-6 mb-3">
                   <label class="form-label">Title</label>
                   <select
@@ -43,7 +41,6 @@
                   </select>
                 </div>
 
-                <!-- forename -->
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">Forename</label>
                   <input
@@ -54,9 +51,7 @@
                 </div>
               </div>
 
-              <!-- Surname/Family Name , birth day -->
               <div class="row">
-                <!-- surname -->
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">Surname/Family Name</label>
                   <input
@@ -66,7 +61,6 @@
                   />
                 </div>
 
-                <!-- birth day -->
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">Date Of Birth</label>
                   <input
@@ -79,7 +73,6 @@
                 </div>
               </div>
 
-              <!-- gender -->
               <div class="row">
                 <div class="col mb-3">
                   <label class="form-label required">Genders</label>
@@ -100,7 +93,6 @@
                 </div>
               </div>
 
-              <!-- country of nationality -->
               <div class="row">
                 <div class="col mb-3">
                   <label class="form-label required"
@@ -123,9 +115,7 @@
                 </div>
               </div>
 
-              <!-- Country Of Residence + Occupation (Select multiple) -->
               <div class="row">
-                <!-- Occupation (Select multiple)  -->
                 <div class="col-md-6">
                   <label class="form-label required"
                     >Occupation (Select multiple)</label
@@ -171,7 +161,6 @@
               </div>
             </div>
 
-            <!-- check box -->
             <div class="form-check form-check-inline">
               <input
                 class="form-check-input"
@@ -191,7 +180,6 @@
               </label>
             </div>
 
-            <!-- helper -->
             <div class="mt-3">
               <i class="fas fa-exclamation-circle me-2 text-primary"></i>
               <a

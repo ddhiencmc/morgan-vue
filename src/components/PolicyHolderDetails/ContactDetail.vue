@@ -1,8 +1,6 @@
 <template>
   <div class="form-group mt-4">
-    <!-- country code + number -->
     <div class="row">
-      <!-- country code -->
       <div class="col-md-6 mb-3">
         <label class="form-label">Country Code</label>
         <select
@@ -21,16 +19,16 @@
         </select>
       </div>
 
-      <!-- number -->
       <div class="col-md-6 mb-3">
-        <label class="form-label"> Landline Number </label>
-        <input class="form-control" v-model="form.landlineNumber" />
+        <ValidationProvider rules="phoneNumber" v-slot="v">
+          <label class="form-label"> Landline Number </label>
+          <input class="form-control" v-model="form.landlineNumber" />
+          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+        </ValidationProvider>
       </div>
     </div>
 
-    <!-- country code + mobile numbers -->
     <div class="row">
-      <!-- country code -->
       <div class="col-md-6 mb-3">
         <label class="form-label">Country Code</label>
         <select
@@ -49,18 +47,22 @@
         </select>
       </div>
 
-      <!-- mobile numbers -->
       <div class="col-md-6 mb-3">
-        <label class="form-label">Mobile Number</label>
-        <input class="form-control" v-model="form.mobileNumber" />
+        <ValidationProvider rules="phoneNumber" v-slot="v">
+          <label class="form-label">Mobile Number</label>
+          <input class="form-control" v-model="form.mobileNumber" />
+          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+        </ValidationProvider>
       </div>
     </div>
 
-    <!-- email address -->
     <div class="row">
       <div class="col mb-3">
-        <label class="form-label required">Email Address</label>
-        <input type="email" class="form-control" v-model="form.emailAddress" />
+        <ValidationProvider rules="required|email" v-slot="v">
+          <label class="form-label required">Email Address</label>
+          <input name="contact-email" type="email" class="form-control" v-model="form.emailAddress" />
+          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+        </ValidationProvider>
       </div>
     </div>
   </div>

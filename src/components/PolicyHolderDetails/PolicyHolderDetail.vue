@@ -33,7 +33,6 @@
         </div>
 
         <div class="accordion mt-3" id="additional-family-members">
-          <!-- Family member -->
           <div
             class="accordion-item mt-2 border"
             v-for="(familyData, index) in form.familyMembers"
@@ -43,9 +42,7 @@
           </div>
         </div>
 
-        <!-- Policy To Start + Payin -->
         <div class="form-group row">
-          <!-- Policy To Start -->
           <div class="col-sm-12 mt-4">
             <label class="form-label required">
               On Which Date Do You Require The Policy To Start?
@@ -57,7 +54,6 @@
             />
           </div>
 
-          <!-- Pay In -->
           <div class="col-sm-12 mt-4">
             <label class="form-label required"
               >What Currency Do You Wish To Pay In?</label
