@@ -18,13 +18,10 @@ export default {
   components: {
     PolicyHolderDetail,
     EvolutionHealthPackage,
-    AdditionalDetails
+    AdditionalDetails,
   },
   data(){
     return{};
   }
 };
 </script>
-
-<style>
-</style>

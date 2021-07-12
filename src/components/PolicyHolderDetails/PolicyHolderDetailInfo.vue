@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="row">
-      <!-- title -->
       <div class="col-md-6 mb-3">
         <label class="form-label">Title</label>
         <select class="form-select form-control" v-model="form.salutationId">
@@ -16,64 +15,74 @@
         </select>
       </div>
 
-      <!-- forename -->
       <div class="col-md-6 mb-3">
-        <label class="form-label required">Forename</label>
-        <input
-          class="form-control"
-          v-model="form.forename"
-          placeholder="Forename"
-        />
+        <ValidationProvider rules="required" v-slot="v">
+          <label class="form-label required">Forename</label>
+          <input
+            name="forename"
+            class="form-control"
+            v-model="form.forename"
+            placeholder="Forename"
+          />
+          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+        </ValidationProvider>
       </div>
     </div>
 
-    <!-- Surname/Family Name , birth day -->
     <div class="row">
-      <!-- surname -->
       <div class="col-md-6 mb-3">
-        <label class="form-label required">Surname/Family Name</label>
-        <input
-          class="form-control"
-          v-model="form.surname"
-          placeholder="Surname/Family Name"
-        />
+        <ValidationProvider rules="required" v-slot="v">
+          <label class="form-label required">Surname/Family Name</label>
+          <input
+            name="surname"
+            class="form-control"
+            v-model="form.surname"
+            placeholder="Surname/Family Name"
+          />
+          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+        </ValidationProvider>
       </div>
 
-      <!-- birth day -->
       <div class="col-md-6 mb-3">
-        <label class="form-label required">Date Of Birth</label>
-        <input
-          class="form-control valid"
-          v-model="form.dateOfBirth"
-          valueType="format"
-          type="date"
-          date-val="true"
-        />
+        <ValidationProvider rules="required" v-slot="v">
+          <label class="form-label required">Date Of Birth</label>
+          <input
+            name="dateOfBirth"
+            class="form-control valid"
+            v-model="form.dateOfBirth"
+            valueType="format"
+            type="date"
+            date-val="true"
+          />
+          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+        </ValidationProvider>
       </div>
     </div>
 
-    <!-- gender -->
     <div class="row">
       <div class="col mb-3">
-        <label class="form-label required">Genders</label>
-        <select
-          class="form-select form-control"
-          v-model="form.genderId"
-          aria-label=""
-        >
-          <option value="">Please select</option>
-          <option
-            v-for="gender in genders"
-            :key="gender.value"
-            :value="gender.value"
+        <ValidationProvider rules="required" v-slot="v">
+          <label class="form-label required">Genders</label>
+          <select
+            name="gender"
+            class="form-select form-control"
+            v-model="form.genderId"
+            aria-label=""
           >
-            {{ gender.text }}
-          </option>
-        </select>
+            <option value="">Please select</option>
+            <option
+              v-for="gender in genders"
+              :key="gender.value"
+              :value="gender.value"
+            >
+              {{ gender.text }}
+            </option>
+          </select>
+          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+        </ValidationProvider>
       </div>
     </div>
 
-    <!-- country of nationality -->
     <div class="row">
       <div class="col mb-3">
         <label class="form-label required">Country of Nationality</label>
@@ -94,9 +103,7 @@
       </div>
     </div>
 
-    <!-- Country Of Residence + Occupation (Select multiple) -->
     <div class="row">
-      <!-- Country Of Residence -->
       <div class="col-md-6 mb-3">
         <label class="form-label required">Country Of Residence</label>
         <select
@@ -119,7 +126,6 @@
         ></span>
       </div>
 
-      <!-- Occupation (Select multiple)  -->
       <div class="col-md-6">
         <label class="form-label required">Occupation (Select multiple)</label>
         <select

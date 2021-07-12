@@ -1,6 +1,8 @@
 import Vue from "vue";
 import App from "./App.vue";
 import formData from "./data/formData";
+import '@/utils/validation.js';
+import "@/styles/style.scss";
 
 Vue.config.productionTip = false;
 
