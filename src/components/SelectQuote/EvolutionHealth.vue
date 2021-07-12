@@ -48,15 +48,15 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-between">
-      <button class="btn btn-outline-primary" type="button">
-        Save As Draft
-      </button>
+    <div class="d-flex justify-content-end">
       <div>
-        <button class="btn btn-secondary" @click="previousStep()">
+        <button class="btn btn-secondary mx-2" @click="previousStep()">
           Previous
         </button>
-        <button type="submit" class="btn btn-primary">Next</button>
+
+        <button type="submit" class="btn btn-primary mx-2" @click="nextStep()">
+          Next
+        </button>
       </div>
     </div>
   </div>
@@ -81,6 +81,9 @@ export default {
   methods: {
     previousStep() {
       this.$formData.currentStep--;
+    },
+    nextStep() {
+      this.$formData.currentStep++;
     },
   },
   mounted() {

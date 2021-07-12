@@ -4,30 +4,20 @@
 
     <div class="border-top border-bottom">
       <div class="p-2 text-center">
-        <button class="btn btn-light border-primary ml-1 m-1 fs-15px">
-          Europe
-        </button>
-
-        <button class="btn btn-primary border-primary m-1 fs-15px">
-          Worldwide (excluding USA, China, Singapore and Hong Kong)
-        </button>
-
-        <button class="btn btn-light border-primary m-1 fs-15px">
-          Worldwide (excluidng USA)
-        </button>
-
-        <button class="btn btn-light border-primary mr-1 m-1 fs-15px">
-          Worldwide
+        <button
+          class="btn border-primary m-1 fs-15px"
+          v-for="(btn, index) in headerButtons"
+          :key="index"
+          v-bind:class="{ 'btn-primary text-light fw-bold': btn.active, 'btn-light': !btn.active }"
+          @click="headerBtnActive(index)"
+        >
+          {{ btn.text }}
         </button>
       </div>
     </div>
 
     <div class="d-flex justify-content-between fs-15px">
-      <div
-        class="mx-1 w-20"
-        v-for="(service, index) in services"
-        :key="index"
-      >
+      <div class="mx-1 w-20" v-for="(service, index) in services" :key="index">
         <div class="container bg-light py-3 mt-3 mb-2 text-center fs-20px">
           <strong>{{ service.name }}</strong>
         </div>
@@ -155,15 +145,47 @@ export default {
   components: {},
   data() {
     return {
+      headerButtons: [
+        {
+          id: 1,
+          text: "Europe",
+          active: false,
+        },
+        {
+          id: 2,
+          text: "Worldwide (excluding USA, China, Singapore and Hong Kong)",
+          active: true,
+        },
+        {
+          id: 3,
+          text: "Worldwide (excluidng USA)",
+          active: false,
+        },
+        {
+          id: 4,
+          text: "Worldwide",
+          active: false,
+        },
+      ],
+
       services: this.$formData.services,
       insuarancesOption: insuarancesOption,
     };
+  },
+  methods: {
+    headerBtnActive(index) {
+      this.headerButtons.forEach((el) => {
+        el.active = false;
+      });
+
+      this.headerButtons[index].active = true;
+    },
   },
   mounted() {
     let tooltipTriggerList = [].slice.call(
       this.$el.querySelectorAll('[data-bs-toggle="tooltip"]')
     );
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
+    tooltipTriggerList.map(function(tooltipTriggerEl) {
       return new window.bootstrap.Tooltip(tooltipTriggerEl);
     });
   },
