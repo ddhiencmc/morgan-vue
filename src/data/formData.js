@@ -29,7 +29,135 @@ const formData = new Vue({
         familyMembers: [],
         policyStartDate: new Date(),
         currenyId: ""
-      }
+      },
+      services: [
+        {
+          name: 'Standard',
+          selectedExcess: null,
+          noCoInsurance: true,
+          excessDescription: '',
+          hasAdditionalBenefit: false,
+          frequency: null,
+          frequencyOptions: [
+            {
+              type: 'Monthly',
+              price: '174.68'
+            },
+            {
+              type: 'Quarterly',
+              price: '509.48'
+            },
+            {
+              type: 'Semi-Annual',
+              price: '1009.26'
+            },
+            {
+              type: 'Annual',
+              price: '1940.88'
+            },
+          ],
+        },
+        {
+          name: 'Standard Plus',
+          selectedExcess: null,
+          hasAdditionalBenefit: false,
+          insuranceSelectedValue: '',
+          frequency: null,
+          frequencyOptions: [
+            {
+              type: 'Monthly',
+              price: '213.55'
+            },
+            {
+              type: 'Quarterly',
+              price: '622.85'
+            },
+            {
+              type: 'Semi-Annual',
+              price: '1233.85'
+            },
+            {
+              type: 'Annual',
+              price: '2372.75'
+            },
+          ]
+        },
+        {
+          name: 'Comprehensive',
+          selectedExcess: null,
+          hasAdditionalBenefit: false,
+          insuranceSelectedValue: '',
+          frequency: null,
+          frequencyOptions: [
+            {
+              type: 'Monthly',
+              price: '351.36'
+            },
+            {
+              type: 'Quarterly',
+              price: '1024.79'
+            },
+            {
+              type: 'Semi-Annual',
+              price: '2030.06'
+            },
+            {
+              type: 'Annual',
+              price: '3903.97'
+            },
+          ],
+        },
+        {
+          name: 'Premium',
+          selectedExcess: null,
+          hasAdditionalBenefit: false,
+          insuranceSelectedValue: '',
+          frequency: null,
+          frequencyOptions: [
+            {
+              type: 'Monthly',
+              price: '466.10'
+            },
+            {
+              type: 'Quarterly',
+              price: '1359.46'
+            },
+            {
+              type: 'Semi-Annual',
+              price: '2693.03'
+            },
+            {
+              type: 'Annual',
+              price: '5178.90'
+            },
+          ],
+        },
+        {
+          name: 'Elite',
+          selectedExcess: null,
+          hasAdditionalBenefit: false,
+          insuranceSelectedValue: '',
+          frequency: null,
+          frequencyOptions: [
+            {
+              type: 'Monthly',
+              price: '638.22'
+            },
+            {
+              type: 'Quarterly',
+              price: '1861.47'
+            },
+            {
+              type: 'Semi-Annual',
+              price: '3687.49'
+            },
+            {
+              type: 'Annual',
+              price: '7091.32'
+            },
+          ],
+        }
+      ]
     };
   }
 });
