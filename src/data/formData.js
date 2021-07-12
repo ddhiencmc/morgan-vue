@@ -157,7 +157,62 @@ const formData = new Vue({
             },
           ],
         }
-      ]
+      ],
+      additionalDetails: {
+        genderId: '',
+        occupationIds: [],
+        otherOccupation: '',
+        pastimeIds: [],
+        otherPastime: '',
+        refusedCoverOrAcceptedOnSpecialTerms: false,
+        refusedCoverOrAcceptedOnSpecialTermsDetails: '',
+        bmi: {
+          height: null,
+          heightUnit: 'feet', // feet, cm, inch
+          weight: null,
+          weightUnit: 'kg', // kg, stone, pounds
+        },
+        homeCountryAddress: {
+
+        },
+        physicianDetails: {
+          practicename: '',
+          dateLastVisited: null,
+          salutationId: '',
+          surname: "",
+          forename: "",
+          countryId: "",
+          telephoneNumber: "",
+          address: {
+            addressLine1: "",
+            addressLine2: "",
+            addressLine3: "",
+            state: "",
+            city: "",
+            countryId: "",
+            zipCode: "",
+          },
+          insuranceProviders: [
+            {
+              healthCareInsuranceProviderId: '',
+              otherHealthCareInsuranceProvider: "",
+              coverEndDate: null,
+            }
+          ],
+          documents: {
+            files: [
+              {
+                label: 'Passport',
+                file: ''
+              },
+              {
+                label: 'Address Proof',
+                file: ''
+              }
+            ]
+          }
+        }
+      }
     };
   }
 });
