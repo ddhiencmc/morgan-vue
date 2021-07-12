@@ -35,11 +35,11 @@ const formData = new Vue({
       services: [
         {
           name: 'Standard',
-          selectedExcess: null,
+          selectedExcess: '0',
           noCoInsurance: true,
           excessDescription: '',
           hasAdditionalBenefit: false,
-          frequency: null,
+          frequency: '',
           frequencyOptions: [
             {
               type: 'Monthly',
@@ -61,10 +61,10 @@ const formData = new Vue({
         },
         {
           name: 'Standard Plus',
-          selectedExcess: null,
+          selectedExcess: '0',
           hasAdditionalBenefit: false,
           insuranceSelectedValue: '',
-          frequency: null,
+          frequency: '',
           frequencyOptions: [
             {
               type: 'Monthly',
@@ -86,10 +86,10 @@ const formData = new Vue({
         },
         {
           name: 'Comprehensive',
-          selectedExcess: null,
+          selectedExcess: '0',
           hasAdditionalBenefit: false,
           insuranceSelectedValue: '',
-          frequency: null,
+          frequency: '',
           frequencyOptions: [
             {
               type: 'Monthly',
@@ -111,10 +111,10 @@ const formData = new Vue({
         },
         {
           name: 'Premium',
-          selectedExcess: null,
+          selectedExcess: '0',
           hasAdditionalBenefit: false,
           insuranceSelectedValue: '',
-          frequency: null,
+          frequency: '',
           frequencyOptions: [
             {
               type: 'Monthly',
@@ -136,10 +136,10 @@ const formData = new Vue({
         },
         {
           name: 'Elite',
-          selectedExcess: null,
+          selectedExcess: '0',
           hasAdditionalBenefit: false,
           insuranceSelectedValue: '',
-          frequency: null,
+          frequency: '',
           frequencyOptions: [
             {
               type: 'Monthly',
