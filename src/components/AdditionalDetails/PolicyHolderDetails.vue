@@ -317,12 +317,6 @@ export default {
   },
   components: {},
   methods: {
-    previousStep() {
-      this.$formData.currentStep--;
-    },
-    nextStep() {
-      // this.$formData.currentStep++;
-    },
     changeUnit(isMetric) {
       this.metricUnit = isMetric;
     },

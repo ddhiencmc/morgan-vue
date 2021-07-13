@@ -81,7 +81,7 @@
           </div>
 
           <div class="col-md-6 mb-3">
-            <label class="form-label" for="Countries">Country</label>
+            <label class="form-label required" for="Countries">Country</label>
             <select
               class="form-select form-control"
               aria-label=""
@@ -176,7 +176,7 @@
           </div>
 
           <div class="col-md-6 mb-3">
-            <label class="form-label" for="Countries">Country</label>
+            <label class="form-label required" for="Countries">Country</label>
             <select
               class="form-select form-control"
               aria-label=""

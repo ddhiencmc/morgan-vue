@@ -59,6 +59,14 @@ export default {
   data() {
     return {};
   },
+  methods: {
+    previousStep() {
+      this.$formData.currentStep--;
+    },
+    nextStep() {
+      // this.$formData.currentStep++;
+    },
+  },
   components: {
     Address,
     PolicyHolderDetails,
