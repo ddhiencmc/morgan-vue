@@ -56,3 +56,27 @@ export const underwritingTypes = [
   { id: 1, value: 'Moratorium' },
   { id: 2, value: 'Full Medical Underwriting' },
 ]
+
+export const pastimes = [
+  {
+    text: "No dangerous pastimes",
+    value: "1",
+    selected: true
+  },
+  {
+    text: "One or more dangerous pastimes",
+    value: "2",
+    selected: true
+  }
+];
+
+export const getRangeListIntVal = (fromInt, toInt) => {
+  let results = [];
+  if (fromInt <= toInt) {
+    for (let i = fromInt; i <= toInt; i++) {
+      results.push(i);
+    }
+  }
+
+  return results;
+}
