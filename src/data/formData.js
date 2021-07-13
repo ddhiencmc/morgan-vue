@@ -214,6 +214,24 @@ const formData = new Vue({
             ]
           }
         }
+      },
+      underwritingQuestions: {
+        questions: [
+          {
+            questionNumber: 1,
+            title: '1.	Are any medical/surgical/dental consultations and/ or procedures (including x-ray, lab or other testing) recommended, scheduled or contemplated?',
+            groupName: 'Medical Declaration',
+            callsUnderwritingQuestionGroupID: null,
+            answer: {
+              nameOfMedicalCondition: '',
+              dateStarted: null,
+              dateEnded: null,
+              currentMedicationname: '',
+              hospitalRelationToCondition: null, // true,false
+              currentConditionId: '',  // List selection
+            }
+          }
+        ]
       }
     };
   }
