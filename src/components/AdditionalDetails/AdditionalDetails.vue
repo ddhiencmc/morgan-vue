@@ -64,7 +64,7 @@ export default {
       this.$formData.currentStep--;
     },
     nextStep() {
-      // this.$formData.currentStep++;
+      this.$formData.currentStep++;
     },
   },
   components: {

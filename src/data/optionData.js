@@ -70,6 +70,14 @@ export const pastimes = [
   }
 ];
 
+export const currentConditions = [
+  { id: 1, value: 'Moratorium' },
+  { id: 2, value: 'Full Medical Underwriting' },
+  { id: 3, value: 'a' },
+  { id: 4, value: 'b' },
+  { id: 5, value: 'c' },
+];
+
 export const getRangeListIntVal = (fromInt, toInt) => {
   let results = [];
   if (fromInt <= toInt) {

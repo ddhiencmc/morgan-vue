@@ -23,5 +23,4 @@ extend('phoneNumber', {
 })
 
 
-
 Vue.component('ValidationProvider', ValidationProvider);

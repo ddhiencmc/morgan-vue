@@ -318,6 +318,7 @@ export default {
   components: {},
   methods: {
     changeUnit(isMetric) {
+      console.log('metric', isMetric);
       this.metricUnit = isMetric;
     },
     refusedCoverCheck(isRefusedCover) {
