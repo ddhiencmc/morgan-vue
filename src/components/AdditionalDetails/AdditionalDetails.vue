@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="w-75 mx-auto">
     <!-- main form -->
     <div class="card shadow-sm p-5 border-0 my-5">
       <Address class="mb-4" />
