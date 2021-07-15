@@ -9,21 +9,17 @@
         :key="groupIndex"
       >
         <h3>{{ groupByGroupName.key }}</h3>
-        <!-- body -->
         <div class="ms-5">
           <div
             class="row mb-3"
             v-for="question in groupByGroupName.values"
             :key="question.questionNumber"
           >
-            <!-- title -->
             <div class="row">
               {{ question.title }}
             </div>
 
-            <!-- radio: yes/ no -->
             <div class="mt-1" v-if="!question.isTitle">
-              <!-- Yes -->
               <div class="form-check form-check-inline">
                 <input
                   class="form-check-input"
@@ -46,7 +42,6 @@
                   >Yes</label
                 >
               </div>
-              <!-- No -->
               <div class="form-check form-check-inline">
                 <input
                   class="form-check-input"
@@ -70,21 +65,17 @@
                 >
               </div>
             </div>
-            
-            {{question.answer}}
 
             <UnderwritingQuestionDetail
               :answer="question.answer"
               v-if="
-                question.isAnswer && !question.callsUnderwritingQuestionGroupID
-              "
+                question.isAnswer && !question.callsUnderwritingQuestionGroupID"
             />
           </div>
         </div>
       </div>
     </div>
 
-    <!-- control step -->
     <div class="d-flex justify-content-end">
       <div>
         <button class="btn btn-secondary mx-2" @click="previousStep()">
@@ -133,7 +124,6 @@ export default {
 
     underwritingAnswerCheck(question, isAnswer) {
       if (isAnswer) {
-        //init answer
         this.initAnswer(question);
       } else {
         question.answer = null;
