@@ -22,5 +22,16 @@ extend('phoneNumber', {
   message: 'Please enter valid phone number.',
 })
 
+extend('checked', {
+  validate: value => {
+    console.log(value)
+    if (value !== true) {
+      return false
+    }
+    return true
+  },
+  message: 'Please tick the checkbox.',
+})
+
 Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)

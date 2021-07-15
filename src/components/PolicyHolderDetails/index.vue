@@ -35,26 +35,33 @@
 
           <div class="form-group row">
             <div class="col-sm-12 mt-4">
-              <label class="form-label required">
-                On Which Date Do You Require The Policy To Start?
-              </label>
-              <input v-model="form.policyStartDate" type="date" class="form-control" />
+              <ValidationProvider v-slot="v" rules="required">
+                <label class="form-label required">
+                  On Which Date Do You Require The Policy To Start?
+                </label>
+                <input v-model="form.policyStartDate" name="Policy.StartTime" class="form-control" type="date" />
+                <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+              </ValidationProvider>
             </div>
 
             <div class="col-sm-12 mt-4">
-              <label class="form-label required">What Currency Do You Wish To Pay In?</label>
-              <select
-                v-model="form.currenyId"
-                data-val="true"
-                data-val-required="The SelectedGenderId field is required."
-                class="form-select form-control"
-                aria-label=""
-              >
-                <option value="">Please select</option>
-                <option v-for="currency in currencies" :key="currency.value" :value="currency.value">
-                  {{ currency.text }}
-                </option>
-              </select>
+              <ValidationProvider v-slot="v" rules="required">
+                <label class="form-label required">What Currency Do You Wish To Pay In?</label>
+                <select
+                  v-model="form.currenyId"
+                  data-val="true"
+                  data-val-required="The SelectedGenderId field is required."
+                  class="form-select form-control"
+                  aria-label=""
+                  name="Policy.PayIn"
+                >
+                  <option value="">Please select</option>
+                  <option v-for="currency in currencies" :key="currency.value" :value="currency.value">
+                    {{ currency.text }}
+                  </option>
+                </select>
+                <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+              </ValidationProvider>
             </div>
           </div>
         </div>
@@ -125,7 +132,7 @@ export default {
         occupationIds: [],
         countryId: '',
         relationshipId: '',
-        isAnUnmarriedChildAndInFurtherEducation: false,
+        isAnUnmarriedChildAndInFurtherEducation: null,
       }
     },
     nextStep(handleSubmit) {

@@ -27,7 +27,7 @@ const formData = new Vue({
           contactType: -1,
         },
         familyMembers: [],
-        policyStartDate: new Date(),
+        policyStartDate: null,
         currenyId: '',
       },
 

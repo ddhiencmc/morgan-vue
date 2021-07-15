@@ -32,14 +32,7 @@
       <div class="col-md-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Date Of Birth</label>
-          <input
-            v-model="form.dateOfBirth"
-            name="dateOfBirth"
-            class="form-control valid"
-            valueType="format"
-            type="date"
-            date-val="true"
-          />
+          <input v-model="form.dateOfBirth" name="Policy.DateOfBirth" class="form-control" type="date" />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
