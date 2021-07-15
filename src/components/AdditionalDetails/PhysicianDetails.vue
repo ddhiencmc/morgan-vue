@@ -237,16 +237,7 @@
 
       <!-- Addtional form -->
       <div v-if="isExistingHealthInsurancePolicies === 'Yes'" id="additional-information">
-        <div
-          id="additionalHealthCareInsuranceProviders"
-          class="
-        additionalHealthCareInsuranceProviders
-        p-3
-        border-start
-        my-3
-        border-primary
-      "
-        >
+        <div id="additionalHealthCareInsuranceProviders" class="p-3 border-start my-3 border-primary">
           <div class="form-group">
             <div class="row">
               <div class="col">

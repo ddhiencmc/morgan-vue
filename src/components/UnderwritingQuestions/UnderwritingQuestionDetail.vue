@@ -129,7 +129,15 @@ import { currentConditions } from '../../data/optionData'
 
 export default {
   name: 'UnderwritingQuestionDetail',
-  props: ['answer'],
+  props: {
+    answer: {
+      type: Object,
+      require: true,
+      default: function() {
+        return {}
+      },
+    },
+  },
   data() {
     return {
       currentConditions: currentConditions,
