@@ -4,34 +4,34 @@
       <h2>UnderwritingQuestion</h2>
 
       <div
-        class="form-group mb-4"
         v-for="(groupByGroupName, groupIndex) in questions"
         :key="groupIndex"
+        class="form-group mb-4"
       >
         <h3>{{ groupByGroupName.key }}</h3>
         <div class="ms-5">
           <div
-            class="row mb-3"
             v-for="question in groupByGroupName.values"
             :key="question.questionNumber"
+            class="row mb-3"
           >
             <div class="row">
               {{ question.title }}
             </div>
 
-            <div class="mt-1" v-if="!question.isTitle">
+            <div v-if="!question.isTitle" class="mt-1">
               <div class="form-check form-check-inline">
                 <input
+                  :id="
+                    'UnderwritingQuestion.Radio-yes_' + question.questionNumber
+                  "
+                  v-model="question.isAnswer"
                   class="form-check-input"
                   type="radio"
                   :name="
                     'UnderwritingQuestion.Radio_' + question.questionNumber
                   "
-                  :id="
-                    'UnderwritingQuestion.Radio-yes_' + question.questionNumber
-                  "
                   :value="true"
-                  v-model="question.isAnswer"
                   @click="underwritingAnswerCheck(question, true)"
                 />
                 <label
@@ -44,16 +44,16 @@
               </div>
               <div class="form-check form-check-inline">
                 <input
+                  :id="
+                    'UnderwritingQuestion.Radio-no_' + question.questionNumber
+                  "
+                  v-model="question.isAnswer"
                   class="form-check-input"
                   type="radio"
                   :name="
                     'UnderwritingQuestion.Radio_' + question.questionNumber
                   "
-                  :id="
-                    'UnderwritingQuestion.Radio-no_' + question.questionNumber
-                  "
                   :value="false"
-                  v-model="question.isAnswer"
                   @click="underwritingAnswerCheck(question, false)"
                 />
                 <label
@@ -67,9 +67,10 @@
             </div>
 
             <UnderwritingQuestionDetail
-              :answer="question.answer"
               v-if="
-                question.isAnswer && !question.callsUnderwritingQuestionGroupID"
+                question.isAnswer && !question.callsUnderwritingQuestionGroupID
+              "
+              :answer="question.answer"
             />
           </div>
         </div>
@@ -94,13 +95,16 @@ import UnderwritingQuestionDetail from "./UnderwritingQuestionDetail";
 
 export default {
   name: "UnderwritingQuestions",
+  components: {
+    UnderwritingQuestionDetail
+  },
   data() {
     return {
-      questions: [],
+      questions: []
     };
   },
-  components: {
-    UnderwritingQuestionDetail,
+  mounted() {
+    this.groupByQuestionGroupName();
   },
   methods: {
     previousStep() {
@@ -111,8 +115,8 @@ export default {
     },
     groupByQuestionGroupName() {
       //   debugger; // eslint-disable-line no-debugger
-      this.$formData.underwritingQuestions.questions.forEach((q) => {
-        var groupName = this.questions.find((g) => g.key == q.groupName);
+      this.$formData.underwritingQuestions.questions.forEach(q => {
+        var groupName = this.questions.find(g => g.key == q.groupName);
 
         if (!groupName) {
           this.questions.push({ key: q.groupName, values: [q] });
@@ -138,12 +142,9 @@ export default {
         currentMedicationName: "",
         hospitalRelationToCondition: null, // true,false
         currentConditionId: "", // List selection,
-        alcoholDependency: null,
+        alcoholDependency: null
       };
-    },
-  },
-  mounted() {
-    this.groupByQuestionGroupName();
-  },
+    }
+  }
 };
 </script>

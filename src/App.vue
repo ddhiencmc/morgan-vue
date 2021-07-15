@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <PolicyHolderDetail v-if="$formData.currentStep === 1"/>
+      <PolicyHolderDetail v-if="$formData.currentStep === 1" />
       <EvolutionHealth v-if="$formData.currentStep === 2" />
       <AdditionalDetails v-if="$formData.currentStep === 3" />
       <UnderwritingQuestions v-if="$formData.currentStep === 4" />
@@ -21,10 +21,10 @@ export default {
     PolicyHolderDetail,
     EvolutionHealth,
     AdditionalDetails,
-    UnderwritingQuestions,
+    UnderwritingQuestions
   },
-  data(){
-    return{};
+  data() {
+    return {};
   }
 };
 </script>

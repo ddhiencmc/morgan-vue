@@ -47,15 +47,15 @@ export const countryCodes = [
 ];
 
 export const insuarancesOption = [
-  '0% co-insuarance on all out-patient claims',
-  '10% co-insuarance on all out-patient claims',
-  '20% co-insuarance on all out-patient claims',
-]
+  "0% co-insuarance on all out-patient claims",
+  "10% co-insuarance on all out-patient claims",
+  "20% co-insuarance on all out-patient claims"
+];
 
 export const underwritingTypes = [
-  { id: 1, value: 'Moratorium' },
-  { id: 2, value: 'Full Medical Underwriting' },
-]
+  { id: 1, value: "Moratorium" },
+  { id: 2, value: "Full Medical Underwriting" }
+];
 
 export const pastimes = [
   {
@@ -71,11 +71,11 @@ export const pastimes = [
 ];
 
 export const currentConditions = [
-  { id: 1, value: 'Moratorium' },
-  { id: 2, value: 'Full Medical Underwriting' },
-  { id: 3, value: 'a' },
-  { id: 4, value: 'b' },
-  { id: 5, value: 'c' },
+  { id: 1, value: "Moratorium" },
+  { id: 2, value: "Full Medical Underwriting" },
+  { id: 3, value: "a" },
+  { id: 4, value: "b" },
+  { id: 5, value: "c" }
 ];
 
 export const getRangeListIntVal = (fromInt, toInt) => {
@@ -87,4 +87,4 @@ export const getRangeListIntVal = (fromInt, toInt) => {
   }
 
   return results;
-}
+};

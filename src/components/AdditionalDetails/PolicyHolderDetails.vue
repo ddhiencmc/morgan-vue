@@ -14,10 +14,10 @@
         <h4>Units</h4>
         <div class="btn-group" role="group" aria-label="">
           <input
+            id="metric"
             type="radio"
             class="btn-check"
             name="unit"
-            id="metric"
             autocomplete="off"
             checked=""
             @click="changeUnit(true)"
@@ -25,10 +25,10 @@
           <label class="btn btn-outline-primary" for="metric">Metric</label>
 
           <input
+            id="imperial"
             type="radio"
             class="btn-check"
             name="unit"
-            id="imperial"
             autocomplete="off"
             @click="changeUnit(false)"
           />
@@ -39,13 +39,13 @@
       <!--  BMI -->
       <div class="row mt-3">
         <!-- Metric Units -->
-        <div class="col-md-7 mb-3" id="metric-units" v-if="metricUnit">
+        <div v-if="metricUnit" id="metric-units" class="col-md-7 mb-3">
           <label class="form-label required" for="Bmi_Height">Height</label>
           <div class="input-group mb-3">
             <select
+              id="Bmi_Height"
               class="form-select form-control"
               aria-label=""
-              id="Bmi_Height"
               name="Bmi.Height"
             >
               <option value="">Please select</option>
@@ -64,11 +64,11 @@
           <label class="form-label required" for="Bmi_Weight">Weight</label>
           <div class="input-group">
             <select
+              id="Bmi_Weight_SelectedWeightInKgId"
               class="form-select form-control"
               aria-label=""
               data-val="true"
               data-val-required="The SelectedWeightInKgId field is required."
-              id="Bmi_Weight_SelectedWeightInKgId"
               name="Bmi.Weight.SelectedWeightInKgId"
             >
               <option>Open this select menu</option>
@@ -87,13 +87,13 @@
         </div>
 
         <!-- Imperial Units -->
-        <div class="col-md-7 mb-3" id="imperial-units" v-if="!metricUnit">
+        <div v-if="!metricUnit" id="imperial-units" class="col-md-7 mb-3">
           <label class="form-label  required" for="Bmi_Height">Height</label>
           <div class="input-group mb-3">
             <select
+              id="Bmi_Height"
               class="form-select form-control"
               aria-label=""
-              id="Bmi_Height"
               name="Bmi.Height"
             >
               <option value="">Open this select menu</option>
@@ -108,9 +108,9 @@
               <label class="input-group-text">Feet</label>
             </div>
             <select
+              id="Bmi_Height"
               class="form-select form-control"
               aria-label=""
-              id="Bmi_Height"
               name="Bmi.Height"
             >
               <option value="">Open this select menu</option>
@@ -128,9 +128,9 @@
           <label class="form-label  required" for="Bmi_Weight">Weight</label>
           <div class="input-group">
             <select
+              id="Bmi_Weight"
               class="form-select form-control"
               aria-label=""
-              id="Bmi_Weight"
               name="Bmi.Weight"
             >
               <option value="">Open this select menu</option>
@@ -145,9 +145,9 @@
               <label class="input-group-text">Stone</label>
             </div>
             <select
+              id="Bmi_Weight"
               class="form-select form-control"
               aria-label=""
-              id="Bmi_Weight"
               name="Bmi.Weight"
             >
               <option value="">Open this select menu</option>
@@ -173,9 +173,9 @@
               >Sport or Physical Pastime(Select multiple)</label
             >
             <select
+              id="Pastimes_SelectedPastimeIds"
               class="form-select form-control"
               aria-label=""
-              id="Pastimes_SelectedPastimeIds"
               multiple="multiple"
               name="Pastimes.SelectedPastimeIds"
             >
@@ -191,9 +191,9 @@
                 >Other Sport or Physical Pastime</label
               >
               <input
+                id="OtherPastimes"
                 class="form-control"
                 type="text"
-                id="OtherPastimes"
                 name="OtherPastimes"
                 value=""
               />
@@ -219,12 +219,12 @@
           <!-- Yes -->
           <div class="form-check form-check-inline">
             <input
+              id="RefusedCoverOrAcceptedOnSpecialTerms-yes"
+              v-model="isRefusedCover"
               class="form-check-input"
               type="radio"
               name="RefusedCoverOrAcceptedOnSpecialTerms"
-              id="RefusedCoverOrAcceptedOnSpecialTerms-yes"
               value="Yes"
-              v-model="isRefusedCover"
               @click="refusedCoverCheck(true)"
             />
             <label
@@ -236,12 +236,12 @@
           <!-- No -->
           <div class="form-check form-check-inline">
             <input
+              id="RefusedCoverOrAcceptedOnSpecialTerms-no"
+              v-model="isRefusedCover"
               class="form-check-input"
               type="radio"
               name="RefusedCoverOrAcceptedOnSpecialTerms"
-              id="RefusedCoverOrAcceptedOnSpecialTerms-no"
               value="No"
-              v-model="isRefusedCover"
               @click="refusedCoverCheck(false)"
             />
             <label
@@ -253,7 +253,7 @@
         </div>
 
         <!-- Addtional form -->
-        <div id="additional-information" v-if="isRefusedCover === 'Yes'">
+        <div v-if="isRefusedCover === 'Yes'" id="additional-information">
           <div class="form-group border-start p-3 my-3 border-primary">
             <!-- Date -->
             <div class="row">
@@ -262,9 +262,9 @@
                   >Date</label
                 >
                 <input
+                  id="refusedCoverAdditionalDetailDate"
                   class="form-control"
                   type="date"
-                  id="refusedCoverAdditionalDetailDate"
                 />
               </div>
             </div>
@@ -278,9 +278,9 @@
                   >Enter Details</label
                 >
                 <input
+                  id="RefusedCoverOrAcceptedOnSpecialTermsDetails"
                   class="form-control"
                   type="text"
-                  id="RefusedCoverOrAcceptedOnSpecialTermsDetails"
                   name="RefusedCoverOrAcceptedOnSpecialTermsDetails"
                   value=""
                 />
@@ -297,6 +297,7 @@ import { getRangeListIntVal, pastimes } from "../../data/optionData";
 
 export default {
   name: "PolicyHolderDetails",
+  components: {},
   data() {
     return {
       listInt0to400: [],
@@ -312,27 +313,25 @@ export default {
 
       metricUnit: true, // false -> imperial
       forename: this.$formData.policyHolderDetails.details.forename,
-      surname: this.$formData.policyHolderDetails.details.surname,
+      surname: this.$formData.policyHolderDetails.details.surname
     };
-  },
-  components: {},
-  methods: {
-    changeUnit(isMetric) {
-      console.log('metric', isMetric);
-      this.metricUnit = isMetric;
-    },
-    refusedCoverCheck(isRefusedCover) {
-        this.isRefusedCover = isRefusedCover;
-    },
   },
   mounted() {
     this.listInt0to400 = getRangeListIntVal(0, 400);
-    this.height = this.listInt0to400.filter((n) => 100 <= n && n <= 350);
+    this.height = this.listInt0to400.filter(n => 100 <= n && n <= 350);
     this.weight = this.listInt0to400;
-    this.heightFeet = this.listInt0to400.filter((n) => 1 <= n && n <= 8);
-    this.heightInches = this.listInt0to400.filter((n) => 0 <= n && n <= 12);
-    this.weightStone = this.listInt0to400.filter((n) => 1 <= n && n <= 45);
-    this.weightPounds = this.listInt0to400.filter((n) => 1 <= n && n <= 400);
+    this.heightFeet = this.listInt0to400.filter(n => 1 <= n && n <= 8);
+    this.heightInches = this.listInt0to400.filter(n => 0 <= n && n <= 12);
+    this.weightStone = this.listInt0to400.filter(n => 1 <= n && n <= 45);
+    this.weightPounds = this.listInt0to400.filter(n => 1 <= n && n <= 400);
   },
+  methods: {
+    changeUnit(isMetric) {
+      this.metricUnit = isMetric;
+    },
+    refusedCoverCheck(isRefusedCover) {
+      this.isRefusedCover = isRefusedCover;
+    }
+  }
 };
 </script>

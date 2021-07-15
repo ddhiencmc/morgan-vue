@@ -32,11 +32,11 @@
           </div>
         </div>
 
-        <div class="accordion mt-3" id="additional-family-members">
+        <div id="additional-family-members" class="accordion mt-3">
           <div
-            class="accordion-item mt-2 border"
             v-for="(familyData, index) in form.familyMembers"
             :key="index"
+            class="accordion-item mt-2 border"
           >
             <AdditionalFamilyMember :member-index="index" />
           </div>
@@ -48,9 +48,9 @@
               On Which Date Do You Require The Policy To Start?
             </label>
             <input
+              v-model="form.policyStartDate"
               type="date"
               class="form-control"
-              v-model="form.policyStartDate"
             />
           </div>
 
@@ -59,17 +59,17 @@
               >What Currency Do You Wish To Pay In?</label
             >
             <select
+              v-model="form.currenyId"
               data-val="true"
               data-val-required="The SelectedGenderId field is required."
               class="form-select form-control"
-              v-model="form.currenyId"
               aria-label=""
             >
               <option value="">Please select</option>
               <option
                 v-for="currency in currencies"
                 :key="currency.value"
-                v-bind:value="currency.value"
+                :value="currency.value"
               >
                 {{ currency.text }}
               </option>
@@ -86,8 +86,8 @@
     </div>
 
     <div
-      class="modal fade"
       id="isAnUnmarriedChildAndInFurtherEducationModal"
+      class="modal fade"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -95,7 +95,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 id="exampleModalLabel" class="modal-title">Modal title</h5>
             <button
               type="button"
               class="btn-close"
@@ -119,13 +119,13 @@ import { currencies } from "../../data/optionData";
 
 export default {
   name: "PolicyHolderDetail",
-  props: {
-    msg: String
-  },
   components: {
     PolicyHolderDetailInfo,
     AdditionalFamilyMember,
     ContactDetail
+  },
+  props: {
+    msg: String
   },
   data() {
     return {

@@ -1,14 +1,11 @@
 <template>
-    <div>
-    </div>
+  <div></div>
 </template>
 <script>
 export default {
-    name: 'confirm-buy',
-    data() {
-        return {
-            
-        }
-    }
-}
+  name: "ConfirmBuy",
+  data() {
+    return {};
+  }
+};
 </script>

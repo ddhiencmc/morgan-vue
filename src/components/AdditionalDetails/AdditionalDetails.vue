@@ -1,6 +1,5 @@
 <template>
   <div class="w-75 mx-auto">
-    <!-- main form -->
     <div class="card shadow-sm p-5 border-0 my-5">
       <Address class="mb-4" />
 
@@ -8,7 +7,6 @@
 
       <PhysicianDetails class="mb-4" />
 
-      <!--  Document Upload -->
       <div class="form-group">
         <h2>Upload Documents</h2>
         <p>If you have existing health insurance, please provide details</p>
@@ -35,7 +33,6 @@
       </div>
     </div>
 
-    <!-- control step -->
     <div class="d-flex justify-content-end">
       <div>
         <button class="btn btn-secondary mx-2" @click="previousStep()">
@@ -56,6 +53,11 @@ import PhysicianDetails from "./PhysicianDetails.vue";
 
 export default {
   name: "AdditionalDetails",
+  components: {
+    Address,
+    PolicyHolderDetails,
+    PhysicianDetails
+  },
   data() {
     return {};
   },
@@ -65,12 +67,7 @@ export default {
     },
     nextStep() {
       this.$formData.currentStep++;
-    },
-  },
-  components: {
-    Address,
-    PolicyHolderDetails,
-    PhysicianDetails,
-  },
+    }
+  }
 };
 </script>

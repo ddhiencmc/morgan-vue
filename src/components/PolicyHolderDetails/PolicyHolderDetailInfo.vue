@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label class="form-label">Title</label>
-        <select class="form-select form-control" v-model="form.salutationId">
+        <select v-model="form.salutationId" class="form-select form-control">
           <option value="">Please Select</option>
           <option
             v-for="title in titles"
             :key="title.value"
-            v-bind:value="title.value"
+            :value="title.value"
           >
             {{ title.text }}
           </option>
@@ -16,12 +16,12 @@
       </div>
 
       <div class="col-md-6 mb-3">
-        <ValidationProvider rules="required" v-slot="v">
+        <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Forename</label>
           <input
+            v-model="form.forename"
             name="forename"
             class="form-control"
-            v-model="form.forename"
             placeholder="Forename"
           />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
@@ -31,12 +31,12 @@
 
     <div class="row">
       <div class="col-md-6 mb-3">
-        <ValidationProvider rules="required" v-slot="v">
+        <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Surname/Family Name</label>
           <input
+            v-model="form.surname"
             name="surname"
             class="form-control"
-            v-model="form.surname"
             placeholder="Surname/Family Name"
           />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
@@ -44,12 +44,12 @@
       </div>
 
       <div class="col-md-6 mb-3">
-        <ValidationProvider rules="required" v-slot="v">
+        <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Date Of Birth</label>
           <input
+            v-model="form.dateOfBirth"
             name="dateOfBirth"
             class="form-control valid"
-            v-model="form.dateOfBirth"
             valueType="format"
             type="date"
             date-val="true"
@@ -61,12 +61,12 @@
 
     <div class="row">
       <div class="col mb-3">
-        <ValidationProvider rules="required" v-slot="v">
+        <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Genders</label>
           <select
+            v-model="form.genderId"
             name="gender"
             class="form-select form-control"
-            v-model="form.genderId"
             aria-label=""
           >
             <option value="">Please select</option>
@@ -87,15 +87,15 @@
       <div class="col mb-3">
         <label class="form-label required">Country of Nationality</label>
         <select
-          class="form-select form-control"
           v-model="form.countryId"
+          class="form-select form-control"
           aria-label=""
         >
           <option value="">Please select</option>
           <option
             v-for="country in countries"
             :key="country.value"
-            v-bind:value="country.value"
+            :value="country.value"
           >
             {{ country.text }}
           </option>
@@ -107,15 +107,15 @@
       <div class="col-md-6 mb-3">
         <label class="form-label required">Country Of Residence</label>
         <select
-          class="form-select form-control"
           v-model="form.residenceCountryId"
+          class="form-select form-control"
           aria-label=""
         >
           <option value="">Please select</option>
           <option
             v-for="country in countries"
             :key="country.value"
-            v-bind:value="country.value"
+            :value="country.value"
           >
             {{ country.text }}
           </option>
@@ -129,15 +129,15 @@
       <div class="col-md-6">
         <label class="form-label required">Occupation (Select multiple)</label>
         <select
-          class="form-select form-control"
           v-model="form.occupationIds"
+          class="form-select form-control"
           aria-label=""
           multiple="multiple"
         >
           <option
             v-for="occupation in occupations"
             :key="occupation.value"
-            v-bind:value="occupation.value"
+            :value="occupation.value"
           >
             {{ occupation.text }}
           </option>
@@ -146,7 +146,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 // import DatePicker from "vue2-datepicker";
@@ -157,7 +156,7 @@ import {
   genders,
   countries,
   occupations,
-  relationships,
+  relationships
 } from "../../data/optionData.js";
 
 export default {
@@ -174,8 +173,8 @@ export default {
       genders: genders,
       countries: countries,
       occupations: occupations,
-      relationships: relationships,
+      relationships: relationships
     };
-  },
+  }
 };
 </script>

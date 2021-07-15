@@ -26,15 +26,15 @@
                 <div class="col-md-6 mb-3">
                   <label class="form-label">Title</label>
                   <select
-                    class="form-select form-control"
                     v-model="form.salutationId"
+                    class="form-select form-control"
                     aria-label=""
                   >
                     <option value="">Please select</option>
                     <option
                       v-for="title in titles"
                       :key="title.value"
-                      v-bind:value="title.value"
+                      :value="title.value"
                     >
                       {{ title.text }}
                     </option>
@@ -44,8 +44,8 @@
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">Forename</label>
                   <input
-                    class="form-control"
                     v-model="forename"
+                    class="form-control"
                     placeholder="Forename"
                   />
                 </div>
@@ -55,8 +55,8 @@
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">Surname/Family Name</label>
                   <input
-                    class="form-control"
                     v-model="form.surname"
+                    class="form-control"
                     placeholder="Surname/Family Name"
                   />
                 </div>
@@ -64,8 +64,8 @@
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">Date Of Birth</label>
                   <input
-                    class="form-control valid"
                     v-model="form.dateOfBirth"
+                    class="form-control valid"
                     valueType="format"
                     type="date"
                     date-val="true"
@@ -77,15 +77,15 @@
                 <div class="col mb-3">
                   <label class="form-label required">Genders</label>
                   <select
-                    class="form-select form-control"
                     v-model="form.genderId"
+                    class="form-select form-control"
                     aria-label=""
                   >
                     <option value="">Please select</option>
                     <option
                       v-for="gender in genders"
                       :key="gender.value"
-                      v-bind:value="gender.value"
+                      :value="gender.value"
                     >
                       {{ gender.text }}
                     </option>
@@ -99,15 +99,15 @@
                     >Country of Nationality</label
                   >
                   <select
-                    class="form-select form-control"
                     v-model="form.countryId"
+                    class="form-select form-control"
                     aria-label=""
                   >
                     <option value="">Please select</option>
                     <option
                       v-for="country in countries"
                       :key="country.value"
-                      v-bind:value="country.value"
+                      :value="country.value"
                     >
                       {{ country.text }}
                     </option>
@@ -122,15 +122,15 @@
                   >
                   <option value="">Please select</option>
                   <select
-                    class="form-select form-control"
                     v-model="form.occupationIds"
+                    class="form-select form-control"
                     aria-label=""
                     multiple="multiple"
                   >
                     <option
                       v-for="occupation in occupations"
                       :key="occupation.value"
-                      v-bind:value="occupation.value"
+                      :value="occupation.value"
                     >
                       {{ occupation.text }}
                     </option>
@@ -145,15 +145,15 @@
                   Relationship To The Policy Holder
                 </label>
                 <select
-                  class="form-select form-control"
                   v-model="form.relationshipId"
+                  class="form-select form-control"
                   aria-label=""
                 >
                   <option value="">Please select</option>
                   <option
                     v-for="relationship in relationships"
                     :key="relationship.value"
-                    v-bind:value="relationship.value"
+                    :value="relationship.value"
                   >
                     {{ relationship.text }}
                   </option>
@@ -163,10 +163,10 @@
 
             <div class="form-check form-check-inline">
               <input
-                class="form-check-input"
-                type="checkbox"
                 :id="'isAnUnmarriedChildAndInFurtherEducation-' + memberIndex"
                 v-model="form.isAnUnmarriedChildAndInFurtherEducation"
+                class="form-check-input"
+                type="checkbox"
               />
               <label
                 :for="'isAnUnmarriedChildAndInFurtherEducation-' + memberIndex"
@@ -204,7 +204,7 @@ import {
   genders,
   countries,
   occupations,
-  relationships,
+  relationships
 } from "../../data/optionData.js";
 
 export default {
@@ -226,7 +226,7 @@ export default {
       genders: genders,
       countries: countries,
       occupations: occupations,
-      relationships: relationships,
+      relationships: relationships
     };
   },
   methods: {
@@ -236,7 +236,7 @@ export default {
     openHelperModal(event) {
       event.preventDefault();
       this.helperModal.toggle();
-    },
-  },
+    }
+  }
 };
 </script>

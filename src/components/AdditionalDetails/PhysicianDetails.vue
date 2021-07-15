@@ -1,5 +1,4 @@
 <template>
-  <!--  Physician Details -->
   <div class="form-group">
     <h2>Physician Details</h2>
     <p>
@@ -8,18 +7,24 @@
       the last doctor you visited and approximate date.
     </p>
     <div class="row">
-      <!-- Salutations -->
       <div class="col-md-6 mb-3">
         <label class="form-label" for="Salutations">Salutations</label>
         <select
+          id="Salutations_SelectedSalutationId"
           class="form-select form-control"
           aria-label=""
           data-val="true"
           data-val-required="The Title field is required."
-          id="Salutations_SelectedSalutationId"
           name="Salutations.SelectedSalutationId"
         >
           <option selected="">Please select</option>
+          <option
+            v-for="title in titles"
+            :key="title.value"
+            :value="title.value"
+          >
+            {{ title.text }}
+          </option>
         </select>
         <span
           class="text-danger field-validation-valid"
@@ -28,15 +33,14 @@
         ></span>
       </div>
 
-      <!-- Forename -->
       <div class="col-md-6 mb-3">
         <label class="form-label" for="Forename">Forename(s)</label>
         <input
+          id="Forename"
           class="form-control"
           type="text"
           data-val="true"
           data-val-required="The Forename(s) field is required."
-          id="Forename"
           name="Forename"
           value=""
         />
@@ -44,15 +48,14 @@
     </div>
 
     <div class="row">
-      <!-- Family Name -->
       <div class="col-md-6 mb-3">
         <label class="form-label" for="Surname">Surname/Family Name</label>
         <input
+          id="Surname"
           class="form-control"
           type="text"
           data-val="true"
           data-val-required="The Surname/Family Name field is required."
-          id="Surname"
           name="Surname"
           value=""
         />
@@ -62,11 +65,11 @@
       <div class="col-md-6 mb-3">
         <label class="required" for="PracticeName">Practice Name</label>
         <input
+          id="PracticeName"
           class="form-control"
           type="text"
           data-val="true"
           data-val-required="The Practice Name field is required."
-          id="PracticeName"
           name="PracticeName"
           value=""
         />
@@ -85,11 +88,11 @@
           >Date Last Visited</label
         >
         <input
+          id="DateLastVisited"
           class="form-control"
           type="date"
           data-val="true"
           data-val-required="The Date Last Visited field is required."
-          id="DateLastVisited"
           name="DateLastVisited"
           value="2021-07-12"
         />
@@ -99,11 +102,11 @@
       <div class="col-md-6 mb-3">
         <label class="required" for="Email">Email</label>
         <input
+          id="Email"
           class="form-control"
           type="email"
           data-val="true"
           data-val-required="The Email field is required."
-          id="Email"
           name="Email"
           value=""
         />
@@ -121,9 +124,9 @@
       <div class="col-md-6 mb-3">
         <label class="form-label" for="CountryCodes">Country Code</label>
         <select
+          id="CountryCodes"
           class="form-select form-control"
           aria-label=""
-          id="CountryCodes"
           name="CountryCodes"
         >
           <option selected="">Please select</option>
@@ -139,11 +142,11 @@
       <div class="col-md-6 mb-3">
         <label class="form-label" for="TelephoneNumber">Telephone Number</label>
         <input
+          id="TelephoneNumber"
           class="form-control"
           type="tel"
           data-val="true"
           data-val-phone="The Telephone Number field is not a valid phone number."
-          id="TelephoneNumber"
           name="TelephoneNumber"
           value=""
         />
@@ -158,9 +161,9 @@
             >Address Line 1</label
           >
           <input
+            id="Address_AddressLine1"
             class="form-control"
             type="text"
-            id="Address_AddressLine1"
             name="Address.AddressLine1"
             value=""
           />
@@ -172,9 +175,9 @@
             >Address Line 2</label
           >
           <input
+            id="Address_AddressLine2"
             class="form-control"
             type="text"
-            id="Address_AddressLine2"
             name="Address.AddressLine2"
             value=""
           />
@@ -184,9 +187,9 @@
             >Address Line 3</label
           >
           <input
+            id="Address_AddressLine3"
             class="form-control"
             type="text"
-            id="Address_AddressLine3"
             name="Address.AddressLine3"
             value=""
           />
@@ -196,9 +199,9 @@
         <div class="col-md-6 mb-3">
           <label class="form-label" for="Address_State">State/County</label>
           <input
+            id="Address_State"
             class="form-control"
             type="text"
-            id="Address_State"
             name="Address.State"
             value=""
           />
@@ -206,9 +209,9 @@
         <div class="col-md-6 mb-3">
           <label class="form-label" for="Address_City">City</label>
           <input
+            id="Address_City"
             class="form-control"
             type="text"
-            id="Address_City"
             name="Address.City"
             value=""
           />
@@ -222,11 +225,11 @@
             >Country</label
           >
           <select
+            id="Address_Countries_SelectedCountryID"
             class="form-select form-control"
             aria-label=""
             data-val="true"
             data-val-required="The SelectedCountryID field is required."
-            id="Address_Countries_SelectedCountryID"
             name="Address.Countries.SelectedCountryID"
           >
             <option selected="">Please select</option>
@@ -239,9 +242,9 @@
             >ZIP/ Postal Code</label
           >
           <input
+            id="Address_ZipOrPostalCode"
             class="form-control"
             type="text"
-            id="Address_ZipOrPostalCode"
             name="Address.ZipOrPostalCode"
             value=""
           />
@@ -265,12 +268,12 @@
         <!-- Yes -->
         <div class="form-check form-check-inline">
           <input
+            id="ExistingHealthInsurancePoliciesRadio-yes"
+            v-model="isExistingHealthInsurancePolicies"
             class="form-check-input"
             type="radio"
             name="ExistingHealthInsurancePoliciesRadio"
-            id="ExistingHealthInsurancePoliciesRadio-yes"
             value="Yes"
-            v-model="isExistingHealthInsurancePolicies"
             @click="existingHealthInsurancePoliciesCheck(true)"
           />
           <label
@@ -282,12 +285,12 @@
         <!-- No -->
         <div class="form-check form-check-inline">
           <input
+            id="ExistingHealthInsurancePoliciesRadio-no"
+            v-model="isExistingHealthInsurancePolicies"
             class="form-check-input"
             type="radio"
             name="ExistingHealthInsurancePoliciesRadio"
-            id="ExistingHealthInsurancePoliciesRadio-no"
             value="No"
-            v-model="isExistingHealthInsurancePolicies"
             @click="existingHealthInsurancePoliciesCheck(false)"
           />
           <label
@@ -300,10 +303,11 @@
 
       <!-- Addtional form -->
       <div
-        id="additional-information"
         v-if="isExistingHealthInsurancePolicies === 'Yes'"
+        id="additional-information"
       >
         <div
+          id="additionalHealthCareInsuranceProviders"
           class="
         additionalHealthCareInsuranceProviders
         p-3
@@ -311,7 +315,6 @@
         my-3
         border-primary
       "
-          id="additionalHealthCareInsuranceProviders"
         >
           <div class="form-group">
             <div class="row">
@@ -320,9 +323,9 @@
                   >Date Cover Ends</label
                 >
                 <input
+                  id="CoverEndDate"
                   class="form-control"
                   type="date"
-                  id="CoverEndDate"
                   name="CoverEndDate"
                   value="2021-07-12"
                   data-val="true"
@@ -337,9 +340,9 @@
                   >Provider company name
                 </label>
                 <input
+                  id="ProviderCompanyName"
                   class="form-control"
                   type="text"
-                  id="ProviderCompanyName"
                   name="ProviderCompanyName"
                   value=""
                   data-val="true"
@@ -354,18 +357,19 @@
   </div>
 </template>
 <script>
-
+import { titles } from "../../data/optionData";
 export default {
   name: "PhysicianDetails",
   data() {
     return {
       isExistingHealthInsurancePolicies: "No",
+      titles: titles
     };
   },
   methods: {
     existingHealthInsurancePoliciesCheck(isExistingHealthInsurancePolicies) {
       this.isExistingHealthInsurancePolicies = isExistingHealthInsurancePolicies;
-    },
-  },
+    }
+  }
 };
 </script>

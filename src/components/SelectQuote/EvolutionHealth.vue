@@ -16,15 +16,15 @@
         <div class="text-center">
           <div class=" d-flex justify-content-center">
             <div
-              class="p-2 gap-4 bd-highlight w-100"
               v-for="underwriting in underwritingTypes"
               :key="underwriting.id"
+              class="p-2 gap-4 bd-highlight w-100"
             >
               <input
+                :id="underwriting.id"
                 type="radio"
                 class="btn-check"
                 :name="`underwritingType`"
-                :id="underwriting.id"
                 :autocomplete="off"
               />
               <label
@@ -68,26 +68,24 @@ import EvolutionHealthPackage from "./EvolutionHealthPackage.vue";
 
 export default {
   name: "EvolutionHealth",
-  props: {},
   components: {
-    EvolutionHealthPackage,
+    EvolutionHealthPackage
   },
+  props: {},
   data() {
     return {
       services: this.$formData.services,
-      underwritingTypes: underwritingTypes,
+      underwritingTypes: underwritingTypes
     };
   },
+  mounted() {},
   methods: {
     previousStep() {
       this.$formData.currentStep--;
     },
     nextStep() {
       this.$formData.currentStep++;
-    },
-  },
-  mounted() {
-    console.log("services", this.$formData.services);
-  },
+    }
+  }
 };
 </script>

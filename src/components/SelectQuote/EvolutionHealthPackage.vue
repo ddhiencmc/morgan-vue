@@ -5,10 +5,13 @@
     <div class="border-top border-bottom">
       <div class="p-2 text-center">
         <button
-          class="btn border-primary m-1 fs-15px"
           v-for="(btn, index) in headerButtons"
           :key="index"
-          v-bind:class="{ 'btn-primary text-light fw-bold': btn.active, 'btn-light': !btn.active }"
+          class="btn border-primary m-1 fs-15px"
+          :class="{
+            'btn-primary text-light fw-bold': btn.active,
+            'btn-light': !btn.active
+          }"
           @click="headerBtnActive(index)"
         >
           {{ btn.text }}
@@ -17,7 +20,7 @@
     </div>
 
     <div class="d-flex justify-content-between fs-15px">
-      <div class="mx-1 w-20" v-for="(service, index) in services" :key="index">
+      <div v-for="(service, index) in services" :key="index" class="mx-1 w-20">
         <div class="container bg-light py-3 mt-3 mb-2 text-center fs-20px">
           <strong>{{ service.name }}</strong>
         </div>
@@ -48,9 +51,9 @@
             </div>
 
             <select
+              v-model="service.selectedExcess"
               class="form-select mb-3 fs-15px"
               aria-label="Default select example"
-              v-model="service.selectedExcess"
             >
               <option value="0">0 per person per</option>
               <option value="1">One</option>
@@ -70,15 +73,15 @@
               </div>
 
               <div
-                class="form-check mt-2"
                 v-for="(insuranceOption, insuranceIndex) in insuarancesOption"
                 :key="insuranceIndex"
+                class="form-check mt-2"
               >
                 <input
+                  :id="'insurance_' + index + insuranceIndex"
                   class="form-check-input"
                   type="radio"
                   :name="'insuranceRadio_' + index"
-                  :id="'insurance_' + index + insuranceIndex"
                 />
                 <label
                   class="form-check-label"
@@ -101,10 +104,10 @@
 
             <div class="form-check mt-2">
               <input
+                :id="'homeCountryEvacuation_' + index"
                 class="form-check-input"
                 type="checkbox"
                 value=""
-                :id="'homeCountryEvacuation_' + index"
               />
               <label
                 class="form-check-label"
@@ -116,9 +119,9 @@
           </div>
 
           <select
+            v-model="service.frequency"
             class="form-select"
             aria-label="Default select example"
-            v-model="service.frequency"
           >
             <option value="">Select package</option>
 
@@ -141,45 +144,36 @@ import { insuarancesOption } from "../../data/optionData";
 
 export default {
   name: "EvolutionHealthPackage",
-  props: {},
   components: {},
+  props: {},
   data() {
     return {
       headerButtons: [
         {
           id: 1,
           text: "Europe",
-          active: false,
+          active: false
         },
         {
           id: 2,
           text: "Worldwide (excluding USA, China, Singapore and Hong Kong)",
-          active: true,
+          active: true
         },
         {
           id: 3,
           text: "Worldwide (excluidng USA)",
-          active: false,
+          active: false
         },
         {
           id: 4,
           text: "Worldwide",
-          active: false,
-        },
+          active: false
+        }
       ],
 
       services: this.$formData.services,
-      insuarancesOption: insuarancesOption,
+      insuarancesOption: insuarancesOption
     };
-  },
-  methods: {
-    headerBtnActive(index) {
-      this.headerButtons.forEach((el) => {
-        el.active = false;
-      });
-
-      this.headerButtons[index].active = true;
-    },
   },
   mounted() {
     let tooltipTriggerList = [].slice.call(
@@ -189,5 +183,14 @@ export default {
       return new window.bootstrap.Tooltip(tooltipTriggerEl);
     });
   },
+  methods: {
+    headerBtnActive(index) {
+      this.headerButtons.forEach(el => {
+        el.active = false;
+      });
+
+      this.headerButtons[index].active = true;
+    }
+  }
 };
 </script>
