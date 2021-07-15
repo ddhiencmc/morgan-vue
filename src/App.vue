@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import PolicyHolderDetail from './components/PolicyHolderDetails/PolicyHolderDetail'
-import EvolutionHealth from './components/SelectQuote/EvolutionHealth'
-import AdditionalDetails from './components/AdditionalDetails/AdditionalDetails'
-import UnderwritingQuestions from './components/UnderwritingQuestions/UnderwritingQuestions'
+import PolicyHolderDetail from './components/PolicyHolderDetails'
+import EvolutionHealth from './components/SelectQuote'
+import AdditionalDetails from './components/AdditionalDetails'
+import UnderwritingQuestions from './components/UnderwritingQuestions'
 
 export default {
   name: 'App',
