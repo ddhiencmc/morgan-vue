@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate'
 import * as rules from 'vee-validate/dist/rules'
-import { messages } from 'vee-validate/dist/locale/en.json'
+import { messages } from '../localization/validationMessage/en.json'
 
 Object.keys(rules).forEach(rule => {
   extend(rule, {
