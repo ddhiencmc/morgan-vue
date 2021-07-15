@@ -20,7 +20,7 @@
                 type="radio"
                 class="btn-check"
                 :name="`underwritingType`"
-                :autocomplete="off"
+                autocomplete="off"
               />
               <label class="btn btn-outline-primary btn-lg w-100" :for="underwriting.id">{{
                 underwriting.value
