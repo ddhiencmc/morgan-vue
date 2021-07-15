@@ -1,9 +1,6 @@
 module.exports = {
   css: {
-    extract: true,
-    loaderOptions: {
-      css: {},
-    },
+    extract: false,
   },
   // options...
   configureWebpack: {
