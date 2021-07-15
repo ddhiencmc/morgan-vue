@@ -3,8 +3,8 @@ import App from './App.vue'
 import formData from './data/formData'
 import state from './data/state'
 import '@/utils/validation.js'
-import '@/styles/style.scss'
 import 'vue-multiselect/dist/vue-multiselect.min.css'
+import '@/styles/index.scss'
 
 Vue.config.productionTip = false
 

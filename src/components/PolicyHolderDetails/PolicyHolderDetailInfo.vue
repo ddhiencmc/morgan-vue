@@ -43,11 +43,11 @@
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Genders</label>
           <Multiselect
+            v-model="form.genderId"
             :options="genders"
             track-by="value"
             placeholder="Please select"
             label="text"
-            v-model="form.genderId"
           >
           </Multiselect>
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
@@ -60,11 +60,11 @@
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Country of Nationality</label>
           <Multiselect
+            v-model="form.countryId"
             :options="countries"
             track-by="value"
             placeholder="Please select"
             label="text"
-            v-model="form.countryId"
           >
           </Multiselect>
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
@@ -77,11 +77,11 @@
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Country Of Residence</label>
           <Multiselect
+            v-model="form.residenceCountryId"
             :options="countries"
             track-by="value"
             placeholder="Please select"
             label="text"
-            v-model="form.residenceCountryId"
           >
           </Multiselect>
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
@@ -92,11 +92,11 @@
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Occupation (Select multiple)</label>
           <Multiselect
+            v-model="form.occupationIds"
             :options="occupations"
             track-by="value"
             placeholder="Please select"
             label="text"
-            v-model="form.occupationIds"
             :multiple="true"
           >
           </Multiselect>

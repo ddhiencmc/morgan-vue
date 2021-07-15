@@ -288,14 +288,14 @@ const formData = new Vue({
             groupName: 'Detail',
             isTitle: false,
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: false,
+            isAnswer: null,
           },
           {
             questionNumber: 6.2,
             title: '6.2.  Alcohol dependency or drug/substance abuse',
             groupName: 'Detail',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: false,
+            isAnswer: null,
           },
           {
             questionNumber: 6.3,
