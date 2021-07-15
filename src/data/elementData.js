@@ -4,7 +4,7 @@ export const step = {
       { text: 'Europe' },
       { text: 'Worldwide (excluding USA, China, Singapore and Hong Kong)' },
       { text: 'Worldwide (excluidng USA)' },
-      { text: 'Worldwide' }
-    ]
-  }
+      { text: 'Worldwide' },
+    ],
+  },
 }

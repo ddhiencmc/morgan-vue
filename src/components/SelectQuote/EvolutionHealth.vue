@@ -57,13 +57,13 @@ import EvolutionHealthPackage from './EvolutionHealthPackage.vue'
 export default {
   name: 'EvolutionHealth',
   components: {
-    EvolutionHealthPackage
+    EvolutionHealthPackage,
   },
   props: {},
   data() {
     return {
       services: this.$formData.services,
-      underwritingTypes: underwritingTypes
+      underwritingTypes: underwritingTypes,
     }
   },
   mounted() {},
@@ -73,7 +73,7 @@ export default {
     },
     nextStep() {
       this.$formData.currentStep++
-    }
-  }
+    },
+  },
 }
 </script>

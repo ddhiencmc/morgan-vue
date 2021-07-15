@@ -6,6 +6,6 @@ export default {
   name: 'ConfirmBuy',
   data() {
     return {}
-  }
+  },
 }
 </script>

@@ -21,10 +21,10 @@ export default {
     PolicyHolderDetail,
     EvolutionHealth,
     AdditionalDetails,
-    UnderwritingQuestions
+    UnderwritingQuestions,
   },
   data() {
     return {}
-  }
+  },
 }
 </script>

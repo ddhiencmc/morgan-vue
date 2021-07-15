@@ -10,7 +10,7 @@
           class="btn border-primary m-1 fs-15px"
           :class="{
             'btn-primary text-light fw-bold': btn.active,
-            'btn-light': !btn.active
+            'btn-light': !btn.active,
           }"
           @click="headerBtnActive(index)"
         >
@@ -128,27 +128,27 @@ export default {
         {
           id: 1,
           text: 'Europe',
-          active: false
+          active: false,
         },
         {
           id: 2,
           text: 'Worldwide (excluding USA, China, Singapore and Hong Kong)',
-          active: true
+          active: true,
         },
         {
           id: 3,
           text: 'Worldwide (excluidng USA)',
-          active: false
+          active: false,
         },
         {
           id: 4,
           text: 'Worldwide',
-          active: false
-        }
+          active: false,
+        },
       ],
 
       services: this.$formData.services,
-      insuarancesOption: insuarancesOption
+      insuarancesOption: insuarancesOption,
     }
   },
   mounted() {
@@ -164,7 +164,7 @@ export default {
       })
 
       this.headerButtons[index].active = true
-    }
-  }
+    },
+  },
 }
 </script>

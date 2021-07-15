@@ -48,7 +48,7 @@ export default {
   components: {
     Address,
     PolicyHolderDetails,
-    PhysicianDetails
+    PhysicianDetails,
   },
   data() {
     return {}
@@ -59,7 +59,7 @@ export default {
     },
     nextStep() {
       this.$formData.currentStep++
-    }
-  }
+    },
+  },
 }
 </script>

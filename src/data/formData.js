@@ -16,7 +16,7 @@ const formData = new Vue({
           genderId: '',
           residenceCountryId: '',
           occupationIds: [],
-          countryId: ''
+          countryId: '',
         },
         contact: {
           countryCodeLineNumber: '',
@@ -24,11 +24,11 @@ const formData = new Vue({
           countryCodeMobile: '',
           mobileNumber: '',
           emailAddress: '',
-          contactType: -1
+          contactType: -1,
         },
         familyMembers: [],
         policyStartDate: new Date(),
-        currenyId: ''
+        currenyId: '',
       },
 
       // Evolution Health
@@ -43,21 +43,21 @@ const formData = new Vue({
           frequencyOptions: [
             {
               type: 'Monthly',
-              price: '174.68'
+              price: '174.68',
             },
             {
               type: 'Quarterly',
-              price: '509.48'
+              price: '509.48',
             },
             {
               type: 'Semi-Annual',
-              price: '1009.26'
+              price: '1009.26',
             },
             {
               type: 'Annual',
-              price: '1940.88'
-            }
-          ]
+              price: '1940.88',
+            },
+          ],
         },
         {
           name: 'Standard Plus',
@@ -68,21 +68,21 @@ const formData = new Vue({
           frequencyOptions: [
             {
               type: 'Monthly',
-              price: '213.55'
+              price: '213.55',
             },
             {
               type: 'Quarterly',
-              price: '622.85'
+              price: '622.85',
             },
             {
               type: 'Semi-Annual',
-              price: '1233.85'
+              price: '1233.85',
             },
             {
               type: 'Annual',
-              price: '2372.75'
-            }
-          ]
+              price: '2372.75',
+            },
+          ],
         },
         {
           name: 'Comprehensive',
@@ -93,21 +93,21 @@ const formData = new Vue({
           frequencyOptions: [
             {
               type: 'Monthly',
-              price: '351.36'
+              price: '351.36',
             },
             {
               type: 'Quarterly',
-              price: '1024.79'
+              price: '1024.79',
             },
             {
               type: 'Semi-Annual',
-              price: '2030.06'
+              price: '2030.06',
             },
             {
               type: 'Annual',
-              price: '3903.97'
-            }
-          ]
+              price: '3903.97',
+            },
+          ],
         },
         {
           name: 'Premium',
@@ -118,21 +118,21 @@ const formData = new Vue({
           frequencyOptions: [
             {
               type: 'Monthly',
-              price: '466.10'
+              price: '466.10',
             },
             {
               type: 'Quarterly',
-              price: '1359.46'
+              price: '1359.46',
             },
             {
               type: 'Semi-Annual',
-              price: '2693.03'
+              price: '2693.03',
             },
             {
               type: 'Annual',
-              price: '5178.90'
-            }
-          ]
+              price: '5178.90',
+            },
+          ],
         },
         {
           name: 'Elite',
@@ -143,22 +143,22 @@ const formData = new Vue({
           frequencyOptions: [
             {
               type: 'Monthly',
-              price: '638.22'
+              price: '638.22',
             },
             {
               type: 'Quarterly',
-              price: '1861.47'
+              price: '1861.47',
             },
             {
               type: 'Semi-Annual',
-              price: '3687.49'
+              price: '3687.49',
             },
             {
               type: 'Annual',
-              price: '7091.32'
-            }
-          ]
-        }
+              price: '7091.32',
+            },
+          ],
+        },
       ],
       additionalDetails: {
         genderId: '',
@@ -172,7 +172,7 @@ const formData = new Vue({
           height: null,
           heightUnit: 'feet', // feet, cm, inch
           weight: null,
-          weightUnit: 'kg' // kg, stone, pounds
+          weightUnit: 'kg', // kg, stone, pounds
         },
         homeCountryAddress: {},
         physicianDetails: {
@@ -190,28 +190,28 @@ const formData = new Vue({
             state: '',
             city: '',
             countryId: '',
-            zipCode: ''
+            zipCode: '',
           },
           insuranceProviders: [
             {
               healthCareInsuranceProviderId: '',
               otherHealthCareInsuranceProvider: '',
-              coverEndDate: null
-            }
+              coverEndDate: null,
+            },
           ],
           documents: {
             files: [
               {
                 label: 'Passport',
-                file: ''
+                file: '',
               },
               {
                 label: 'Address Proof',
-                file: ''
-              }
-            ]
-          }
-        }
+                file: '',
+              },
+            ],
+          },
+        },
       },
       underwritingQuestions: {
         questions: [
@@ -223,7 +223,7 @@ const formData = new Vue({
             groupName: 'Medical Declaration',
             callsUnderwritingQuestionGroupID: null,
             isAnswer: null,
-            answer: null
+            answer: null,
           },
           {
             questionNumber: 2,
@@ -231,7 +231,7 @@ const formData = new Vue({
               '2.	Has any applicant ever been refused medical or dental insurance, or ever had a policy postponed, rated or accepted on special terms?',
             groupName: 'Medical Declaration',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: null
+            isAnswer: null,
           },
           {
             questionNumber: 3,
@@ -239,7 +239,7 @@ const formData = new Vue({
               '3.	Has any applicant been examined by, consulted with, or received medical treatment from a medical professional in the last 12 months?',
             groupName: 'Medical Declaration',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: null
+            isAnswer: null,
           },
           {
             questionNumber: 4,
@@ -247,7 +247,7 @@ const formData = new Vue({
               '4.	Has any applicant been examined by, consulted with, or received medical treatment from a medical specialist or consultant in the last 5 years?',
             groupName: 'Medical Declaration',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: null
+            isAnswer: null,
           },
           {
             questionNumber: 5,
@@ -255,7 +255,7 @@ const formData = new Vue({
               '5.	Has any applicant been confined (stayed overnight) in a hospital, clinic, sanatorium, or other treatment facility in the last 5 years?',
             groupName: 'Medical Declaration',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: null
+            isAnswer: null,
           },
 
           // Detail
@@ -264,7 +264,7 @@ const formData = new Vue({
             title:
               '6.  Has any applicant had any disease or impairment of or suffered any symptoms or required any medication, treatment or hospital consultation(s) for the following? - Please answer all questions.',
             groupName: 'Detail',
-            isTitle: true
+            isTitle: true,
           },
           {
             questionNumber: 6.1,
@@ -272,54 +272,54 @@ const formData = new Vue({
             groupName: 'Detail',
             isTitle: false,
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: false
+            isAnswer: false,
           },
           {
             questionNumber: 6.2,
             title: '6.2.  Alcohol dependency or drug/substance abuse',
             groupName: 'Detail',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: false
+            isAnswer: false,
           },
           {
             questionNumber: 6.3,
             title: '6.3.  Anaemia or any blood disorder',
             groupName: 'Detail',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: null
+            isAnswer: null,
           },
           {
             questionNumber: 6.4,
             title: '6.4.  Arthritis, or any disorder of any muscles or joints',
             groupName: 'Detail',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: null
+            isAnswer: null,
           },
           {
             questionNumber: 6.5,
             title: '6.5.  Asthma, bronchitis or any other respiratory disorder',
             groupName: 'Detail',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: null
+            isAnswer: null,
           },
           {
             questionNumber: 6.6,
             title: '6.6.  Back/spine/neck',
             groupName: 'Detail',
             callsUnderwritingQuestionGroupID: 'Hypertension',
-            isAnswer: null
+            isAnswer: null,
           },
           {
             questionNumber: 6.7,
             title: '6.7.  Blood pressure/hypertension',
             groupName: 'Detail',
             callsUnderwritingQuestionGroupID: null,
-            isAnswer: null
-          }
-        ]
-      }
+            isAnswer: null,
+          },
+        ],
+      },
     }
-  }
+  },
 })
 
 export default formData

@@ -7,7 +7,8 @@
       </h2>
 
       <div class="">
-        <h4>Units</h4>
+        <h3>BMI</h3>
+        <label class="control-label col-sm-12">Units</label>
         <div class="btn-group" role="group" aria-label="">
           <input
             id="metric"
@@ -109,6 +110,7 @@
 
       <!--  Pastimes -->
       <div class="row mt-3">
+        <h3>Sport or Pastime</h3>
         <div class="row">
           <div class="col mb-3">
             <label class="form-label required" for="Pastimes">Sport or Physical Pastime(Select multiple)</label>
@@ -224,7 +226,7 @@ export default {
 
       metricUnit: true, // false -> imperial
       forename: this.$formData.policyHolderDetails.details.forename,
-      surname: this.$formData.policyHolderDetails.details.surname
+      surname: this.$formData.policyHolderDetails.details.surname,
     }
   },
   mounted() {
@@ -242,7 +244,7 @@ export default {
     },
     refusedCoverCheck(isRefusedCover) {
       this.isRefusedCover = isRefusedCover
-    }
-  }
+    },
+  },
 }
 </script>

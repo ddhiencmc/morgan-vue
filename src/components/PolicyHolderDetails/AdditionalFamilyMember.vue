@@ -148,7 +148,7 @@ export default {
   data() {
     const helperModal = new window.bootstrap.Modal(
       document.getElementById('isAnUnmarriedChildAndInFurtherEducationModal'),
-      {}
+      {},
     )
 
     return {
@@ -160,7 +160,7 @@ export default {
       genders: genders,
       countries: countries,
       occupations: occupations,
-      relationships: relationships
+      relationships: relationships,
     }
   },
   methods: {
@@ -170,7 +170,7 @@ export default {
     openHelperModal(event) {
       event.preventDefault()
       this.helperModal.toggle()
-    }
-  }
+    },
+  },
 }
 </script>

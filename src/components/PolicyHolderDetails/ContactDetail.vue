@@ -59,13 +59,13 @@ export default {
   name: 'ContactDetail',
   components: {},
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
       form: this.$formData.policyHolderDetails.contact,
-      countryCodes: countryCodes
+      countryCodes: countryCodes,
     }
-  }
+  },
 }
 </script>

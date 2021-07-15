@@ -132,10 +132,10 @@ export default {
   props: ['answer'],
   data() {
     return {
-      currentConditions: currentConditions
+      currentConditions: currentConditions,
     }
   },
   mounted() {},
-  methods: {}
+  methods: {},
 }
 </script>

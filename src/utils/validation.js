@@ -6,7 +6,7 @@ import { messages } from 'vee-validate/dist/locale/en.json'
 Object.keys(rules).forEach(rule => {
   extend(rule, {
     ...rules[rule], // copies rule configuration
-    message: messages[rule] // assign message
+    message: messages[rule], // assign message
   })
 })
 
@@ -19,7 +19,7 @@ extend('phoneNumber', {
     }
     return false
   },
-  message: 'Please enter valid phone number.'
+  message: 'Please enter valid phone number.',
 })
 
 Vue.component('ValidationProvider', ValidationProvider)

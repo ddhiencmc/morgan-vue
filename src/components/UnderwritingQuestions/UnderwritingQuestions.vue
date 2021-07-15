@@ -73,11 +73,11 @@ import UnderwritingQuestionDetail from './UnderwritingQuestionDetail'
 export default {
   name: 'UnderwritingQuestions',
   components: {
-    UnderwritingQuestionDetail
+    UnderwritingQuestionDetail,
   },
   data() {
     return {
-      questions: []
+      questions: [],
     }
   },
   mounted() {
@@ -118,9 +118,9 @@ export default {
         currentMedicationName: '',
         hospitalRelationToCondition: null, // true,false
         currentConditionId: '', // List selection,
-        alcoholDependency: null
+        alcoholDependency: null,
       }
-    }
-  }
+    },
+  },
 }
 </script>

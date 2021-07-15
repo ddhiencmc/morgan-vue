@@ -39,16 +39,7 @@
     ],
     "plugins": ["vue", "prettier"],
     "rules": {
-      "prettier/prettier": [
-        "warn",
-        {
-          "singleQuote": true,
-          "semi": false,
-          "tabWidth": 2,
-          "printWidth": 120,
-          "trailingComma": "all"
-        }
-      ]
+      "prettier/prettier": ["error"]
     },
     "parserOptions": {
       "parser": "babel-eslint"

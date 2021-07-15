@@ -97,15 +97,15 @@ export default {
   components: {
     PolicyHolderDetailInfo,
     AdditionalFamilyMember,
-    ContactDetail
+    ContactDetail,
   },
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
       form: this.$formData.policyHolderDetails,
-      currencies: currencies
+      currencies: currencies,
     }
   },
   methods: {
@@ -123,12 +123,12 @@ export default {
         occupationIds: [],
         countryId: '',
         relationshipId: '',
-        isAnUnmarriedChildAndInFurtherEducation: false
+        isAnUnmarriedChildAndInFurtherEducation: false,
       }
     },
     nextStep() {
       this.$formData.currentStep++
-    }
-  }
+    },
+  },
 }
 </script>

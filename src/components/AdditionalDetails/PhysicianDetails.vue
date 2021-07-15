@@ -290,13 +290,13 @@ export default {
   data() {
     return {
       isExistingHealthInsurancePolicies: 'No',
-      titles: titles
+      titles: titles,
     }
   },
   methods: {
     existingHealthInsurancePoliciesCheck(isExistingHealthInsurancePolicies) {
       this.isExistingHealthInsurancePolicies = isExistingHealthInsurancePolicies
-    }
-  }
+    },
+  },
 }
 </script>
