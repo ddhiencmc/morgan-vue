@@ -1,7 +1,7 @@
 <template>
   <div class="w-75 mx-auto">
     <div class="card shadow-sm p-5 border-0 my-5">
-      <h2>UnderwritingQuestion</h2>
+      <h2>Underwriting Questions</h2>
 
       <div v-for="(groupByGroupName, groupIndex) in questions" :key="groupIndex" class="form-group mb-4">
         <h3>{{ groupByGroupName.key }}</h3>
@@ -53,7 +53,6 @@
         </div>
       </div>
     </div>
-
     <div class="d-flex justify-content-end">
       <div>
         <button class="btn btn-secondary mx-2" @click="previousStep()">
