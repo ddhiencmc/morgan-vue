@@ -24,7 +24,6 @@ extend('phoneNumber', {
 
 extend('checked', {
   validate: value => {
-    console.log(value)
     if (value !== true) {
       return false
     }

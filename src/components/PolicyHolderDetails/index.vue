@@ -132,7 +132,7 @@ export default {
         occupationIds: [],
         countryId: '',
         relationshipId: '',
-        isAnUnmarriedChildAndInFurtherEducation: null,
+        isAnUnmarriedChildAndInFurtherEducation: false,
       }
     },
     nextStep(handleSubmit) {
