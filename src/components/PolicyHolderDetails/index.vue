@@ -1,5 +1,5 @@
 <template>
-  <ValidationObserver v-slot="{ invalid }">
+  <ValidationObserver v-slot="{ handleSubmit }">
     <div class="w-75 mx-auto">
       <div class="card shadow-sm p-5 border-0 my-5">
         <div class="form-group">
@@ -61,7 +61,7 @@
       </div>
 
       <div class="d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary" @click="nextStep" :disabled="invalid">
+        <button type="submit" class="btn btn-primary" @click="nextStep(handleSubmit)">
           Next
         </button>
       </div>
@@ -128,8 +128,10 @@ export default {
         isAnUnmarriedChildAndInFurtherEducation: false,
       }
     },
-    nextStep() {
-      this.$formData.currentStep++
+    nextStep(handleSubmit) {
+      handleSubmit(() => {
+        this.$formData.currentStep++
+      })
     },
   },
 }
