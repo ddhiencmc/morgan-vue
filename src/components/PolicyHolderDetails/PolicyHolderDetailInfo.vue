@@ -42,12 +42,14 @@
       <div class="col mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Genders</label>
-          <select v-model="form.genderId" name="gender" class="form-select form-control" aria-label="">
-            <option value="">Please select</option>
-            <option v-for="gender in genders" :key="gender.value" :value="gender.value">
-              {{ gender.text }}
-            </option>
-          </select>
+          <Multiselect
+            :options="genders"
+            track-by="value"
+            placeholder="Please select"
+            label="text"
+            v-model="form.genderId"
+          >
+          </Multiselect>
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
@@ -57,12 +59,14 @@
       <div class="col mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Country of Nationality</label>
-          <select v-model="form.countryId" name="countryOfNationality" class="form-select form-control" aria-label="">
-            <option value="">Please select</option>
-            <option v-for="country in countries" :key="country.value" :value="country.value">
-              {{ country.text }}
-            </option>
-          </select>
+          <Multiselect
+            :options="countries"
+            track-by="value"
+            placeholder="Please select"
+            label="text"
+            v-model="form.countryId"
+          >
+          </Multiselect>
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
@@ -72,17 +76,14 @@
       <div class="col-md-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Country Of Residence</label>
-          <select
+          <Multiselect
+            :options="countries"
+            track-by="value"
+            placeholder="Please select"
+            label="text"
             v-model="form.residenceCountryId"
-            name="countryOfResidence"
-            class="form-select form-control"
-            aria-label=""
           >
-            <option value="">Please select</option>
-            <option v-for="country in countries" :key="country.value" :value="country.value">
-              {{ country.text }}
-            </option>
-          </select>
+          </Multiselect>
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
@@ -90,17 +91,15 @@
       <div class="col-md-6">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Occupation (Select multiple)</label>
-          <select
+          <Multiselect
+            :options="occupations"
+            track-by="value"
+            placeholder="Please select"
+            label="text"
             v-model="form.occupationIds"
-            name="occupation"
-            class="form-select form-control"
-            aria-label=""
-            multiple="multiple"
+            :multiple="true"
           >
-            <option v-for="occupation in occupations" :key="occupation.value" :value="occupation.value">
-              {{ occupation.text }}
-            </option>
-          </select>
+          </Multiselect>
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
@@ -110,20 +109,18 @@
 
 <script>
 // import DatePicker from "vue2-datepicker";
-// import "vue2-datepicker/index.css";
-// import Multiselect from "vue-multiselect";
+import Multiselect from 'vue-multiselect'
 import { titles, genders, countries, occupations, relationships } from '../../data/optionData.js'
 
 export default {
   name: 'PolicyHolderDetailInfo',
   components: {
     // DatePicker,
-    // Multiselect,
+    Multiselect,
   },
   data() {
     return {
       form: this.$formData.policyHolderDetails.details,
-      //select items
       titles: titles,
       genders: genders,
       countries: countries,
