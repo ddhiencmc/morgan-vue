@@ -3,9 +3,7 @@
     <div class="form-group border-start p-3 my-3 border-primary">
       <div class="row mb-4">
         <div class="col">
-          <label class="form-label required"
-            >Name of illness/medical condition</label
-          >
+          <label class="form-label required">Name of illness/medical condition</label>
           <input
             v-model="answer.nameOfMedicalCondition"
             class="form-control"
@@ -17,31 +15,20 @@
       <div class="row mb-4">
         <div class="col">
           <label class="form-label required">Date started</label>
-          <input
-            v-model="answer.dateStarted"
-            class="form-control valid"
-            type="date"
-          />
+          <input v-model="answer.dateStarted" class="form-control valid" type="date" />
         </div>
       </div>
 
       <div class="row mb-4">
         <div class="col">
           <label class="form-label">Date ended</label>
-          <input
-            v-model="answer.dateEnded"
-            class="form-control valid"
-            type="date"
-          />
+          <input v-model="answer.dateEnded" class="form-control valid" type="date" />
         </div>
       </div>
 
       <div class="row mb-4">
         <div class="col">
-          <label class="form-label"
-            >Current medication name and daily dose free format text
-            field</label
-          >
+          <label class="form-label">Current medication name and daily dose free format text field</label>
           <input
             v-model="answer.currentMedicationName"
             class="form-control"
@@ -52,11 +39,8 @@
 
       <div class="row mb-4">
         <div class="col">
-          <label
-            class="form-label required"
-            for="RefusedCoverOrAcceptedOnSpecialTerms"
-            >Have you ever had a hospital stay in relation to this
-            condition?</label
+          <label class="form-label required" for="RefusedCoverOrAcceptedOnSpecialTerms"
+            >Have you ever had a hospital stay in relation to this condition?</label
           >
         </div>
 
@@ -70,11 +54,7 @@
               name="ExistingHealthInsurancePoliciesRadio"
               :value="true"
             />
-            <label
-              class="form-check-label"
-              for="ExistingHealthInsurancePoliciesRadio-yes"
-              >Yes</label
-            >
+            <label class="form-check-label" for="ExistingHealthInsurancePoliciesRadio-yes">Yes</label>
           </div>
           <div class="form-check form-check-inline">
             <input
@@ -85,11 +65,7 @@
               name="ExistingHealthInsurancePoliciesRadio"
               :value="false"
             />
-            <label
-              class="form-check-label"
-              for="ExistingHealthInsurancePoliciesRadio-no"
-              >No</label
-            >
+            <label class="form-check-label" for="ExistingHealthInsurancePoliciesRadio-no">No</label>
           </div>
         </div>
       </div>
@@ -129,9 +105,7 @@
               name="Detail.AlcoholDependency"
               :value="true"
             />
-            <label class="form-check-label" for="Detail.AlcoholDependency-yes"
-              >Yes</label
-            >
+            <label class="form-check-label" for="Detail.AlcoholDependency-yes">Yes</label>
           </div>
           <div class="form-check form-check-inline">
             <input
@@ -142,9 +116,7 @@
               name="Detail.AlcoholDependency"
               :value="false"
             />
-            <label class="form-check-label" for="Detail.AlcoholDependency-no"
-              >No</label
-            >
+            <label class="form-check-label" for="Detail.AlcoholDependency-no">No</label>
           </div>
         </div>
       </div>
@@ -153,17 +125,17 @@
 </template>
 
 <script>
-import { currentConditions } from "../../data/optionData";
+import { currentConditions } from '../../data/optionData'
 
 export default {
-  name: "UnderwritingQuestionDetail",
-  props: ["answer"],
+  name: 'UnderwritingQuestionDetail',
+  props: ['answer'],
   data() {
     return {
       currentConditions: currentConditions
-    };
+    }
   },
   mounted() {},
   methods: {}
-};
+}
 </script>

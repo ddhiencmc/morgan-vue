@@ -3,9 +3,9 @@
 </template>
 <script>
 export default {
-  name: "ConfirmBuy",
+  name: 'ConfirmBuy',
   data() {
-    return {};
+    return {}
   }
-};
+}
 </script>

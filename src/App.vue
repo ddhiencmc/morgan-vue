@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import PolicyHolderDetail from "./components/PolicyHolderDetails/PolicyHolderDetail";
-import EvolutionHealth from "./components/SelectQuote/EvolutionHealth";
-import AdditionalDetails from "./components/AdditionalDetails/AdditionalDetails";
-import UnderwritingQuestions from "./components/UnderwritingQuestions/UnderwritingQuestions";
+import PolicyHolderDetail from './components/PolicyHolderDetails/PolicyHolderDetail'
+import EvolutionHealth from './components/SelectQuote/EvolutionHealth'
+import AdditionalDetails from './components/AdditionalDetails/AdditionalDetails'
+import UnderwritingQuestions from './components/UnderwritingQuestions/UnderwritingQuestions'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     PolicyHolderDetail,
     EvolutionHealth,
@@ -24,7 +24,7 @@ export default {
     UnderwritingQuestions
   },
   data() {
-    return {};
+    return {}
   }
-};
+}
 </script>

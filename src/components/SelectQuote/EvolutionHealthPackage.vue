@@ -42,12 +42,7 @@
           <div>
             <div class="my-3 text-center">
               Choose an Excess
-              <i
-                class="fa fa-question-circle"
-                aria-hidden="true"
-                data-bs-toggle="tooltip"
-                title="Description"
-              ></i>
+              <i class="fa fa-question-circle" aria-hidden="true" data-bs-toggle="tooltip" title="Description"></i>
             </div>
 
             <select
@@ -83,10 +78,7 @@
                   type="radio"
                   :name="'insuranceRadio_' + index"
                 />
-                <label
-                  class="form-check-label"
-                  :for="'insurance_' + index + insuranceIndex"
-                >
+                <label class="form-check-label" :for="'insurance_' + index + insuranceIndex">
                   {{ insuranceOption }}
                 </label>
               </div>
@@ -103,33 +95,17 @@
             </div>
 
             <div class="form-check mt-2">
-              <input
-                :id="'homeCountryEvacuation_' + index"
-                class="form-check-input"
-                type="checkbox"
-                value=""
-              />
-              <label
-                class="form-check-label"
-                :for="'homeCountryEvacuation_' + index"
-              >
+              <input :id="'homeCountryEvacuation_' + index" class="form-check-input" type="checkbox" value="" />
+              <label class="form-check-label" :for="'homeCountryEvacuation_' + index">
                 Home country Evacuation
               </label>
             </div>
           </div>
 
-          <select
-            v-model="service.frequency"
-            class="form-select"
-            aria-label="Default select example"
-          >
+          <select v-model="service.frequency" class="form-select" aria-label="Default select example">
             <option value="">Select package</option>
 
-            <option
-              v-for="option in service.frequencyOptions"
-              :key="option.type"
-              :value="option.type"
-            >
+            <option v-for="option in service.frequencyOptions" :key="option.type" :value="option.type">
               {{ `${option.type}: $${option.price}` }}
             </option>
           </select>
@@ -140,10 +116,10 @@
 </template>
 
 <script>
-import { insuarancesOption } from "../../data/optionData";
+import { insuarancesOption } from '../../data/optionData'
 
 export default {
-  name: "EvolutionHealthPackage",
+  name: 'EvolutionHealthPackage',
   components: {},
   props: {},
   data() {
@@ -151,46 +127,44 @@ export default {
       headerButtons: [
         {
           id: 1,
-          text: "Europe",
+          text: 'Europe',
           active: false
         },
         {
           id: 2,
-          text: "Worldwide (excluding USA, China, Singapore and Hong Kong)",
+          text: 'Worldwide (excluding USA, China, Singapore and Hong Kong)',
           active: true
         },
         {
           id: 3,
-          text: "Worldwide (excluidng USA)",
+          text: 'Worldwide (excluidng USA)',
           active: false
         },
         {
           id: 4,
-          text: "Worldwide",
+          text: 'Worldwide',
           active: false
         }
       ],
 
       services: this.$formData.services,
       insuarancesOption: insuarancesOption
-    };
+    }
   },
   mounted() {
-    let tooltipTriggerList = [].slice.call(
-      this.$el.querySelectorAll('[data-bs-toggle="tooltip"]')
-    );
+    let tooltipTriggerList = [].slice.call(this.$el.querySelectorAll('[data-bs-toggle="tooltip"]'))
     tooltipTriggerList.map(function(tooltipTriggerEl) {
-      return new window.bootstrap.Tooltip(tooltipTriggerEl);
-    });
+      return new window.bootstrap.Tooltip(tooltipTriggerEl)
+    })
   },
   methods: {
     headerBtnActive(index) {
       this.headerButtons.forEach(el => {
-        el.active = false;
-      });
+        el.active = false
+      })
 
-      this.headerButtons[index].active = true;
+      this.headerButtons[index].active = true
     }
   }
-};
+}
 </script>

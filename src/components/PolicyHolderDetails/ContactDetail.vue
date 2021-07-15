@@ -3,17 +3,9 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label class="form-label">Country Code</label>
-        <select
-          v-model="form.countryCodeLineNumber"
-          class="form-select form-control"
-          aria-label=""
-        >
+        <select v-model="form.countryCodeLineNumber" class="form-select form-control" aria-label="">
           <option value="">Please select</option>
-          <option
-            v-for="countryCodes in countryCodes"
-            :key="countryCodes.value"
-            :value="countryCodes.value"
-          >
+          <option v-for="countryCodes in countryCodes" :key="countryCodes.value" :value="countryCodes.value">
             {{ countryCodes.text }}
           </option>
         </select>
@@ -31,17 +23,9 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label class="form-label">Country Code</label>
-        <select
-          v-model="form.countryCodeMobile"
-          class="form-select form-control"
-          aria-label=""
-        >
+        <select v-model="form.countryCodeMobile" class="form-select form-control" aria-label="">
           <option value="">Please select</option>
-          <option
-            v-for="countryCodes in countryCodes"
-            :key="countryCodes.value"
-            :value="countryCodes.value"
-          >
+          <option v-for="countryCodes in countryCodes" :key="countryCodes.value" :value="countryCodes.value">
             {{ countryCodes.text }}
           </option>
         </select>
@@ -60,12 +44,7 @@
       <div class="col mb-3">
         <ValidationProvider v-slot="v" rules="required|email">
           <label class="form-label required">Email Address</label>
-          <input
-            v-model="form.emailAddress"
-            name="contact-email"
-            type="email"
-            class="form-control"
-          />
+          <input v-model="form.emailAddress" name="contact-email" type="email" class="form-control" />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
@@ -74,10 +53,10 @@
 </template>
 
 <script>
-import { countryCodes } from "../../data/optionData";
+import { countryCodes } from '../../data/optionData'
 
 export default {
-  name: "ContactDetail",
+  name: 'ContactDetail',
   components: {},
   props: {
     msg: String
@@ -86,7 +65,7 @@ export default {
     return {
       form: this.$formData.policyHolderDetails.contact,
       countryCodes: countryCodes
-    };
+    }
   }
-};
+}
 </script>

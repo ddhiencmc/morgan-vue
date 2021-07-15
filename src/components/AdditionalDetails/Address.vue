@@ -9,75 +9,37 @@
         <div class="row">
           <div class="col mb-3">
             <label class="form-label" for="AddressLine1">Address Line 1</label>
-            <input
-              id="AddressLine1"
-              class="form-control"
-              type="text"
-              name="AddressLine1"
-              value=""
-            />
+            <input id="AddressLine1" class="form-control" type="text" name="AddressLine1" value="" />
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-6 mb-3">
             <label class="form-label" for="AddressLine2">Address Line 2</label>
-            <input
-              id="AddressLine2"
-              class="form-control"
-              type="text"
-              name="AddressLine2"
-              value=""
-            />
+            <input id="AddressLine2" class="form-control" type="text" name="AddressLine2" value="" />
           </div>
           <div class="col-md-6 mb-3">
             <label class="form-label" for="AddressLine3">Address Line 3</label>
-            <input
-              id="AddressLine3"
-              class="form-control"
-              type="text"
-              name="AddressLine3"
-              value=""
-            />
+            <input id="AddressLine3" class="form-control" type="text" name="AddressLine3" value="" />
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-6 mb-3">
             <label class="form-label" for="State">State/County</label>
-            <input
-              id="State"
-              class="form-control"
-              type="text"
-              name="State"
-              value=""
-            />
+            <input id="State" class="form-control" type="text" name="State" value="" />
           </div>
 
           <div class="col-md-6 mb-3">
             <label class="form-label" for="City">City</label>
-            <input
-              id="City"
-              class="form-control"
-              type="text"
-              name="City"
-              value=""
-            />
+            <input id="City" class="form-control" type="text" name="City" value="" />
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label class="form-label" for="ZipOrPostalCode"
-              >ZIP/ Postal Code</label
-            >
-            <input
-              id="ZipOrPostalCode"
-              class="form-control"
-              type="text"
-              name="ZipOrPostalCode"
-              value=""
-            />
+            <label class="form-label" for="ZipOrPostalCode">ZIP/ Postal Code</label>
+            <input id="ZipOrPostalCode" class="form-control" type="text" name="ZipOrPostalCode" value="" />
           </div>
 
           <div class="col-md-6 mb-3">
@@ -108,71 +70,33 @@
         <div class="row">
           <div class="col mb-3">
             <label class="form-label" for="AddressLine1">Address Line 1</label>
-            <input
-              id="AddressLine1"
-              class="form-control"
-              type="text"
-              name="AddressLine1"
-              value=""
-            />
+            <input id="AddressLine1" class="form-control" type="text" name="AddressLine1" value="" />
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label class="form-label" for="AddressLine2">Address Line 2</label>
-            <input
-              id="AddressLine2"
-              class="form-control"
-              type="text"
-              name="AddressLine2"
-              value=""
-            />
+            <input id="AddressLine2" class="form-control" type="text" name="AddressLine2" value="" />
           </div>
           <div class="col-md-6 mb-3">
             <label class="form-label" for="AddressLine3">Address Line 3</label>
-            <input
-              id="AddressLine3"
-              class="form-control"
-              type="text"
-              name="AddressLine3"
-              value=""
-            />
+            <input id="AddressLine3" class="form-control" type="text" name="AddressLine3" value="" />
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label class="form-label" for="State">State/County</label>
-            <input
-              id="State"
-              class="form-control"
-              type="text"
-              name="State"
-              value=""
-            />
+            <input id="State" class="form-control" type="text" name="State" value="" />
           </div>
           <div class="col-md-6 mb-3">
             <label class="form-label" for="City">City</label>
-            <input
-              id="City"
-              class="form-control"
-              type="text"
-              name="City"
-              value=""
-            />
+            <input id="City" class="form-control" type="text" name="City" value="" />
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label class="form-label" for="ZipOrPostalCode"
-              >ZIP/ Postal Code</label
-            >
-            <input
-              id="ZipOrPostalCode"
-              class="form-control"
-              type="text"
-              name="ZipOrPostalCode"
-              value=""
-            />
+            <label class="form-label" for="ZipOrPostalCode">ZIP/ Postal Code</label>
+            <input id="ZipOrPostalCode" class="form-control" type="text" name="ZipOrPostalCode" value="" />
           </div>
 
           <div class="col-md-6 mb-3">
@@ -197,9 +121,9 @@
 </template>
 <script>
 export default {
-  name: "Address",
+  name: 'Address',
   data() {
-    return {};
+    return {}
   }
-};
+}
 </script>

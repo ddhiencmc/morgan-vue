@@ -8,9 +8,9 @@ module.exports = {
   // options...
   configureWebpack: {
     output: {
-      libraryExport: "default",
-      filename: "[name].bundle.js",
-      chunkFilename: "app.js"
+      libraryExport: 'default',
+      filename: '[name].bundle.js',
+      chunkFilename: 'app.js'
     }
   }
-};
+}

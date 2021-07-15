@@ -13,21 +13,13 @@
         <div class="row">
           <div class="col mb-3">
             <label>Passport: </label>
-            <input
-              type="file"
-              accept=".pdf,.docx,.doc,.rtf,.bmp,.gif,.jpg,.png"
-              capture="capture"
-            />
+            <input type="file" accept=".pdf,.docx,.doc,.rtf,.bmp,.gif,.jpg,.png" capture="capture" />
           </div>
         </div>
         <div class="row">
           <div class="col mb-3">
             <label>Address Proof: </label>
-            <input
-              type="file"
-              accept=".pdf,.docx,.doc,.rtf,.bmp,.gif,.jpg,.png"
-              capture="capture"
-            />
+            <input type="file" accept=".pdf,.docx,.doc,.rtf,.bmp,.gif,.jpg,.png" capture="capture" />
           </div>
         </div>
       </div>
@@ -47,27 +39,27 @@
   </div>
 </template>
 <script>
-import Address from "./Address.vue";
-import PolicyHolderDetails from "./PolicyHolderDetails.vue";
-import PhysicianDetails from "./PhysicianDetails.vue";
+import Address from './Address.vue'
+import PolicyHolderDetails from './PolicyHolderDetails.vue'
+import PhysicianDetails from './PhysicianDetails.vue'
 
 export default {
-  name: "AdditionalDetails",
+  name: 'AdditionalDetails',
   components: {
     Address,
     PolicyHolderDetails,
     PhysicianDetails
   },
   data() {
-    return {};
+    return {}
   },
   methods: {
     previousStep() {
-      this.$formData.currentStep--;
+      this.$formData.currentStep--
     },
     nextStep() {
-      this.$formData.currentStep++;
+      this.$formData.currentStep++
     }
   }
-};
+}
 </script>

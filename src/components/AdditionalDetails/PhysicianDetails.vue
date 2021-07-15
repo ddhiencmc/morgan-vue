@@ -2,9 +2,8 @@
   <div class="form-group">
     <h2>Physician Details</h2>
     <p>
-      Please provide us with the name and address of your regular personal or
-      family doctor/physician. If you do not have a regular doctor, please give
-      the last doctor you visited and approximate date.
+      Please provide us with the name and address of your regular personal or family doctor/physician. If you do not
+      have a regular doctor, please give the last doctor you visited and approximate date.
     </p>
     <div class="row">
       <div class="col-md-6 mb-3">
@@ -18,11 +17,7 @@
           name="Salutations.SelectedSalutationId"
         >
           <option selected="">Please select</option>
-          <option
-            v-for="title in titles"
-            :key="title.value"
-            :value="title.value"
-          >
+          <option v-for="title in titles" :key="title.value" :value="title.value">
             {{ title.text }}
           </option>
         </select>
@@ -84,9 +79,7 @@
     <div class="row">
       <!-- Date Last Visited -->
       <div class="col-md-6 mb-3">
-        <label class="form-label required" for="DateLastVisited"
-          >Date Last Visited</label
-        >
+        <label class="form-label required" for="DateLastVisited">Date Last Visited</label>
         <input
           id="DateLastVisited"
           class="form-control"
@@ -110,11 +103,7 @@
           name="Email"
           value=""
         />
-        <span
-          class="text-danger field-validation-valid"
-          data-valmsg-for="Email"
-          data-valmsg-replace="true"
-        ></span>
+        <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
       </div>
     </div>
 
@@ -123,12 +112,7 @@
       <!-- country code -->
       <div class="col-md-6 mb-3">
         <label class="form-label" for="CountryCodes">Country Code</label>
-        <select
-          id="CountryCodes"
-          class="form-select form-control"
-          aria-label=""
-          name="CountryCodes"
-        >
+        <select id="CountryCodes" class="form-select form-control" aria-label="" name="CountryCodes">
           <option selected="">Please select</option>
         </select>
         <span
@@ -157,73 +141,35 @@
     <div class="form-group mt-4">
       <div class="row">
         <div class="col mb-3">
-          <label class="form-label" for="Address_AddressLine1"
-            >Address Line 1</label
-          >
-          <input
-            id="Address_AddressLine1"
-            class="form-control"
-            type="text"
-            name="Address.AddressLine1"
-            value=""
-          />
+          <label class="form-label" for="Address_AddressLine1">Address Line 1</label>
+          <input id="Address_AddressLine1" class="form-control" type="text" name="Address.AddressLine1" value="" />
         </div>
       </div>
       <div class="row">
         <div class="col-md-6 mb-3">
-          <label class="form-label" for="Address_AddressLine2"
-            >Address Line 2</label
-          >
-          <input
-            id="Address_AddressLine2"
-            class="form-control"
-            type="text"
-            name="Address.AddressLine2"
-            value=""
-          />
+          <label class="form-label" for="Address_AddressLine2">Address Line 2</label>
+          <input id="Address_AddressLine2" class="form-control" type="text" name="Address.AddressLine2" value="" />
         </div>
         <div class="col-md-6 mb-3">
-          <label class="form-label" for="Address_AddressLine3"
-            >Address Line 3</label
-          >
-          <input
-            id="Address_AddressLine3"
-            class="form-control"
-            type="text"
-            name="Address.AddressLine3"
-            value=""
-          />
+          <label class="form-label" for="Address_AddressLine3">Address Line 3</label>
+          <input id="Address_AddressLine3" class="form-control" type="text" name="Address.AddressLine3" value="" />
         </div>
       </div>
       <div class="row">
         <div class="col-md-6 mb-3">
           <label class="form-label" for="Address_State">State/County</label>
-          <input
-            id="Address_State"
-            class="form-control"
-            type="text"
-            name="Address.State"
-            value=""
-          />
+          <input id="Address_State" class="form-control" type="text" name="Address.State" value="" />
         </div>
         <div class="col-md-6 mb-3">
           <label class="form-label" for="Address_City">City</label>
-          <input
-            id="Address_City"
-            class="form-control"
-            type="text"
-            name="Address.City"
-            value=""
-          />
+          <input id="Address_City" class="form-control" type="text" name="Address.City" value="" />
         </div>
       </div>
 
       <!-- Country -->
       <div class="row">
         <div class="col-md-6 mb-3">
-          <label class="form-label required" for="Address_Countries"
-            >Country</label
-          >
+          <label class="form-label required" for="Address_Countries">Country</label>
           <select
             id="Address_Countries_SelectedCountryID"
             class="form-select form-control"
@@ -238,9 +184,7 @@
           </select>
         </div>
         <div class="col-md-6 mb-3">
-          <label class="form-label" for="Address_ZipOrPostalCode"
-            >ZIP/ Postal Code</label
-          >
+          <label class="form-label" for="Address_ZipOrPostalCode">ZIP/ Postal Code</label>
           <input
             id="Address_ZipOrPostalCode"
             class="form-control"
@@ -256,9 +200,7 @@
     <div class="row mt-3">
       <!-- Title -->
       <div class="col mb-3">
-        <label
-          class="form-label required"
-          for="RefusedCoverOrAcceptedOnSpecialTerms"
+        <label class="form-label required" for="RefusedCoverOrAcceptedOnSpecialTerms"
           >Do you have Existing Health Insurance Policies?</label
         >
       </div>
@@ -276,11 +218,7 @@
             value="Yes"
             @click="existingHealthInsurancePoliciesCheck(true)"
           />
-          <label
-            class="form-check-label"
-            for="ExistingHealthInsurancePoliciesRadio-yes"
-            >Yes</label
-          >
+          <label class="form-check-label" for="ExistingHealthInsurancePoliciesRadio-yes">Yes</label>
         </div>
         <!-- No -->
         <div class="form-check form-check-inline">
@@ -293,19 +231,12 @@
             value="No"
             @click="existingHealthInsurancePoliciesCheck(false)"
           />
-          <label
-            class="form-check-label"
-            for="ExistingHealthInsurancePoliciesRadio-no"
-            >No</label
-          >
+          <label class="form-check-label" for="ExistingHealthInsurancePoliciesRadio-no">No</label>
         </div>
       </div>
 
       <!-- Addtional form -->
-      <div
-        v-if="isExistingHealthInsurancePolicies === 'Yes'"
-        id="additional-information"
-      >
+      <div v-if="isExistingHealthInsurancePolicies === 'Yes'" id="additional-information">
         <div
           id="additionalHealthCareInsuranceProviders"
           class="
@@ -319,9 +250,7 @@
           <div class="form-group">
             <div class="row">
               <div class="col">
-                <label class="form-label required" for="CoverEndDate"
-                  >Date Cover Ends</label
-                >
+                <label class="form-label required" for="CoverEndDate">Date Cover Ends</label>
                 <input
                   id="CoverEndDate"
                   class="form-control"
@@ -336,9 +265,7 @@
 
             <div class="row mt-3">
               <div class="col">
-                <label class="form-label required" for="ProviderCompanyName"
-                  >Provider company name
-                </label>
+                <label class="form-label required" for="ProviderCompanyName">Provider company name </label>
                 <input
                   id="ProviderCompanyName"
                   class="form-control"
@@ -357,19 +284,19 @@
   </div>
 </template>
 <script>
-import { titles } from "../../data/optionData";
+import { titles } from '../../data/optionData'
 export default {
-  name: "PhysicianDetails",
+  name: 'PhysicianDetails',
   data() {
     return {
-      isExistingHealthInsurancePolicies: "No",
+      isExistingHealthInsurancePolicies: 'No',
       titles: titles
-    };
+    }
   },
   methods: {
     existingHealthInsurancePoliciesCheck(isExistingHealthInsurancePolicies) {
-      this.isExistingHealthInsurancePolicies = isExistingHealthInsurancePolicies;
+      this.isExistingHealthInsurancePolicies = isExistingHealthInsurancePolicies
     }
   }
-};
+}
 </script>
