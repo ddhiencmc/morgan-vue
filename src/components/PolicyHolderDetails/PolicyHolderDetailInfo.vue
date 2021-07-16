@@ -2,20 +2,18 @@
   <div class="row">
     <div class="col-sm-6 mb-3">
       <label class="form-label">Title</label>
-      <Multiselect
-        v-model="form.salutationId"
-        :options="titles"
-        track-by="value"
-        placeholder="Please select"
-        label="text"
-      >
-      </Multiselect>
+      <select v-model="form.salutationId" class="form-control">
+        <option value="">Please select</option>
+        <option v-for="item in titles" :value="item.value" :key="item.value">
+          {{ item.text }}
+        </option>
+      </select>
     </div>
 
     <div class="col-sm-6 mb-3">
       <ValidationProvider v-slot="v" rules="required">
         <label class="form-label required">Forename</label>
-        <input v-model="form.forename" name="forename" class="form-control" placeholder="Forename" />
+        <input v-model="form.forename" name="forename" class="form-control" :class="v.classes" placeholder="Forename" />
         <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
       </ValidationProvider>
     </div>
@@ -23,14 +21,26 @@
     <div class="col-sm-6 mb-3">
       <ValidationProvider v-slot="v" rules="required">
         <label class="form-label required">Surname/Family Name</label>
-        <input v-model="form.surname" name="surname" class="form-control" placeholder="Surname/Family Name" />
+        <input
+          v-model="form.surname"
+          name="surname"
+          class="form-control"
+          :class="v.classes"
+          placeholder="Surname/Family Name"
+        />
         <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
       </ValidationProvider>
     </div>
     <div class="col-sm-6 mb-3">
       <ValidationProvider v-slot="v" rules="required">
         <label class="form-label required">Date Of Birth</label>
-        <input v-model="form.dateOfBirth" name="Policy.DateOfBirth" class="form-control" type="date" />
+        <input
+          v-model="form.dateOfBirth"
+          name="Policy.DateOfBirth"
+          class="form-control"
+          :class="v.classes"
+          type="date"
+        />
         <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
       </ValidationProvider>
     </div>
@@ -38,14 +48,12 @@
     <div class="col-sm-6 mb-3">
       <ValidationProvider v-slot="v" rules="required">
         <label class="form-label required">Gender</label>
-        <Multiselect
-          v-model="form.genderId"
-          :options="genders"
-          track-by="value"
-          placeholder="Please select"
-          label="text"
-        >
-        </Multiselect>
+        <select v-model="form.genderId" class="form-control" :class="v.classes">
+          <option value="">Please select</option>
+          <option v-for="item in genders" :value="item.value" :key="item.value">
+            {{ item.text }}
+          </option>
+        </select>
         <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
       </ValidationProvider>
     </div>
@@ -96,14 +104,13 @@
 </template>
 
 <script>
-// import DatePicker from "vue2-datepicker";
+// import DatePicker from 'vue2-datepicker'
 import Multiselect from 'vue-multiselect'
 import { titles, genders, countries, occupations, relationships } from '../../data/optionData.js'
 
 export default {
   name: 'PolicyHolderDetailInfo',
   components: {
-    // DatePicker,
     Multiselect,
   },
   data() {

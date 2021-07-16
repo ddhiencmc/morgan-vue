@@ -47,6 +47,10 @@ import PhysicianDetails from './PhysicianDetails.vue'
 
 export default {
   name: 'AdditionalDetails',
+  props: {
+    goToNextStep: Function,
+    goToPreviousStep: Function,
+  },
   components: {
     Address,
     PolicyHolderDetails,
@@ -57,10 +61,16 @@ export default {
   },
   methods: {
     previousStep() {
-      this.$formData.currentStep--
+      this.goToPreviousStep()
     },
-    nextStep() {
-      this.$formData.currentStep++
+    nextStep(validate) {
+      validate().then(isvalid => {
+        if (isvalid) {
+          this.goToNextStep()
+        } else {
+          this.$el.querySelector('input.invalid').focus()
+        }
+      })
     },
   },
 }

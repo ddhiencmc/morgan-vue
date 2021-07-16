@@ -40,6 +40,7 @@
                     <input
                       v-model="form.forename"
                       class="form-control"
+                      :class="v.classes"
                       placeholder="Forename"
                       name="FamilyMember.Forename"
                     />
@@ -55,6 +56,7 @@
                     <input
                       v-model="form.surname"
                       class="form-control"
+                      :class="v.classes"
                       name="FamilyMember.SurName"
                       placeholder="Surname/Family Name"
                     />
@@ -67,7 +69,8 @@
                     <label class="form-label required">Date Of Birth</label>
                     <input
                       v-model="form.dateOfBirth"
-                      class="form-control valid"
+                      class="form-control"
+                      :class="v.classes"
                       name="FamilyMember.DateOfBirth"
                       type="date"
                     />
@@ -83,6 +86,7 @@
                     <select
                       v-model="form.genderId"
                       class="form-select form-control"
+                      :class="v.classes"
                       aria-label=""
                       name="FamilyMember.Gender"
                     >
@@ -103,6 +107,7 @@
                     <select
                       v-model="form.countryId"
                       class="form-select form-control"
+                      :class="v.classes"
                       aria-label=""
                       name="FamilyMember.CountryOfNationality"
                     >
@@ -123,6 +128,7 @@
                     <select
                       v-model="form.occupationIds"
                       class="form-select form-control"
+                      :class="v.classes"
                       aria-label=""
                       multiple="multiple"
                       name="FamilyMember.Occupation"
@@ -146,6 +152,7 @@
                   <select
                     v-model="form.relationshipId"
                     class="form-select form-control"
+                    :class="v.classes"
                     aria-label=""
                     name="FamilyMember.Relationship"
                   >
