@@ -181,7 +181,7 @@ const formData = new Vue({
         genderId: '',
         occupationIds: [],
         otherOccupation: '',
-        pastimeIds: [],
+        isSportOrPastime: null,
         otherPastime: '',
         refusedCoverOrAcceptedOnSpecialTerms: false,
         refusedCoverOrAcceptedOnSpecialTermsDetails: '',

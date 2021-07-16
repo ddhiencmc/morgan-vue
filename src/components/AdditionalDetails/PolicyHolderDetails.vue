@@ -162,78 +162,104 @@
       <div class="mt-3">
         <h3>Sport or Pastime</h3>
         <div class="">
-          <div class="col mb-3">
-            <label class="form-label required" for="Pastimes">Sport or Physical Pastime(Select multiple)</label>
-            <select
-              id="Pastimes_SelectedPastimeIds"
-              class="form-select form-control"
-              aria-label=""
-              multiple="multiple"
-              name="Pastimes.SelectedPastimeIds"
-            >
-              <option value="1">No dangerous pastimes</option>
-              <option value="2">One or more dangerous pastimes</option>
-            </select>
+          <div class="mb-3">
+            <ValidationProvider v-slot="v" rules="required">
+              <label class="form-label required" for="Pastimes"
+                >Do you take part in any Sport or Physical Pastime?</label
+              >
+              <!-- Radio -->
+              <div>
+                <!-- Yes -->
+                <div class="form-check form-check-inline">
+                  <input
+                    id="SportOrPastimeRadio-yes"
+                    v-model="additionalDetails.isSportOrPastime"
+                    class="form-check-input"
+                    type="radio"
+                    name="SportOrPastimeRadio"
+                    :value="true"
+                  />
+                  <label class="form-check-label" for="SportOrPastimeRadio-yes">Yes</label>
+                </div>
+                <!-- No -->
+                <div class="form-check form-check-inline">
+                  <input
+                    id="SportOrPastimeRadio-no"
+                    v-model="additionalDetails.isSportOrPastime"
+                    class="form-check-input"
+                    type="radio"
+                    name="SportOrPastimeRadio"
+                    :value="false"
+                  />
+                  <label class="form-check-label" for="SportOrPastimeRadio-no">No</label>
+                </div>
+              </div>
+              <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+            </ValidationProvider>
           </div>
-        </div>
-        <div class="form-group border-start p-3 my-3 border-primary">
-          <div class="row">
-            <div class="col mb-3">
-              <label class="form-label" for="OtherPastimes">Other Sport or Physical Pastime</label>
-              <input id="OtherPastimes" class="form-control" type="text" name="OtherPastimes" value="" />
+
+          <div v-if="additionalDetails.isSportOrPastime" class="ps-2">
+            <div class="form-group p-3 border-start border-primary">
+              <div class="mb-3">
+                <label class="form-label" for="OtherPastimes">Other Sport or Physical Pastime</label>
+                <input
+                  id="OtherPastimes"
+                  v-model="otherPastime"
+                  class="form-control"
+                  type="text"
+                  name="OtherPastimes"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!--  Refused Cover -->
-      <div class="row mt-3">
-        <!-- Title -->
-        <div class="col mb-3">
-          <label class="form-label required" for="RefusedCoverOrAcceptedOnSpecialTerms"
-            >Has This Person Ever Been Refused Cover By An Insurance Company Or Been Accepted On Special Terms?</label
-          >
-        </div>
-
-        <!-- Radio -->
-        <div>
-          <!-- Yes -->
-          <div class="form-check form-check-inline">
-            <input
-              id="RefusedCoverOrAcceptedOnSpecialTerms-yes"
-              v-model="isRefusedCover"
-              class="form-check-input"
-              type="radio"
-              name="RefusedCoverOrAcceptedOnSpecialTerms"
-              value="Yes"
-              @click="refusedCoverCheck(true)"
-            />
-            <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-yes">Yes</label>
-          </div>
-          <!-- No -->
-          <div class="form-check form-check-inline">
-            <input
-              id="RefusedCoverOrAcceptedOnSpecialTerms-no"
-              v-model="isRefusedCover"
-              class="form-check-input"
-              type="radio"
-              name="RefusedCoverOrAcceptedOnSpecialTerms"
-              value="No"
-              @click="refusedCoverCheck(false)"
-            />
-            <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-no">No</label>
-          </div>
+      <div class="mt-3">
+        <div class="mb-3">
+          <ValidationProvider v-slot="v" rules="required">
+            <label class="form-label required" for="RefusedCoverOrAcceptedOnSpecialTerms"
+              >Has This Person Ever Been Refused Cover By An Insurance Company Or Been Accepted On Special Terms?</label
+            >
+            <div>
+              <div class="form-check form-check-inline">
+                <input
+                  id="RefusedCoverOrAcceptedOnSpecialTerms-yes"
+                  v-model="isRefusedCover"
+                  class="form-check-input"
+                  type="radio"
+                  name="RefusedCoverOrAcceptedOnSpecialTerms"
+                  value="Yes"
+                  @click="refusedCoverCheck(true)"
+                />
+                <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-yes">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  id="RefusedCoverOrAcceptedOnSpecialTerms-no"
+                  v-model="isRefusedCover"
+                  class="form-check-input"
+                  type="radio"
+                  name="RefusedCoverOrAcceptedOnSpecialTerms"
+                  value="No"
+                  @click="refusedCoverCheck(false)"
+                />
+                <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-no">No</label>
+              </div>
+            </div>
+            <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+          </ValidationProvider>
         </div>
 
         <!-- Addtional form -->
-        <div v-if="isRefusedCover === 'Yes'" id="additional-information">
-          <div class="form-group border-start p-3 my-3 border-primary">
+        <div v-if="isRefusedCover === 'Yes'" class="ps-2">
+          <div class="form-group p-3 border-start border-primary">
             <!-- Date -->
-            <div class="row">
-              <div class="col">
-                <label class="required" for="refusedCoverAdditionalDetailDate">Date</label>
-                <input id="refusedCoverAdditionalDetailDate" class="form-control" type="date" />
-              </div>
+            <div>
+              <label class="required" for="refusedCoverAdditionalDetailDate">Date</label>
+              <input id="refusedCoverAdditionalDetailDate" class="form-control" type="date" />
             </div>
 
             <!-- Enter Details -->
@@ -277,7 +303,7 @@ export default {
       weightPounds: [],
 
       pastimes: pastimes,
-      isRefusedCover: 'No',
+      isRefusedCover: null,
 
       metricUnit: true, // false -> imperial
       forename: this.$formData.policyHolderDetails.details.forename,
