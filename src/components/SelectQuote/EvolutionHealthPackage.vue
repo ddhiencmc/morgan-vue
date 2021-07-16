@@ -2,7 +2,7 @@
   <div class="">
     <h2 class="text-center text-primary">Evolution Health ROW</h2>
 
-    <div class="border-top border-bottom">
+    <div class="border-top">
       <div class="p-2 text-center">
         <button
           v-for="(btn, index) in headerButtons"
@@ -20,26 +20,35 @@
     </div>
 
     <!-- package -->
-    <div class="p-2 text-center">
-      <button
-        v-for="(btn, index) in headerButtons"
-        :key="index"
-        class="btn btn-outline-primary ms-1 fs-15px"
-        :class="{
-          'btn-primary text-light fw-bold': btn.active,
-          'btn-light': !btn.active,
-        }"
-        @click="headerBtnActive(index)"
-      >
-        {{ btn.text }}
-      </button>
+    <div class="p-2 text-center mb-5">
+      <div class="btn-group" role="group">
+        <button
+          type="button"
+          class="btn"
+          :class="[index == paymentTypeId ? 'btn-primary' : 'btn-default border']"
+          v-for="(item, index) in paymentTypes"
+          :key="index"
+          @click="paymentTypeId = index"
+        >
+          {{ item.text }}
+        </button>
+      </div>
     </div>
 
     <div class="d-flex justify-content-between fs-15px">
-      <div v-for="(service, index) in evolutionHealthServices" :key="index" class="mx-1 w-20">
-        <div class="bg-light m-1 px-2 h-100 pb-3 px-4" @click="productClick(service.productId)">
-          <div class="bg-light py-3 text-center w-100 fs-20px" href="#">
+      <div
+        v-for="(service, index) in evolutionHealthServices"
+        :key="index"
+        class="mx-1 w-20 service-item"
+        :class="{ active: currentProductId == service.productId }"
+        @click="selectService(service.productId)"
+      >
+        <div class="bg-light h-100 pb-3 px-3">
+          <div class="py-3 text-center w-100 fs-20px" href="#">
             <strong>{{ service.name }}</strong>
+          </div>
+          <div class="text-center service-price text-primary">
+            $500
           </div>
           <div class="d-flex flex-column justify-content-between">
             <div>
@@ -48,11 +57,7 @@
                 <i class="fa fa-question-circle" aria-hidden="true" data-bs-toggle="tooltip" title="Description"></i>
               </div>
 
-              <select
-                v-model="service.selectedExcessId"
-                class="form-select mb-3 fs-15px"
-                :id="'Product.Excess_' + index"
-              >
+              <select v-model="service.selectedExcessId" class="form-select mb-3" :id="'Product.Excess_' + index">
                 <option v-for="excess in voluntaryExcess" :key="excess.id" :value="excess.id">
                   {{ excess.value }}
                 </option>
@@ -108,13 +113,13 @@
               </div>
             </div>
 
-            <select v-model="service.frequency" class="form-select" aria-label="Default select example">
+            <!-- <select v-model="service.frequency" class="form-select" aria-label="Default select example">
               <option value="">Select package</option>
 
               <option v-for="option in service.frequencyOptions" :key="option.type" :value="option.type">
                 {{ `${option.type}: $${option.price}` }}
               </option>
-            </select>
+            </select> -->
           </div>
         </div>
       </div>
@@ -153,13 +158,33 @@ export default {
           active: false,
         },
       ],
+      paymentTypeId: 0,
+      paymentTypes: [
+        {
+          id: 0,
+          text: 'Monthly',
+        },
+        {
+          id: 1,
+          text: 'Quarterly',
+        },
+        {
+          id: 2,
+          text: 'Semi-Annual',
+        },
+        {
+          id: 3,
+          text: 'Annual',
+        },
+      ],
 
       evolutionHealthServices: evolutionHealthServices,
       insurancesOption: insurancesOption,
       voluntaryExcess: voluntaryExcess,
 
       product: this.$formData.product,
-      currentProduct: null,
+      currentProductId: null,
+      currentProduct: {},
     }
   },
   methods: {
@@ -174,17 +199,9 @@ export default {
     setProduct(product) {
       this.$formData.product = product
     },
-
-    productClick(productId) {
-      console.log('product click')
-      this.currentProduct = productId
-
-      evolutionHealthServices.forEach(s => {
-        s.isActive = false
-      })
-
-      var activeProduct = evolutionHealthServices.find(s => s.productId === productId)
-      activeProduct.isActive = true
+    selectService(productId) {
+      this.currentProductId = productId
+      this.currentProduct = evolutionHealthServices.find(s => s.productId === productId)
     },
   },
   mounted() {
@@ -195,3 +212,20 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.service-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.service-item {
+  cursor: pointer;
+  &:hover:not(.active) {
+    box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+  &.active {
+    border: 1px solid green;
+    transform: scale(1.1);
+  }
+}
+</style>

@@ -7,7 +7,7 @@
       </div>
 
       <div class="mt-5">
-        <h2>Underwriting Type</h2>
+        <h2>Select Underwriting Type</h2>
         <div class="alert alert-warning" role="alert">
           <span class="text-danger">Please note:</span> it is very important you understand the difference between the
           types of underwriting and that you chose the option that is right for you.

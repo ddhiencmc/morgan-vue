@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-md-6 mb-3">
+      <div class="col-sm-6 mb-3">
         <label class="form-label">Title</label>
         <Multiselect
           v-model="form.salutationId"
@@ -13,7 +13,7 @@
         </Multiselect>
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-sm-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Forename</label>
           <input v-model="form.forename" name="forename" class="form-control" placeholder="Forename" />
@@ -23,17 +23,14 @@
     </div>
 
     <div class="row">
-      <div class="col mb-3">
+      <div class="col-sm-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Surname/Family Name</label>
           <input v-model="form.surname" name="surname" class="form-control" placeholder="Surname/Family Name" />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
+      <div class="col-sm-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Date Of Birth</label>
           <input v-model="form.dateOfBirth" name="Policy.DateOfBirth" class="form-control" type="date" />
@@ -43,7 +40,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6 mb-3">
+      <div class="col-sm-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Gender</label>
           <Multiselect
@@ -58,22 +55,19 @@
         </ValidationProvider>
       </div>
     </div>
-
     <div class="row">
-      <div class="mb-3">
+      <div class="col-sm-12 mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Country of Nationality (Country of Primary Passport)</label>
-          <div class="col-md-6">
-            <Multiselect
-              v-model="form.countryId"
-              :options="countries"
-              track-by="value"
-              placeholder="Please select"
-              label="text"
-            >
-            </Multiselect>
-            <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
-          </div>
+          <Multiselect
+            v-model="form.countryId"
+            :options="countries"
+            track-by="value"
+            placeholder="Please select"
+            label="text"
+          >
+          </Multiselect>
+          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
     </div>
