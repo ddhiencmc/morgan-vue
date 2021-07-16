@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <div class="row mb-4">
+      <div class="row">
         <div class="col">
           <label class="form-label required">Current condition list box</label>
           <select
@@ -85,39 +85,6 @@
               {{ cond.value }}
             </option>
           </select>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <label class="form-label required" for="Detail.AlcoholDependency">
-            <strong>Alcohol dependency or drug/substance abuse </strong>
-          </label>
-        </div>
-
-        <div>
-          <div class="form-check form-check-inline">
-            <input
-              id="Detail.AlcoholDependency-yes"
-              v-model="answer.alcoholDependency"
-              class="form-check-input"
-              type="radio"
-              name="Detail.AlcoholDependency"
-              :value="true"
-            />
-            <label class="form-check-label" for="Detail.AlcoholDependency-yes">Yes</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input
-              id="Detail.AlcoholDependency-no"
-              v-model="answer.alcoholDependency"
-              class="form-check-input"
-              type="radio"
-              name="Detail.AlcoholDependency"
-              :value="false"
-            />
-            <label class="form-check-label" for="Detail.AlcoholDependency-no">No</label>
-          </div>
         </div>
       </div>
     </div>
