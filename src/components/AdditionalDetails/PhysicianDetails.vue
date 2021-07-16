@@ -109,7 +109,6 @@
 
     <!-- telephone -->
     <div class="row">
-      <!-- country code -->
       <div class="col-md-6 mb-3">
         <label class="form-label" for="CountryCodes">Country Code</label>
         <select id="CountryCodes" class="form-select form-control" aria-label="" name="CountryCodes">

@@ -1,5 +1,5 @@
 <template>
-  <ValidationObserver v-slot="{ handleSubmit }">
+  <ValidationObserver v-slot="{ validate }">
     <div class="w-75 mx-auto">
       <div class="card shadow-sm p-5 border-0 my-5">
         <div class="form-group">
@@ -68,7 +68,7 @@
       </div>
 
       <div class="d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary" @click="nextStep(handleSubmit)">
+        <button type="submit" class="btn btn-primary" @click="nextStep(validate)">
           Next
         </button>
       </div>
@@ -135,6 +135,7 @@ export default {
   },
   props: {
     msg: String,
+    goToNextStep: Function,
   },
   data() {
     return {
@@ -166,9 +167,13 @@ export default {
         isAnUnmarriedChildAndInFurtherEducation: false,
       }
     },
-    nextStep(handleSubmit) {
-      handleSubmit(() => {
-        this.$formData.currentStep++
+    nextStep(validate) {
+      validate().then(isvalid => {
+        if (isvalid) {
+          this.goToNextStep()
+        } else {
+          this.$el.querySelector('input.invalid').focus()
+        }
       })
     },
   },

@@ -15,7 +15,7 @@
       <div class="col-md-6 mb-3">
         <ValidationProvider v-slot="v" rules="phoneNumber">
           <label class="form-label"> Landline Number </label>
-          <input v-model="form.landlineNumber" class="form-control" />
+          <input v-model="form.landlineNumber" class="form-control" :class="v.classes" />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
@@ -36,7 +36,7 @@
       <div class="col-md-6 mb-3">
         <ValidationProvider v-slot="v" rules="phoneNumber">
           <label class="form-label">Mobile Number</label>
-          <input v-model="form.mobileNumber" class="form-control" />
+          <input v-model="form.mobileNumber" class="form-control" :class="v.classes" />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
@@ -46,7 +46,13 @@
       <div class="col mb-3">
         <ValidationProvider v-slot="v" rules="required|email">
           <label class="form-label required">Email Address</label>
-          <input v-model="form.emailAddress" name="contact-email" type="email" class="form-control" />
+          <input
+            v-model="form.emailAddress"
+            name="contact-email"
+            type="email"
+            class="form-control"
+            :class="v.classes"
+          />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
