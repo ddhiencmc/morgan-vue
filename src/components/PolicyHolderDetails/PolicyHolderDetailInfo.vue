@@ -2,14 +2,12 @@
   <div class="row">
     <div class="col-sm-6 mb-3">
       <label class="form-label">Title</label>
-      <Multiselect
-        v-model="form.salutationId"
-        :options="titles"
-        track-by="value"
-        placeholder="Please select"
-        label="text"
-      >
-      </Multiselect>
+      <select v-model="form.salutationId" class="form-control">
+        <option value="">Please select</option>
+        <option v-for="item in titles" :value="item.value" :key="item.value">
+          {{ item.text }}
+        </option>
+      </select>
     </div>
 
     <div class="col-sm-6 mb-3">
@@ -38,14 +36,12 @@
     <div class="col-sm-6 mb-3">
       <ValidationProvider v-slot="v" rules="required">
         <label class="form-label required">Gender</label>
-        <Multiselect
-          v-model="form.genderId"
-          :options="genders"
-          track-by="value"
-          placeholder="Please select"
-          label="text"
-        >
-        </Multiselect>
+        <select v-model="form.genderId" class="form-control">
+          <option value="">Please select</option>
+          <option v-for="item in genders" :value="item.value" :key="item.value">
+            {{ item.text }}
+          </option>
+        </select>
         <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
       </ValidationProvider>
     </div>

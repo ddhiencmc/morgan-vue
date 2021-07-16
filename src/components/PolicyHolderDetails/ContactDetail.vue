@@ -3,12 +3,13 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label class="form-label">Country Code</label>
-        <select v-model="form.countryCodeLineNumber" class="form-select form-control" aria-label="">
-          <option value="">Please select</option>
-          <option v-for="countryCodes in countryCodes" :key="countryCodes.value" :value="countryCodes.value">
-            {{ countryCodes.text }}
-          </option>
-        </select>
+        <Multiselect
+          v-model="form.countryCodeLineNumber"
+          :options="countryCodes"
+          track-by="value"
+          placeholder="Please select"
+          label="text"
+        />
       </div>
 
       <div class="col-md-6 mb-3">
@@ -23,12 +24,13 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label class="form-label">Country Code</label>
-        <select v-model="form.countryCodeMobile" class="form-select form-control" aria-label="">
-          <option value="">Please select</option>
-          <option v-for="countryCodes in countryCodes" :key="countryCodes.value" :value="countryCodes.value">
-            {{ countryCodes.text }}
-          </option>
-        </select>
+        <Multiselect
+          v-model="form.countryCodeMobile"
+          :options="countryCodes"
+          track-by="value"
+          placeholder="Please select"
+          label="text"
+        />
       </div>
 
       <div class="col-md-6 mb-3">
@@ -54,10 +56,12 @@
 
 <script>
 import { countryCodes } from '../../data/optionData'
-
+import Multiselect from 'vue-multiselect'
 export default {
   name: 'ContactDetail',
-  components: {},
+  components: {
+    Multiselect,
+  },
   props: {
     msg: String,
   },
