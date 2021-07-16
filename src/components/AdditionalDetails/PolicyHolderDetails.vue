@@ -37,18 +37,26 @@
       <div class="row mt-3">
         <!-- Metric Units -->
         <div v-if="metricUnit" id="metric-units" class="col-md-7 mb-3">
-          <label class="form-label required" for="Bmi_Height">Height</label>
-          <div class="input-group mb-3">
-            <select id="Bmi_Height" class="form-select form-control" aria-label="" name="Bmi.Height">
-              <option value="">Please select</option>
-              <option v-for="(val, index) in height" :key="index" :value="val">{{ val }}</option>
-            </select>
-            <div class="input-group-append">
-              <label class="input-group-text">Centimeters</label>
+          <ValidationProvider v-slot="v" rules="required">
+            <label class="form-label required" for="AdditionalDetails.Bmi.MetricHeight">Height</label>
+            <div class="input-group mb-3">
+              <Multiselect
+                id="AdditionalDetails.Bmi.MetricHeight"
+                v-model="additionalDetails.bmi.height"
+                :options="heights"
+                placeholder="Please select"
+                name="AdditionalDetails.Bmi.MetricHeight"
+                style="flex:1"
+              >
+              </Multiselect>
+              <div class="input-group-append">
+                <label class="input-group-text">Centimeters</label>
+              </div>
+              <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
             </div>
-          </div>
+          </ValidationProvider>
 
-          <label class="form-label required" for="Bmi_Weight">Weight</label>
+          <label class="form-label required" for="AdditionalDetails.Bmi.MetricWeight">Weight</label>
           <div class="input-group">
             <select
               id="Bmi_Weight_SelectedWeightInKgId"
@@ -207,14 +215,19 @@
 </template>
 <script>
 import { getRangeListIntVal, pastimes } from '../../data/optionData'
+import Multiselect from 'vue-multiselect'
 
 export default {
   name: 'PolicyHolderDetails',
-  components: {},
+  components: {
+    Multiselect,
+  },
   data() {
     return {
+      additionalDetails: this.$formData.additionalDetails,
+
       listInt0to400: [],
-      height: [],
+      heights: [],
       weight: [],
       heightFeet: [],
       heightInches: [],
@@ -231,11 +244,11 @@ export default {
   },
   mounted() {
     this.listInt0to400 = getRangeListIntVal(0, 400)
-    this.height = this.listInt0to400.filter(n => 100 <= n && n <= 350)
-    this.weight = this.listInt0to400
-    this.heightFeet = this.listInt0to400.filter(n => 1 <= n && n <= 8)
+    this.heights = this.listInt0to400.filter(n => 100 <= n && n <= 350)
+    this.weights = this.listInt0to400
+    this.heightFeets = this.listInt0to400.filter(n => 1 <= n && n <= 8)
     this.heightInches = this.listInt0to400.filter(n => 0 <= n && n <= 12)
-    this.weightStone = this.listInt0to400.filter(n => 1 <= n && n <= 45)
+    this.weightStones = this.listInt0to400.filter(n => 1 <= n && n <= 45)
     this.weightPounds = this.listInt0to400.filter(n => 1 <= n && n <= 400)
   },
   methods: {

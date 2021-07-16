@@ -23,12 +23,12 @@
     <div class="p-2 text-center mb-5">
       <div class="btn-group" role="group">
         <button
-          type="button"
-          class="btn"
-          :class="[index == paymentTypeId ? 'btn-primary' : 'btn-default border']"
           v-for="(item, index) in paymentTypes"
           :key="index"
-          @click="paymentTypeId = index"
+          type="button"
+          class="btn"
+          :class="[index == $formData.product.frequencyId ? 'btn-primary' : 'btn-default border']"
+          @click="selectFrenquency(index)"
         >
           {{ item.text }}
         </button>
@@ -48,7 +48,7 @@
             <strong>{{ service.name }}</strong>
           </div>
           <div class="text-center service-price text-primary">
-            $500
+            {{ service.frequencyOptions[$formData.product.frequencyId].price }} $
           </div>
           <div class="d-flex flex-column justify-content-between">
             <div>
@@ -112,14 +112,6 @@
                 </label>
               </div>
             </div>
-
-            <!-- <select v-model="service.frequency" class="form-select" aria-label="Default select example">
-              <option value="">Select package</option>
-
-              <option v-for="option in service.frequencyOptions" :key="option.type" :value="option.type">
-                {{ `${option.type}: $${option.price}` }}
-              </option>
-            </select> -->
           </div>
         </div>
       </div>
@@ -202,6 +194,9 @@ export default {
     selectService(productId) {
       this.currentProductId = productId
       this.currentProduct = evolutionHealthServices.find(s => s.productId === productId)
+    },
+    selectFrenquency(frequencyId) {
+      this.$formData.product.frequencyId = frequencyId
     },
   },
   mounted() {

@@ -7,25 +7,20 @@
     </p>
     <div class="row">
       <div class="col-md-6 mb-3">
-        <label class="form-label" for="Salutations">Salutations</label>
-        <select
-          id="Salutations_SelectedSalutationId"
-          class="form-select form-control"
-          aria-label=""
-          data-val="true"
-          data-val-required="The Title field is required."
-          name="Salutations.SelectedSalutationId"
-        >
-          <option selected="">Please select</option>
-          <option v-for="title in titles" :key="title.value" :value="title.value">
-            {{ title.text }}
-          </option>
-        </select>
-        <span
-          class="text-danger field-validation-valid"
-          data-valmsg-for="Salutations"
-          data-valmsg-replace="true"
-        ></span>
+        <ValidationProvider v-slot="v" rules="required">
+          <label class="form-label" for="Salutations">Salutations</label>
+          <Multiselect
+            id="AdditionalDetails.CountryAddress.CountryId"
+            v-model="additionalDetails.homeCountryAddress.countryId"
+            :options="titles"
+            track-by="value"
+            placeholder="Please select"
+            label="text"
+            name="AdditionalDetails.CountryAddress.Country"
+          >
+          </Multiselect>
+          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+        </ValidationProvider>
       </div>
 
       <div class="col-md-6 mb-3">
@@ -275,8 +270,13 @@
 </template>
 <script>
 import { titles } from '../../data/optionData'
+import Multiselect from 'vue-multiselect'
+
 export default {
   name: 'PhysicianDetails',
+  components: {
+    Multiselect,
+  },
   data() {
     return {
       isExistingHealthInsurancePolicies: 'No',
