@@ -117,7 +117,7 @@ body {
   height: 35px;
 }
 
-.required:after {
+label.required:after {
   content: " *";
   color: red;
 }
