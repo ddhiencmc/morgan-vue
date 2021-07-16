@@ -41,10 +41,19 @@ export default {
   methods: {
     goToNextStep() {
       this.$formData.currentStep++
+      this.updateQueryParams({ step: this.$formData.currentStep })
       this.$root.$el.scrollIntoView({ behavior: 'smooth' })
     },
     goToPreviousStep() {
       this.$formData.currentStep--
+      this.updateQueryParams({ step: this.$formData.currentStep })
+    },
+    updateQueryParams(params) {
+      const url = new URL(window.location)
+      Object.keys(params).forEach(key => {
+        url.searchParams.set(key, params[key])
+      })
+      window.history.pushState({}, '', url)
     },
   },
 }
