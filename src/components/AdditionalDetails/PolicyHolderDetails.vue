@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mt-4">
+    <div class="row mt-4">
       <h2 v-if="forename !== '' && surname !== ''">Policy Holder - {{ forename }} {{ surname }}</h2>
       <h2 v-else>
         Policy Holder
@@ -34,164 +34,232 @@
       </div>
 
       <!--  BMI -->
-      <div class="row mt-3">
+      <div class="mt-3">
         <!-- Metric Units -->
         <div v-if="metricUnit" id="metric-units" class="col-md-7 mb-3">
-          <ValidationProvider v-slot="v" rules="required">
-            <label class="form-label required" for="AdditionalDetails.Bmi.MetricHeight">Height</label>
-            <div class="input-group mb-3">
-              <Multiselect
-                id="AdditionalDetails.Bmi.MetricHeight"
-                v-model="additionalDetails.bmi.height"
-                :options="heights"
-                placeholder="Please select"
-                name="AdditionalDetails.Bmi.MetricHeight"
-                style="flex:1"
-              >
-              </Multiselect>
-              <div class="input-group-append">
-                <label class="input-group-text">Centimeters</label>
+          <div class="mb-3">
+            <ValidationProvider v-slot="v" rules="required">
+              <label class="form-label required" for="AdditionalDetails.Bmi.MetricHeight">Height</label>
+              <div class="input-group">
+                <Multiselect
+                  id="AdditionalDetails.Bmi.MetricHeight"
+                  v-model="additionalDetails.bmi.height"
+                  :options="heights"
+                  placeholder="Please select"
+                  name="AdditionalDetails.Bmi.MetricHeight"
+                  style="flex:1"
+                >
+                </Multiselect>
+                <div class="input-group-append">
+                  <label class="input-group-text">Centimeters</label>
+                </div>
               </div>
-              <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
-            </div>
-          </ValidationProvider>
+              <div v-if="v.invalid" class="input-error">{{ v.errors[0] }}</div>
+            </ValidationProvider>
+          </div>
 
-          <label class="form-label required" for="AdditionalDetails.Bmi.MetricWeight">Weight</label>
-          <div class="input-group">
-            <select
-              id="Bmi_Weight_SelectedWeightInKgId"
-              class="form-select form-control"
-              aria-label=""
-              data-val="true"
-              data-val-required="The SelectedWeightInKgId field is required."
-              name="Bmi.Weight.SelectedWeightInKgId"
-            >
-              <option>Open this select menu</option>
-              <option v-for="(val, index) in weight" :key="index" :value="val" :selected="val == 1 ? 'select' : ''">{{
-                val
-              }}</option>
-            </select>
-            <div class="input-group-append">
-              <label class="input-group-text">Kilograms</label>
-            </div>
+          <div class="mb-3">
+            <ValidationProvider v-slot="v" rules="required">
+              <label class="form-label required" for="AdditionalDetails.Bmi.MetricWeight">Weight</label>
+              <div class="input-group">
+                <Multiselect
+                  id="AdditionalDetails.Bmi.MetricWeight"
+                  v-model="additionalDetails.bmi.weight"
+                  :options="weights"
+                  placeholder="Please select"
+                  name="AdditionalDetails.Bmi.MetricWeight"
+                  style="flex:1"
+                >
+                </Multiselect>
+                <div class="input-group-append">
+                  <label class="input-group-text">Kilograms</label>
+                </div>
+              </div>
+              <div v-if="v.invalid" class="input-error">{{ v.errors[0] }}</div>
+            </ValidationProvider>
           </div>
         </div>
 
         <!-- Imperial Units -->
-        <div v-if="!metricUnit" id="imperial-units" class="col-md-7 mb-3">
+        <div v-if="!metricUnit" id="imperial-units" class="mb-3">
+          <!-- Height label -->
           <label class="form-label  required" for="Bmi_Height">Height</label>
-          <div class="input-group mb-3">
-            <select id="Bmi_Height" class="form-select form-control" aria-label="" name="Bmi.Height">
-              <option value="">Open this select menu</option>
-              <option v-for="(val, index) in heightFeet" :key="index" :value="val">{{ val }}</option>
-            </select>
-            <div class="input-group-append">
-              <label class="input-group-text">Feet</label>
-            </div>
-            <select id="Bmi_Height" class="form-select form-control" aria-label="" name="Bmi.Height">
-              <option value="">Open this select menu</option>
-              <option v-for="(val, index) in heightInches" :key="index" :value="val">{{ val }}</option>
-            </select>
-            <div class="input-group-append">
-              <label class="input-group-text">Inches</label>
-            </div>
+          <div class="col-sm-7 mb-3">
+            <ValidationProvider v-slot="v" rules="required">
+              <div class="input-group">
+                <!-- feet -->
+                <Multiselect
+                  id="AdditionalDetails.Bmi.ImperialHeightFeet"
+                  v-model="additionalDetails.bmi.height"
+                  :options="heightFeets"
+                  placeholder="Please select"
+                  name="AdditionalDetails.Bmi.ImperialHeightFeet"
+                  style="flex:1"
+                >
+                </Multiselect>
+                <div class="input-group-append">
+                  <label class="input-group-text">Feet</label>
+                </div>
+
+                <!-- inches -->
+                <Multiselect
+                  id="AdditionalDetails.Bmi.ImperialHeightInches"
+                  v-model="additionalDetails.bmi.heightBonus"
+                  :options="heightInches"
+                  placeholder="Please select"
+                  name="AdditionalDetails.Bmi.ImperialHeightInches"
+                  style="flex:1"
+                >
+                </Multiselect>
+                <div class="input-group-append">
+                  <label class="input-group-text">Inches</label>
+                </div>
+              </div>
+              <div v-if="v.invalid" class="input-error">{{ v.errors[0] }}</div>
+            </ValidationProvider>
           </div>
+
+          <!-- Weight -->
           <label class="form-label  required" for="Bmi_Weight">Weight</label>
-          <div class="input-group">
-            <select id="Bmi_Weight" class="form-select form-control" aria-label="" name="Bmi.Weight">
-              <option value="">Open this select menu</option>
-              <option v-for="(val, index) in weightStone" :key="index" :value="val">{{ val }}</option>
-            </select>
-            <div class="input-group-append">
-              <label class="input-group-text">Stone</label>
-            </div>
-            <select id="Bmi_Weight" class="form-select form-control" aria-label="" name="Bmi.Weight">
-              <option value="">Open this select menu</option>
-              <option v-for="(val, index) in weightPounds" :key="index" :value="val">{{ val }}</option>
-            </select>
-            <div class="input-group-append">
-              <label class="input-group-text">Pounds</label>
-            </div>
+          <div class="col-sm-7 mb-3">
+            <ValidationProvider v-slot="v" rules="required">
+              <div class="input-group">
+                <!-- Stones -->
+                <Multiselect
+                  id="AdditionalDetails.Bmi.ImperialWeightStone"
+                  v-model="additionalDetails.bmi.weight"
+                  :options="weightStones"
+                  placeholder="Please select"
+                  name="AdditionalDetails.Bmi.ImperialWeightStone"
+                  style="flex:1"
+                >
+                </Multiselect>
+                <div class="input-group-append">
+                  <label class="input-group-text" for="AdditionalDetails.Bmi.ImperialWeightStone">Stone</label>
+                </div>
+
+                <!-- Pounds -->
+                <Multiselect
+                  id="AdditionalDetails.Bmi.ImperialHeightInches"
+                  v-model="additionalDetails.bmi.weightBonus"
+                  :options="weightPounds"
+                  placeholder="Please select"
+                  name="AdditionalDetails.Bmi.ImperialWeightPounds"
+                  style="flex:1"
+                >
+                </Multiselect>
+                <div class="input-group-append">
+                  <label class="input-group-text" for="AdditionalDetails.Bmi.ImperialWeightPounds">Pounds</label>
+                </div>
+              </div>
+              <div v-if="v.invalid" class="input-error">{{ v.errors[0] }}</div>
+            </ValidationProvider>
           </div>
         </div>
       </div>
 
       <!--  Pastimes -->
-      <div class="row mt-3">
+      <div class="mt-3">
         <h3>Sport or Pastime</h3>
-        <div class="row">
-          <div class="col mb-3">
-            <label class="form-label required" for="Pastimes">Sport or Physical Pastime(Select multiple)</label>
-            <select
-              id="Pastimes_SelectedPastimeIds"
-              class="form-select form-control"
-              aria-label=""
-              multiple="multiple"
-              name="Pastimes.SelectedPastimeIds"
-            >
-              <option value="1">No dangerous pastimes</option>
-              <option value="2">One or more dangerous pastimes</option>
-            </select>
+        <div class="">
+          <div class="mb-3">
+            <ValidationProvider v-slot="v" rules="required">
+              <label class="form-label required" for="Pastimes"
+                >Do you take part in any Sport or Physical Pastime?</label
+              >
+              <!-- Radio -->
+              <div>
+                <!-- Yes -->
+                <div class="form-check form-check-inline">
+                  <input
+                    id="SportOrPastimeRadio-yes"
+                    v-model="additionalDetails.isSportOrPastime"
+                    class="form-check-input"
+                    type="radio"
+                    name="SportOrPastimeRadio"
+                    :value="true"
+                  />
+                  <label class="form-check-label" for="SportOrPastimeRadio-yes">Yes</label>
+                </div>
+                <!-- No -->
+                <div class="form-check form-check-inline">
+                  <input
+                    id="SportOrPastimeRadio-no"
+                    v-model="additionalDetails.isSportOrPastime"
+                    class="form-check-input"
+                    type="radio"
+                    name="SportOrPastimeRadio"
+                    :value="false"
+                  />
+                  <label class="form-check-label" for="SportOrPastimeRadio-no">No</label>
+                </div>
+              </div>
+              <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+            </ValidationProvider>
           </div>
-        </div>
-        <div class="form-group border-start p-3 my-3 border-primary">
-          <div class="row">
-            <div class="col mb-3">
-              <label class="form-label" for="OtherPastimes">Other Sport or Physical Pastime</label>
-              <input id="OtherPastimes" class="form-control" type="text" name="OtherPastimes" value="" />
+
+          <div v-if="additionalDetails.isSportOrPastime" class="ps-2">
+            <div class="form-group p-3 border-start border-primary">
+              <div class="mb-3">
+                <label class="form-label" for="OtherPastimes">Other Sport or Physical Pastime</label>
+                <input
+                  id="OtherPastimes"
+                  v-model="otherPastime"
+                  class="form-control"
+                  type="text"
+                  name="OtherPastimes"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!--  Refused Cover -->
-      <div class="row mt-3">
-        <!-- Title -->
-        <div class="col mb-3">
-          <label class="form-label required" for="RefusedCoverOrAcceptedOnSpecialTerms"
-            >Has This Person Ever Been Refused Cover By An Insurance Company Or Been Accepted On Special Terms?</label
-          >
-        </div>
-
-        <!-- Radio -->
-        <div>
-          <!-- Yes -->
-          <div class="form-check form-check-inline">
-            <input
-              id="RefusedCoverOrAcceptedOnSpecialTerms-yes"
-              v-model="isRefusedCover"
-              class="form-check-input"
-              type="radio"
-              name="RefusedCoverOrAcceptedOnSpecialTerms"
-              value="Yes"
-              @click="refusedCoverCheck(true)"
-            />
-            <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-yes">Yes</label>
-          </div>
-          <!-- No -->
-          <div class="form-check form-check-inline">
-            <input
-              id="RefusedCoverOrAcceptedOnSpecialTerms-no"
-              v-model="isRefusedCover"
-              class="form-check-input"
-              type="radio"
-              name="RefusedCoverOrAcceptedOnSpecialTerms"
-              value="No"
-              @click="refusedCoverCheck(false)"
-            />
-            <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-no">No</label>
-          </div>
+      <div class="mt-3">
+        <div class="mb-3">
+          <ValidationProvider v-slot="v" rules="required">
+            <label class="form-label required" for="RefusedCoverOrAcceptedOnSpecialTerms"
+              >Has This Person Ever Been Refused Cover By An Insurance Company Or Been Accepted On Special Terms?</label
+            >
+            <div>
+              <div class="form-check form-check-inline">
+                <input
+                  id="RefusedCoverOrAcceptedOnSpecialTerms-yes"
+                  v-model="isRefusedCover"
+                  class="form-check-input"
+                  type="radio"
+                  name="RefusedCoverOrAcceptedOnSpecialTerms"
+                  value="Yes"
+                  @click="refusedCoverCheck(true)"
+                />
+                <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-yes">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  id="RefusedCoverOrAcceptedOnSpecialTerms-no"
+                  v-model="isRefusedCover"
+                  class="form-check-input"
+                  type="radio"
+                  name="RefusedCoverOrAcceptedOnSpecialTerms"
+                  value="No"
+                  @click="refusedCoverCheck(false)"
+                />
+                <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-no">No</label>
+              </div>
+            </div>
+            <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+          </ValidationProvider>
         </div>
 
         <!-- Addtional form -->
-        <div v-if="isRefusedCover === 'Yes'" id="additional-information">
-          <div class="form-group border-start p-3 my-3 border-primary">
+        <div v-if="isRefusedCover === 'Yes'" class="ps-2">
+          <div class="form-group p-3 border-start border-primary">
             <!-- Date -->
-            <div class="row">
-              <div class="col">
-                <label class="required" for="refusedCoverAdditionalDetailDate">Date</label>
-                <input id="refusedCoverAdditionalDetailDate" class="form-control" type="date" />
-              </div>
+            <div>
+              <label class="required" for="refusedCoverAdditionalDetailDate">Date</label>
+              <input id="refusedCoverAdditionalDetailDate" class="form-control" type="date" />
             </div>
 
             <!-- Enter Details -->
@@ -228,14 +296,14 @@ export default {
 
       listInt0to400: [],
       heights: [],
-      weight: [],
+      weights: [],
       heightFeet: [],
       heightInches: [],
       weightStone: [],
       weightPounds: [],
 
       pastimes: pastimes,
-      isRefusedCover: 'No',
+      isRefusedCover: null,
 
       metricUnit: true, // false -> imperial
       forename: this.$formData.policyHolderDetails.details.forename,
