@@ -1,5 +1,5 @@
 <template>
-  <ValidationObserver v-slot="{ invalid }">
+  <ValidationObserver v-slot="{ validate }">
     <div class="w-75 mx-auto">
       <div class="card shadow-sm p-5 border-0 my-5">
         <Address class="mb-4" />
@@ -32,7 +32,7 @@
             Previous
           </button>
 
-          <button type="submit" class="btn btn-primary mx-2" @click="nextStep()" :disabled="invalid">
+          <button type="submit" class="btn btn-primary mx-2" @click="nextStep(validate)">
             Next
           </button>
         </div>

@@ -53,6 +53,7 @@
         </div>
       </div>
     </div>
+
     <div class="d-flex justify-content-end">
       <div>
         <button class="btn btn-secondary mx-2" @click="previousStep()">
