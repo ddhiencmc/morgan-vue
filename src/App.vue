@@ -41,12 +41,13 @@ export default {
   methods: {
     goToNextStep() {
       this.$formData.currentStep++
+      this.scrollToTop()
       this.updateQueryParams({ step: this.$formData.currentStep })
-      this.$root.$el.scrollIntoView({ behavior: 'smooth' })
     },
     goToPreviousStep() {
       this.$formData.currentStep--
       this.updateQueryParams({ step: this.$formData.currentStep })
+      this.scrollToTop()
     },
     updateQueryParams(params) {
       const url = new URL(window.location)
@@ -54,6 +55,11 @@ export default {
         url.searchParams.set(key, params[key])
       })
       window.history.pushState({}, '', url)
+    },
+    scrollToTop() {
+      setTimeout(() => {
+        this.$root.$el.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
     },
   },
 }
