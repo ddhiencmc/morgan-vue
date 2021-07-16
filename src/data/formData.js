@@ -39,7 +39,7 @@ const formData = new Vue({
         selectedExcessId: null,
         coInsuranceSelectedId: null,
         hasAdditionalBenefit: false,
-        frequency: '',
+        frequencyId: 0,
       },
 
       // services: [
@@ -186,12 +186,30 @@ const formData = new Vue({
         refusedCoverOrAcceptedOnSpecialTerms: false,
         refusedCoverOrAcceptedOnSpecialTermsDetails: '',
         bmi: {
+          unit: '',
           height: null,
-          heightUnit: 'feet', // feet, cm, inch
+          heightBonus: null, // feet, cm, inch
           weight: null,
-          weightUnit: 'kg', // kg, stone, pounds
+          weightBonus: null, // kg, stone, pounds
         },
-        homeCountryAddress: {},
+        countryResidenceAddress: {
+          address1: '',
+          address2: '',
+          address3: '',
+          state: '',
+          city: '',
+          zipCode: '',
+          countryId: '',
+        },
+        homeCountryAddress: {
+          address1: '',
+          address2: '',
+          address3: '',
+          state: '',
+          city: '',
+          zipCode: '',
+          countryId: '',
+        },
         physicianDetails: {
           practicename: '',
           dateLastVisited: null,
@@ -230,6 +248,7 @@ const formData = new Vue({
           },
         },
       },
+
       underwritingQuestions: {
         questions: [
           // Medical Declaration
