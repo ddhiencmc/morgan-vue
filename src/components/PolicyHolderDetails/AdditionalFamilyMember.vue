@@ -186,6 +186,12 @@
               <i class="fas fa-exclamation-circle me-2 text-primary"></i>
               <a href="#" role="button" class="" data-bs-toggle="modal" @click="openHelperModal">WHY DO WE ASK THIS?</a>
             </div>
+
+            <div class="d-flex justify-content-end">
+              <button type="button" class="btn btn-danger" @click="removeFamilyMember">
+                Delete
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -206,10 +212,18 @@ export default {
       {},
     )
 
+    const confirmDeleteFamilyModal = new window.bootstrap.Modal(
+      document.getElementById('confirmDeleteMemberFamilyModal'),
+      {},
+    )
+
     return {
       form: this.$formData.policyHolderDetails.familyMembers[this.memberIndex],
       isOpen: false,
+
       helperModal,
+      confirmDeleteFamilyModal,
+
       //select items
       titles: titles,
       genders: genders,
@@ -218,6 +232,7 @@ export default {
       relationships: relationships,
     }
   },
+  mounted() {},
   methods: {
     toggleForm() {
       this.isOpen = !this.isOpen
@@ -225,6 +240,10 @@ export default {
     openHelperModal(event) {
       event.preventDefault()
       this.helperModal.toggle()
+    },
+    removeFamilyMember() {
+      this.confirmDeleteFamilyModal.toggle()
+      this.$formData.policyHolderDetails.currentSelectedFamilyIndex = this.memberIndex
     },
   },
 }

@@ -3,12 +3,14 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label class="form-label">Title</label>
-        <select v-model="form.salutationId" class="form-select form-control">
-          <option value="">Please Select</option>
-          <option v-for="title in titles" :key="title.value" :value="title.value">
-            {{ title.text }}
-          </option>
-        </select>
+        <Multiselect
+          v-model="form.salutationId"
+          :options="titles"
+          track-by="value"
+          placeholder="Please select"
+          label="text"
+        >
+        </Multiselect>
       </div>
 
       <div class="col-md-6 mb-3">
@@ -21,14 +23,16 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6 mb-3">
+      <div class="col mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Surname/Family Name</label>
           <input v-model="form.surname" name="surname" class="form-control" placeholder="Surname/Family Name" />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
       </div>
+    </div>
 
+    <div class="row">
       <div class="col-md-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required">Date Of Birth</label>
@@ -39,9 +43,9 @@
     </div>
 
     <div class="row">
-      <div class="col mb-3">
+      <div class="col-md-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
-          <label class="form-label required">Genders</label>
+          <label class="form-label required">Gender</label>
           <Multiselect
             v-model="form.genderId"
             :options="genders"
@@ -56,18 +60,39 @@
     </div>
 
     <div class="row">
-      <div class="col mb-3">
+      <div class="mb-3">
         <ValidationProvider v-slot="v" rules="required">
-          <label class="form-label required">Country of Nationality</label>
-          <Multiselect
-            v-model="form.countryId"
-            :options="countries"
-            track-by="value"
-            placeholder="Please select"
-            label="text"
-          >
-          </Multiselect>
-          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+          <label class="form-label required">Country of Nationality (Country of Primary Passport)</label>
+          <div class="col-md-6">
+            <Multiselect
+              v-model="form.countryId"
+              :options="countries"
+              track-by="value"
+              placeholder="Please select"
+              label="text"
+            >
+            </Multiselect>
+            <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+          </div>
+        </ValidationProvider>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="mb-3">
+        <ValidationProvider v-slot="v" rules="required">
+          <label class="form-label required">Country Of Residence (Country of Primary Residence)</label>
+          <div class="col-md-6">
+            <Multiselect
+              v-model="form.residenceCountryId"
+              :options="countries"
+              track-by="value"
+              placeholder="Please select"
+              label="text"
+            >
+            </Multiselect>
+            <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+          </div>
         </ValidationProvider>
       </div>
     </div>
@@ -75,29 +100,13 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
-          <label class="form-label required">Country Of Residence</label>
-          <Multiselect
-            v-model="form.residenceCountryId"
-            :options="countries"
-            track-by="value"
-            placeholder="Please select"
-            label="text"
-          >
-          </Multiselect>
-          <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
-        </ValidationProvider>
-      </div>
-
-      <div class="col-md-6">
-        <ValidationProvider v-slot="v" rules="required">
-          <label class="form-label required">Occupation (Select multiple)</label>
+          <label class="form-label required">Occupation</label>
           <Multiselect
             v-model="form.occupationIds"
             :options="occupations"
             track-by="value"
             placeholder="Please select"
             label="text"
-            :multiple="true"
           >
           </Multiselect>
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>

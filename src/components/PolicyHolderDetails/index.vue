@@ -90,6 +90,31 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal -->
+      <div
+        id="confirmDeleteMemberFamilyModal"
+        class="modal fade"
+        tabindex="-1"
+        aria-labelledby="confirmDeleteMemberFamilyModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">Are you sure for delete your family member?</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="deleteFamilyMember()">
+                OK
+              </button>
+              <button type="button" class="btn btn-default border-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </ValidationObserver>
 </template>
@@ -120,6 +145,12 @@ export default {
   methods: {
     addFamilyMember() {
       this.$formData.policyHolderDetails.familyMembers.push(this.getInitialFamilyMember())
+    },
+    deleteFamilyMember() {
+      this.$formData.policyHolderDetails.familyMembers.splice(
+        this.$formData.policyHolderDetails.currentSelectedFamilyIndex,
+        1,
+      )
     },
     getInitialFamilyMember() {
       return {
