@@ -187,17 +187,19 @@
           <div class="col-md-6 mb-3">
             <ValidationProvider v-slot="v" rules="required">
               <label class="form-label required" for="AdditionalDetails.CountryAddress.CountryId">Country</label>
-              <Multiselect
-                id="AdditionalDetails.CountryAddress.CountryId"
-                v-model="additionalDetails.homeCountryAddress.countryId"
-                :options="countries"
-                track-by="value"
-                placeholder="Please select"
-                label="text"
-                name="AdditionalDetails.CountryAddress.Country"
-              >
-              </Multiselect>
-              <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+              <div>
+                <Multiselect
+                  id="AdditionalDetails.CountryAddress.CountryId"
+                  v-model="additionalDetails.homeCountryAddress.countryId"
+                  :options="countries"
+                  track-by="value"
+                  placeholder="Please select"
+                  label="text"
+                  name="AdditionalDetails.CountryAddress.Country"
+                >
+                </Multiselect>
+                <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
+              </div>
             </ValidationProvider>
           </div>
         </div>
