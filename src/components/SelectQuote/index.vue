@@ -44,9 +44,6 @@
         </div>
       </div>
 
-      {{ form.product }}
-      {{ form.underwrittingType }}
-
       <div class="d-flex justify-content-end">
         <div>
           <button class="btn btn-secondary mx-2" @click="previousStep()">
