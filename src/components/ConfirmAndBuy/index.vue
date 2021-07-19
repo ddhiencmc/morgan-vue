@@ -1,10 +1,10 @@
 <template>
-  <div class="w-75 mx-auto">
+  <div class="mx-auto">
     <div>
       <ValidationObserver>
         <h2>Summary</h2>
         <div class="row">
-          <div class="col-sm-7 card p-3">
+          <div class="col-sm-6 card p-5">
             <div class="form-group">
               <div class="row">
                 <div class="summary-item">
@@ -47,7 +47,7 @@
             </div>
           </div>
 
-          <div class="col-sm-5">
+          <div class="col-sm-6 p-5">
             <div class="summary-checkbox">
               <label class="summary-checkbox__title">Premium imdication</label>
               <div class="summary-checkbox__checkbox">
@@ -167,25 +167,26 @@ export default {
 }
 
 .summary-checkbox {
-  margin-left: 7px;
-  margin-bottom: 25px;
+  margin-bottom: 1.5em;
   &__title {
     color: #1076bc;
     font-weight: 500;
     font-size: 20px;
+    margin-bottom: 0.25em;
   }
 
   &__checkbox {
     display: flex;
+    margin-left: 3px;
     &-tick {
       transform: scale(1.3);
-      margin-right: 7px;
       height: 24px;
     }
 
     &-label {
       font-size: 16px;
       text-align: left;
+      padding-left: 10px;
     }
   }
 }
