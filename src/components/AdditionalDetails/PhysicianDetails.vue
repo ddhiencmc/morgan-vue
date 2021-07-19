@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-sm-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
-          <label class="form-label" for="PhysicianDetails.Title">Salutations</label>
+          <label class="form-label required" for="PhysicianDetails.Title">Salutations</label>
           <Multiselect
             id="PhysicianDetails.Title"
             v-model="form.salutationId"

@@ -48,7 +48,7 @@
               <ValidationProvider v-slot="v" rules="required">
                 <label class="form-label required">What Currency Do You Wish To Pay In?</label>
                 <select
-                  v-model="form.currenyId"
+                  v-model="form.currencyId"
                   data-val="true"
                   data-val-required="The SelectedGenderId field is required."
                   class="form-select form-control"

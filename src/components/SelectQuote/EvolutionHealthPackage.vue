@@ -40,7 +40,7 @@
         v-for="(service, index) in evolutionHealthServices"
         :key="index"
         class="mx-1 w-20 service-item"
-        :class="{ active: currentProductId == service.productId }"
+        :class="{ active: product.productId == service.productId }"
         @click="selectService(service.productId)"
       >
         <div class="bg-light h-100 pb-3 px-3">
@@ -57,7 +57,7 @@
                 <i class="fa fa-question-circle" aria-hidden="true" data-bs-toggle="tooltip" title="Description"></i>
               </div>
 
-              <select v-model="service.selectedExcessId" class="form-select mb-3" :id="'Product.Excess_' + index">
+              <select :id="'Product.Excess_' + index" v-model="service.selectedExcessId" class="form-select mb-3">
                 <option v-for="excess in voluntaryExcess" :key="excess.id" :value="excess.id">
                   {{ excess.value }}
                 </option>
@@ -77,11 +77,11 @@
                 <div v-for="insurance in insurancesOption" :key="insurance.id" class="form-check mt-2">
                   <input
                     :id="'insurance_' + index + insurance.id"
+                    v-model="service.coInsuranceSelectedId"
                     class="form-check-input"
                     type="radio"
                     :name="'insuranceRadio_' + index"
                     :value="insurance.id"
-                    :v-model="service.coInsuranceSelectedId"
                   />
                   <label class="form-check-label" :for="'insurance_' + index + insurance.id">
                     {{ insurance.value }}
@@ -102,10 +102,9 @@
               <div class="form-check mt-2">
                 <input
                   :id="'homeCountryEvacuation_' + index"
+                  v-model="service.hasAdditionalBenefit"
                   class="form-check-input"
                   type="checkbox"
-                  v-model="service.hasAdditionalBenefit"
-                  value=""
                 />
                 <label class="form-check-label" :for="'homeCountryEvacuation_' + index">
                   Home country Evacuation
@@ -116,6 +115,8 @@
         </div>
       </div>
     </div>
+
+    productId: {{ product.productId }}
   </div>
 </template>
 
@@ -132,12 +133,12 @@ export default {
         {
           id: 1,
           text: 'Europe',
-          active: false,
+          active: true,
         },
         {
           id: 2,
           text: 'Worldwide (excluding USA, China, Singapore and Hong Kong)',
-          active: true,
+          active: false,
         },
         {
           id: 3,
@@ -170,13 +171,14 @@ export default {
         },
       ],
 
-      evolutionHealthServices: evolutionHealthServices,
+      areaId: 1,
+      evolutionHealthServices: null,
       insurancesOption: insurancesOption,
       voluntaryExcess: voluntaryExcess,
 
       product: this.$formData.product,
-      currentProductId: null,
-      currentProduct: {},
+
+      frequencyId: 0,
     }
   },
   methods: {
@@ -184,19 +186,22 @@ export default {
       this.headerButtons.forEach(el => {
         el.active = false
       })
-
       this.headerButtons[index].active = true
+      this.areaId = index + 1
+      this.refreshEvolutionHealthServices()
+      this.product.areaId = this.areaId
     },
 
-    setProduct(product) {
-      this.$formData.product = product
-    },
     selectService(productId) {
-      this.currentProductId = productId
-      this.currentProduct = evolutionHealthServices.find(s => s.productId === productId)
+      this.product.productId = productId
     },
+
     selectFrenquency(frequencyId) {
       this.$formData.product.frequencyId = frequencyId
+    },
+
+    refreshEvolutionHealthServices() {
+      this.evolutionHealthServices = evolutionHealthServices.filter(evl => evl.areaId === this.areaId)
     },
   },
   mounted() {
@@ -204,6 +209,10 @@ export default {
     tooltipTriggerList.map(function(tooltipTriggerEl) {
       return new window.bootstrap.Tooltip(tooltipTriggerEl)
     })
+
+    this.product.frequencyId = this.frequencyId
+    this.product.areaId = this.areaId
+    this.refreshEvolutionHealthServices()
   },
 }
 </script>

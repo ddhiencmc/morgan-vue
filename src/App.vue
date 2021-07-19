@@ -17,6 +17,8 @@
         :goToNextStep="goToNextStep"
         :goToPreviousStep="goToPreviousStep"
       />
+
+      <Summary v-if="$formData.currentStep === 5" :goToNextStep="goToNextStep" :goToPreviousStep="goToPreviousStep" />
     </div>
   </div>
 </template>
@@ -26,6 +28,7 @@ import PolicyHolderDetail from './components/PolicyHolderDetails'
 import EvolutionHealth from './components/SelectQuote'
 import AdditionalDetails from './components/AdditionalDetails'
 import UnderwritingQuestions from './components/UnderwritingQuestions'
+import Summary from './components/ConfirmAndBuy'
 
 export default {
   name: 'App',
@@ -34,6 +37,7 @@ export default {
     EvolutionHealth,
     AdditionalDetails,
     UnderwritingQuestions,
+    Summary,
   },
   data() {
     return {}

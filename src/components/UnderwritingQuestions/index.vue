@@ -88,7 +88,7 @@ export default {
       this.$formData.currentStep--
     },
     nextStep() {
-      //   this.$formData.currentStep++;
+      this.$formData.currentStep++
     },
     groupByQuestionGroupName() {
       this.$formData.underwritingQuestions.questions.forEach(q => {

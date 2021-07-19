@@ -22,10 +22,12 @@
               >
                 <input
                   :id="underwriting.id"
+                  v-model="form.underwritingTypeId"
                   type="radio"
                   class="btn-check"
-                  :name="`underwritingType`"
+                  name="underwritingType"
                   autocomplete="off"
+                  :value="underwriting.id"
                 />
                 <label class="btn btn-outline-primary btn-lg w-100" :for="underwriting.id">{{
                   underwriting.value
@@ -41,6 +43,10 @@
           </div>
         </div>
       </div>
+
+      {{ form.product }}
+      {{ form.underwrittingType }}
+
       <div class="d-flex justify-content-end">
         <div>
           <button class="btn btn-secondary mx-2" @click="previousStep()">
@@ -71,11 +77,13 @@ export default {
   },
   data() {
     return {
-      services: this.$formData.services,
+      form: this.$formData,
       underwritingTypes: underwritingTypes,
     }
   },
-  mounted() {},
+  mounted() {
+    console.log('formData', this.form.underwritingTypeId)
+  },
   methods: {
     previousStep() {
       this.goToPreviousStep()
