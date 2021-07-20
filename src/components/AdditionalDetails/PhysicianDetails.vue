@@ -71,11 +71,10 @@
       <div class="col-sm-6 mb-3">
         <ValidationProvider v-slot="v" rules="required">
           <label class="form-label required" for="PhysicianDetails.DateLastVisited">Date Last Visited</label>
-          <input
+          <DatePicker
             id="PhysicianDetails.DateLastVisited"
             v-model="form.dateLastVisited"
-            class="form-control"
-            type="date"
+            class="w-100"
             name="PhysicianDetails.DateLastVisited"
           />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
@@ -273,13 +272,7 @@
             <div class="row">
               <div class="col">
                 <label class="form-label required" for="CoverEndDate">Date Cover Ends</label>
-                <input
-                  id="CoverEndDate"
-                  v-model="form.dateCoverEnd"
-                  class="form-control"
-                  type="date"
-                  name="CoverEndDate"
-                />
+                <DatePicker id="CoverEndDate" v-model="form.dateCoverEnd" class="w-100" name="CoverEndDate" />
               </div>
             </div>
 
@@ -305,11 +298,13 @@
 <script>
 import { titles, countryCodes, countries } from '../../data/optionData'
 import Multiselect from 'vue-multiselect'
+import DatePicker from 'vue2-datepicker'
 
 export default {
   name: 'PhysicianDetails',
   components: {
     Multiselect,
+    DatePicker,
   },
   data() {
     return {

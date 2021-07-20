@@ -39,7 +39,7 @@
                 <label class="form-label required">
                   On Which Date Do You Require The Policy To Start?
                 </label>
-                <input v-model="form.policyStartDate" name="Policy.StartTime" class="form-control" type="date" />
+                <DatePicker class="w-100" v-model="form.policyStartDate" value-type="format" name="Policy.StartTime" />
                 <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
               </ValidationProvider>
             </div>
@@ -126,12 +126,15 @@ import ContactDetail from './ContactDetail'
 
 import { currencies } from '../../data/optionData'
 
+import DatePicker from 'vue2-datepicker'
+
 export default {
   name: 'PolicyHolderDetail',
   components: {
     PolicyHolderDetailInfo,
     AdditionalFamilyMember,
     ContactDetail,
+    DatePicker,
   },
   props: {
     msg: String,

@@ -257,7 +257,12 @@
             <!-- Date -->
             <div>
               <label class="required" for="refusedCoverAdditionalDetailDate">Date</label>
-              <input id="refusedCoverAdditionalDetailDate" class="form-control" type="date" />
+              <DatePicker
+                id="refusedCoverAdditionalDetailDate"
+                v-model="additionalDetails.refusedCoverOrAcceptedOnSpecialTermsDate"
+                class="w-100"
+                type="date"
+              />
             </div>
 
             <!-- Enter Details -->
@@ -282,11 +287,13 @@
 <script>
 import { getRangeListIntVal, pastimes } from '../../data/optionData'
 import Multiselect from 'vue-multiselect'
+import DatePicker from 'vue2-datepicker'
 
 export default {
   name: 'PolicyHolderDetails',
   components: {
     Multiselect,
+    DatePicker,
   },
   data() {
     return {

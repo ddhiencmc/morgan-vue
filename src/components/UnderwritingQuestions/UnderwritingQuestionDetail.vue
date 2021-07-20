@@ -3,8 +3,11 @@
     <div class="form-group border-start p-3 my-3 border-primary">
       <div class="row mb-4">
         <div class="col">
-          <label class="form-label required">Name of illness/medical condition</label>
+          <label class="form-label required" :for="`answer.nameOfMedicalCondition_${index}`"
+            >Name of illness/medical condition</label
+          >
           <input
+            :id="`answer.nameOfMedicalCondition_${index}`"
             v-model="answer.nameOfMedicalCondition"
             class="form-control"
             placeholder="Name of illness/medical condition"
@@ -14,22 +17,25 @@
 
       <div class="row mb-4">
         <div class="col">
-          <label class="form-label required">Date started</label>
-          <input v-model="answer.dateStarted" class="form-control valid" type="date" />
+          <label class="form-label required" :for="`answer.dateStarted_${index}`">Date started</label>
+          <DatePicker :id="`answer.dateStarted_${index}`" v-model="answer.dateStarted" class="w-100" type="date" />
         </div>
       </div>
 
       <div class="row mb-4">
         <div class="col">
-          <label class="form-label">Date ended</label>
-          <input v-model="answer.dateEnded" class="form-control valid" type="date" />
+          <label class="form-label" :for="`answer.dateEnded_${index}`">Date ended</label>
+          <DatePicker :id="`answer.dateEnded_${index}`" v-model="answer.dateEnded" class="w-100" type="date" />
         </div>
       </div>
 
       <div class="row mb-4">
         <div class="col">
-          <label class="form-label">Current medication name and daily dose free format text field</label>
+          <label class="form-label" :for="`CurrentMedicationName_${index}`"
+            >Current medication name and daily dose free format text field</label
+          >
           <input
+            :id="`CurrentMedicationName_${index}`"
             v-model="answer.currentMedicationName"
             class="form-control"
             placeholder="Name of illness/medical condition"
@@ -39,7 +45,7 @@
 
       <div class="row mb-4">
         <div class="col">
-          <label class="form-label required" for="RefusedCoverOrAcceptedOnSpecialTerms"
+          <label class="form-label required" :for="`ExistingHealthInsurancePoliciesRadio_${index}`"
             >Have you ever had a hospital stay in relation to this condition?</label
           >
         </div>
@@ -47,25 +53,25 @@
         <div>
           <div class="form-check form-check-inline">
             <input
-              id="ExistingHealthInsurancePoliciesRadio-yes"
+              :id="`ExistingHealthInsurancePoliciesRadio_${index}-yes`"
               v-model="answer.hospitalRelationToCondition"
               class="form-check-input"
               type="radio"
-              name="ExistingHealthInsurancePoliciesRadio"
+              :name="`ExistingHealthInsurancePoliciesRadio_${index}`"
               :value="true"
             />
-            <label class="form-check-label" for="ExistingHealthInsurancePoliciesRadio-yes">Yes</label>
+            <label class="form-check-label" :for="`ExistingHealthInsurancePoliciesRadio_${index}-yes`">Yes</label>
           </div>
           <div class="form-check form-check-inline">
             <input
-              id="ExistingHealthInsurancePoliciesRadio-no"
+              :id="`ExistingHealthInsurancePoliciesRadio_${index}-no`"
               v-model="answer.hospitalRelationToCondition"
               class="form-check-input"
               type="radio"
-              name="ExistingHealthInsurancePoliciesRadio"
+              :name="`ExistingHealthInsurancePoliciesRadio_${index}`"
               :value="false"
             />
-            <label class="form-check-label" for="ExistingHealthInsurancePoliciesRadio-no">No</label>
+            <label class="form-check-label" for="`ExistingHealthInsurancePoliciesRadio_${index}-no`">No</label>
           </div>
         </div>
       </div>
@@ -74,14 +80,14 @@
         <div class="col">
           <label class="form-label required">Current condition list box</label>
           <select
-            id="Detail.CurrentCondition"
+            :id="`Detail.CurrentCondition_${index}`"
             v-model="answer.currentConditionId"
             class="form-select form-control"
             aria-label=""
-            name="Detail.CurrentCondition"
+            :name="`Detail.CurrentCondition_${index}`"
           >
             <option selected="">Please select</option>
-            <option v-for="(cond, index) in currentConditions" :key="index">
+            <option v-for="(cond, condIndex) in currentConditions" :key="condIndex">
               {{ cond.value }}
             </option>
           </select>
@@ -93,20 +99,20 @@
 
 <script>
 import { currentConditions } from '../../data/optionData'
+import DatePicker from 'vue2-datepicker'
 
 export default {
   name: 'UnderwritingQuestionDetail',
+  components: {
+    DatePicker,
+  },
   props: {
-    answer: {
-      type: Object,
-      require: true,
-      default: function() {
-        return {}
-      },
-    },
+    answer: Object,
+    index: String,
   },
   data() {
     return {
+      ans: this.answer,
       currentConditions: currentConditions,
     }
   },

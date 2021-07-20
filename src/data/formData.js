@@ -51,6 +51,7 @@ const formData = new Vue({
         isSportOrPastime: null,
         otherPastime: '',
         refusedCoverOrAcceptedOnSpecialTerms: null,
+        refusedCoverOrAcceptedOnSpecialTermsDate: '',
         refusedCoverOrAcceptedOnSpecialTermsDetails: '',
         bmi: {
           unit: '',

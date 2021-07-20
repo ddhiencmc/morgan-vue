@@ -31,16 +31,11 @@
         <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
       </ValidationProvider>
     </div>
+
     <div class="col-sm-6 mb-3">
       <ValidationProvider v-slot="v" rules="required">
         <label class="form-label required">Date Of Birth</label>
-        <input
-          v-model="form.dateOfBirth"
-          name="Policy.DateOfBirth"
-          class="form-control"
-          :class="v.classes"
-          type="date"
-        />
+        <DatePicker class="w-100" v-model="form.dateOfBirth" value-type="format" />
         <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
       </ValidationProvider>
     </div>
@@ -104,7 +99,7 @@
 </template>
 
 <script>
-// import DatePicker from 'vue2-datepicker'
+import DatePicker from 'vue2-datepicker'
 import Multiselect from 'vue-multiselect'
 import { titles, genders, countries, occupations, relationships } from '../../data/optionData.js'
 
@@ -112,6 +107,7 @@ export default {
   name: 'PolicyHolderDetailInfo',
   components: {
     Multiselect,
+    DatePicker,
   },
   data() {
     return {

@@ -48,6 +48,7 @@
             <UnderwritingQuestionDetail
               v-if="question.isAnswer && !question.callsUnderwritingQuestionGroupID"
               :answer="question.answer"
+              :index="question.questionNumber"
             />
           </div>
         </div>
@@ -118,7 +119,6 @@ export default {
         currentMedicationName: '',
         hospitalRelationToCondition: null, // true,false
         currentConditionId: '', // List selection,
-        alcoholDependency: null,
       }
     },
   },
