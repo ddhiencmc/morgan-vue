@@ -8,11 +8,8 @@
           v-for="(btn, index) in headerButtons"
           :key="index"
           class="btn border-primary m-1 fs-15px"
-          :class="{
-            'btn-primary text-light fw-bold': btn.active,
-            'btn-light': !btn.active,
-          }"
-          @click="headerBtnActive(index)"
+          :class="[index + 1 == $formData.product.areaId ? 'btn-primary text-light fw-bold' : 'btn-light']"
+          @click="selectArea(index)"
         >
           {{ btn.text }}
         </button>
@@ -21,18 +18,16 @@
 
     <!-- package -->
     <div class="p-2 text-center mb-5">
-      <div class="btn-group" role="group">
-        <button
-          v-for="(item, index) in paymentTypes"
-          :key="index"
-          type="button"
-          class="btn"
-          :class="[index == $formData.product.frequencyId ? 'btn-primary' : 'btn-default border']"
-          @click="selectFrenquency(index)"
-        >
-          {{ item.text }}
-        </button>
-      </div>
+      <button
+        v-for="(item, index) in paymentTypes"
+        :key="index"
+        type="button"
+        class="btn"
+        :class="[index == $formData.product.frequencyId ? 'btn-primary' : 'btn-default border']"
+        @click="selectFrenquency(index)"
+      >
+        {{ item.text }}
+      </button>
     </div>
 
     <div class="d-flex justify-content-between fs-15px">
@@ -115,8 +110,6 @@
         </div>
       </div>
     </div>
-
-    productId: {{ product.productId }}
   </div>
 </template>
 
@@ -171,38 +164,12 @@ export default {
         },
       ],
 
-      areaId: 1,
       evolutionHealthServices: null,
       insurancesOption: insurancesOption,
       voluntaryExcess: voluntaryExcess,
 
       product: this.$formData.product,
-
-      frequencyId: 0,
     }
-  },
-  methods: {
-    headerBtnActive(index) {
-      this.headerButtons.forEach(el => {
-        el.active = false
-      })
-      this.headerButtons[index].active = true
-      this.areaId = index + 1
-      this.refreshEvolutionHealthServices()
-      this.product.areaId = this.areaId
-    },
-
-    selectService(productId) {
-      this.product.productId = productId
-    },
-
-    selectFrenquency(frequencyId) {
-      this.$formData.product.frequencyId = frequencyId
-    },
-
-    refreshEvolutionHealthServices() {
-      this.evolutionHealthServices = evolutionHealthServices.filter(evl => evl.areaId === this.areaId)
-    },
   },
   mounted() {
     let tooltipTriggerList = [].slice.call(this.$el.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -210,9 +177,26 @@ export default {
       return new window.bootstrap.Tooltip(tooltipTriggerEl)
     })
 
-    this.product.frequencyId = this.frequencyId
-    this.product.areaId = this.areaId
     this.refreshEvolutionHealthServices()
+    console.log('evolutionHealthServices', this.evolutionHealthServices)
+  },
+  methods: {
+    selectArea(index) {
+      this.product.areaId = index + 1
+      this.refreshEvolutionHealthServices()
+    },
+
+    selectService(productId) {
+      this.product.productId = productId
+    },
+
+    selectFrenquency(frequencyId) {
+      this.product.frequencyId = frequencyId
+    },
+
+    refreshEvolutionHealthServices() {
+      this.evolutionHealthServices = evolutionHealthServices.filter(evl => evl.areaId === this.product.areaId)
+    },
   },
 }
 </script>

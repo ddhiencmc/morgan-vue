@@ -1,24 +1,29 @@
 <template>
   <div id="app">
     <div class="container">
-      <PolicyHolderDetail v-if="$formData.currentStep === 1" :goToNextStep="goToNextStep" />
+      <PolicyHolderDetail v-if="$formData.currentStep === 1" :go-to-next-step="goToNextStep" />
+
       <EvolutionHealth
         v-if="$formData.currentStep === 2"
-        :goToNextStep="goToNextStep"
-        :goToPreviousStep="goToPreviousStep"
+        :go-to-next-step="goToNextStep"
+        :go-to-previous-step="goToPreviousStep"
       />
       <AdditionalDetails
         v-if="$formData.currentStep === 3"
-        :goToNextStep="goToNextStep"
-        :goToPreviousStep="goToPreviousStep"
+        :go-to-next-step="goToNextStep"
+        :go-to-previous-step="goToPreviousStep"
       />
       <UnderwritingQuestions
         v-if="$formData.currentStep === 4"
-        :goToNextStep="goToNextStep"
-        :goToPreviousStep="goToPreviousStep"
+        :go-to-next-step="goToNextStep"
+        :go-to-previous-step="goToPreviousStep"
       />
 
-      <Summary v-if="$formData.currentStep === 5" :goToNextStep="goToNextStep" :goToPreviousStep="goToPreviousStep" />
+      <Summary
+        v-if="$formData.currentStep === 5"
+        :go-to-next-step="goToNextStep"
+        :go-to-previous-step="goToPreviousStep"
+      />
     </div>
   </div>
 </template>

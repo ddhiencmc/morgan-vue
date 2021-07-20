@@ -14,7 +14,7 @@
             types of underwriting and that you chose the option that is right for you.
           </div>
           <div class="text-center">
-            <div class=" d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
               <div
                 v-for="underwriting in underwritingTypes"
                 :key="underwriting.id"
@@ -46,13 +46,9 @@
 
       <div class="d-flex justify-content-end">
         <div>
-          <button class="btn btn-secondary mx-2" @click="previousStep()">
-            Previous
-          </button>
+          <button class="btn btn-secondary mx-2" @click="previousStep()">Previous</button>
 
-          <button type="submit" class="btn btn-primary mx-2" @click="nextStep(validate)">
-            Next
-          </button>
+          <button type="submit" class="btn btn-primary mx-2" @click="nextStep(validate)">Next</button>
         </div>
       </div>
     </ValidationObserver>
@@ -75,12 +71,11 @@ export default {
   data() {
     return {
       form: this.$formData,
+      product: this.$formData.product,
       underwritingTypes: underwritingTypes,
     }
   },
-  mounted() {
-    console.log('formData', this.form.underwritingTypeId)
-  },
+  mounted() {},
   methods: {
     previousStep() {
       this.goToPreviousStep()

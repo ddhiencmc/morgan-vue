@@ -204,7 +204,7 @@
                 <label class="form-label" for="OtherPastimes">Other Sport or Physical Pastime</label>
                 <input
                   id="OtherPastimes"
-                  v-model="otherPastime"
+                  v-model="additionalDetails.otherPastime"
                   class="form-control"
                   type="text"
                   name="OtherPastimes"
@@ -227,24 +227,22 @@
               <div class="form-check form-check-inline">
                 <input
                   id="RefusedCoverOrAcceptedOnSpecialTerms-yes"
-                  v-model="isRefusedCover"
+                  v-model="additionalDetails.refusedCoverOrAcceptedOnSpecialTerms"
                   class="form-check-input"
                   type="radio"
                   name="RefusedCoverOrAcceptedOnSpecialTerms"
-                  value="Yes"
-                  @click="refusedCoverCheck(true)"
+                  :value="true"
                 />
                 <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-yes">Yes</label>
               </div>
               <div class="form-check form-check-inline">
                 <input
                   id="RefusedCoverOrAcceptedOnSpecialTerms-no"
-                  v-model="isRefusedCover"
+                  v-model="additionalDetails.refusedCoverOrAcceptedOnSpecialTerms"
                   class="form-check-input"
                   type="radio"
                   name="RefusedCoverOrAcceptedOnSpecialTerms"
-                  value="No"
-                  @click="refusedCoverCheck(false)"
+                  :value="false"
                 />
                 <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-no">No</label>
               </div>
@@ -254,7 +252,7 @@
         </div>
 
         <!-- Addtional form -->
-        <div v-if="isRefusedCover === 'Yes'" class="ps-2">
+        <div v-if="additionalDetails.refusedCoverOrAcceptedOnSpecialTerms" class="ps-2">
           <div class="form-group p-3 border-start border-primary">
             <!-- Date -->
             <div>
@@ -268,10 +266,10 @@
                 <label class="required" for="RefusedCoverOrAcceptedOnSpecialTermsDetails">Enter Details</label>
                 <input
                   id="RefusedCoverOrAcceptedOnSpecialTermsDetails"
+                  v-model="additionalDetails.refusedCoverOrAcceptedOnSpecialTermsDetails"
                   class="form-control"
                   type="text"
                   name="RefusedCoverOrAcceptedOnSpecialTermsDetails"
-                  value=""
                 />
               </div>
             </div>
@@ -303,7 +301,6 @@ export default {
       weightPounds: [],
 
       pastimes: pastimes,
-      isRefusedCover: null,
 
       metricUnit: true, // false -> imperial
       forename: this.$formData.policyHolderDetails.details.forename,
@@ -322,9 +319,6 @@ export default {
   methods: {
     changeUnit(isMetric) {
       this.metricUnit = isMetric
-    },
-    refusedCoverCheck(isRefusedCover) {
-      this.isRefusedCover = isRefusedCover
     },
   },
 }

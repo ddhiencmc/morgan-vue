@@ -36,7 +36,7 @@ const formData = new Vue({
       product: {
         productId: 1,
         frequencyId: 0,
-        areaId: null,
+        areaId: 1,
         selectedExcessId: 1,
         coInsuranceSelectedId: null,
         hasAdditionalBenefit: false,
@@ -50,7 +50,7 @@ const formData = new Vue({
         otherOccupation: '',
         isSportOrPastime: null,
         otherPastime: '',
-        refusedCoverOrAcceptedOnSpecialTerms: false,
+        refusedCoverOrAcceptedOnSpecialTerms: null,
         refusedCoverOrAcceptedOnSpecialTermsDetails: '',
         bmi: {
           unit: '',

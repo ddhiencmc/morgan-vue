@@ -47,14 +47,14 @@ import PhysicianDetails from './PhysicianDetails.vue'
 
 export default {
   name: 'AdditionalDetails',
-  props: {
-    goToNextStep: Function,
-    goToPreviousStep: Function,
-  },
   components: {
     Address,
     PolicyHolderDetails,
     PhysicianDetails,
+  },
+  props: {
+    goToNextStep: Function,
+    goToPreviousStep: Function,
   },
   data() {
     return {}

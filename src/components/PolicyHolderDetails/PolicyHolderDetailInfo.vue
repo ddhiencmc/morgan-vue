@@ -4,7 +4,7 @@
       <label class="form-label">Title</label>
       <select v-model="form.salutationId" class="form-control">
         <option value="">Please select</option>
-        <option v-for="item in titles" :value="item.value" :key="item.value">
+        <option v-for="item in titles" :key="item.value" :value="item.value">
           {{ item.text }}
         </option>
       </select>
@@ -50,7 +50,7 @@
         <label class="form-label required">Gender</label>
         <select v-model="form.genderId" class="form-control" :class="v.classes">
           <option value="">Please select</option>
-          <option v-for="item in genders" :value="item.value" :key="item.value">
+          <option v-for="item in genders" :key="item.value" :value="item.value">
             {{ item.text }}
           </option>
         </select>

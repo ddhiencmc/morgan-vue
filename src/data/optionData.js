@@ -47,11 +47,6 @@ export const countryCodes = [
   { text: '+84', value: '2' },
 ]
 
-export const underwritingTypes = [
-  { id: 1, value: 'Moratorium' },
-  { id: 2, value: 'Full Medical Underwriting' },
-]
-
 export const pastimes = [
   {
     text: 'No dangerous pastimes',
@@ -400,4 +395,9 @@ export const areas = [
     id: 4,
     value: 'Worldwide',
   },
+]
+
+export const underwritingTypes = [
+  { id: 1, value: 'Moratorium' },
+  { id: 2, value: 'Full Medical Underwriting' },
 ]

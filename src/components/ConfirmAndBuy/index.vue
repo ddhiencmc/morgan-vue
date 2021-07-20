@@ -3,43 +3,44 @@
     <div>
       <ValidationObserver>
         <h2>Summary</h2>
+
         <div class="row">
           <div class="col-sm-6 card p-5">
             <div class="form-group">
               <div class="row">
-                <div class="summary-item">
+                <div v-if="name" class="summary-item">
                   <label class="summary-item__title">Product</label>
                   <div class="summary-item__description">{{ name }}</div>
                 </div>
 
-                <div class="summary-item">
+                <div v-if="area" class="summary-item">
                   <label class="summary-item__title">Area of Coverage</label>
                   <div class="summary-item__description">{{ area }}</div>
                 </div>
 
-                <div class="summary-item">
+                <div v-if="price" class="summary-item">
                   <label class="summary-item__title">Price</label>
                   <div class="summary-item__description">{{ price }}</div>
                 </div>
 
-                <div class="summary-item">
+                <div v-if="excess" class="summary-item">
                   <label class="summary-item__title">Excess</label>
                   <div class="summary-item__description">{{ excess }}</div>
                 </div>
 
-                <div class="summary-item">
+                <div v-if="coInsurance" class="summary-item">
                   <label class="summary-item__title">Co-insurance</label>
                   <div class="summary-item__description">
                     {{ coInsurance }}
                   </div>
                 </div>
 
-                <div class="summary-item">
+                <div v-if="additionalBenifit" class="summary-item">
                   <label class="summary-item__title">Additional Benefits</label>
                   <div class="summary-item__description">{{ additionalBenifit }}</div>
                 </div>
 
-                <div class="summary-item__end">
+                <div v-if="underwrittingType" class="summary-item__end">
                   <label class="summary-item__title">Underwriting Type</label>
                   <div class="fs-5 fw-bold">{{ underwrittingType }}</div>
                 </div>
@@ -68,7 +69,7 @@
               </div>
             </div>
 
-            <button class="btn btn-outline-primary btn-lg w-75" @click="apply()">
+            <button class="btn btn-outline-primary btn-lg w-50" @click="apply()">
               APPLY NOW
             </button>
           </div>
@@ -76,7 +77,7 @@
       </ValidationObserver>
     </div>
 
-    <div class="d-flex justify-content-end">
+    <div class="mt-3 d-flex justify-content-start">
       <div>
         <button class="btn btn-secondary mx-2" @click="previousStep()">
           Previous
@@ -153,6 +154,7 @@ export default {
   &__title {
     font-size: 16px;
     color: #828282;
+    // color: #1076bc;
 
     &__end {
       margin-bottom: 5px !important;
