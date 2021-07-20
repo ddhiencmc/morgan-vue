@@ -54,18 +54,6 @@
         </div>
       </div>
     </div>
-
-    <div class="d-flex justify-content-end">
-      <div>
-        <button class="btn btn-secondary mx-2" @click="previousStep()">
-          Previous
-        </button>
-
-        <button type="submit" class="btn btn-primary mx-2" @click="nextStep()">
-          Next
-        </button>
-      </div>
-    </div>
   </div>
 </template>
 <script>
@@ -85,12 +73,6 @@ export default {
     this.groupByQuestionGroupName()
   },
   methods: {
-    previousStep() {
-      this.$formData.currentStep--
-    },
-    nextStep() {
-      this.$formData.currentStep++
-    },
     groupByQuestionGroupName() {
       this.$formData.underwritingQuestions.questions.forEach(q => {
         var groupName = this.questions.find(g => g.key == q.groupName)
