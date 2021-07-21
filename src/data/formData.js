@@ -16,18 +16,18 @@ const formData = new Vue({
           genderId: '',
           residenceCountryId: '',
           occupationIds: [],
-          countryId: '',
+          NationalityCountryId: '',
         },
-        contact: {
-          countryCodeLineNumber: '',
+        contactDetails: {
+          lineNumberCountryCodeId: '',
           landlineNumber: '',
           countryCodeMobile: '',
           mobileNumber: '',
           emailAddress: '',
-          contactType: -1,
+          contactTypeId: -1,
         },
         currentSelectedFamilyIndex: null,
-        familyMembers: [],
+        additionalFamilyMembers: [],
         policyStartDate: null,
         currencyId: '',
       },
@@ -49,16 +49,14 @@ const formData = new Vue({
         occupationIds: [],
         otherOccupation: '',
         isSportOrPastime: null,
-        otherPastime: '',
+        otherPastimes: '',
         refusedCoverOrAcceptedOnSpecialTerms: null,
         refusedCoverOrAcceptedOnSpecialTermsDate: '',
         refusedCoverOrAcceptedOnSpecialTermsDetails: '',
         bmi: {
           unit: '',
           height: null,
-          heightBonus: null, // feet, cm, inch
           weight: null,
-          weightBonus: null, // kg, stone, pounds
         },
         countryResidenceAddress: {
           address1: '',
@@ -67,7 +65,7 @@ const formData = new Vue({
           state: '',
           city: '',
           zipCode: '',
-          countryId: '',
+          nationalityCountryId: '',
         },
         homeCountryAddress: {
           address1: '',
@@ -76,7 +74,7 @@ const formData = new Vue({
           state: '',
           city: '',
           zipCode: '',
-          countryId: '',
+          nationalityCountryId: '',
         },
         physicianDetails: {
           salutationId: null,

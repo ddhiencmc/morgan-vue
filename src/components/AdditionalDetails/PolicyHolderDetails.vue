@@ -201,13 +201,13 @@
           <div v-if="additionalDetails.isSportOrPastime" class="ps-2">
             <div class="form-group p-3 border-start border-primary">
               <div class="mb-3">
-                <label class="form-label" for="OtherPastimes">Other Sport or Physical Pastime</label>
+                <label class="form-label" for="otherPastimess">Other Sport or Physical Pastime</label>
                 <input
-                  id="OtherPastimes"
-                  v-model="additionalDetails.otherPastime"
+                  id="otherPastimess"
+                  v-model="additionalDetails.otherPastimes"
                   class="form-control"
                   type="text"
-                  name="OtherPastimes"
+                  name="otherPastimess"
                   value=""
                 />
               </div>

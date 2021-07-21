@@ -70,7 +70,7 @@
       <ValidationProvider v-slot="v" rules="required">
         <label class="form-label required">Country of Nationality (Country of Primary Passport)</label>
         <Multiselect
-          v-model="form.countryId"
+          v-model="form.nationalityCountryId"
           :options="countries"
           track-by="value"
           placeholder="Please select"

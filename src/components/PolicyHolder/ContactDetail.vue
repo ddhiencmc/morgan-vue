@@ -4,7 +4,7 @@
       <div class="col-md-6 mb-3">
         <label class="form-label">Country Code</label>
         <Multiselect
-          v-model="form.countryCodeLineNumber"
+          v-model="form.lineNumberCountryCodeId"
           :options="countryCodes"
           track-by="value"
           placeholder="Please select"
@@ -73,7 +73,7 @@ export default {
   },
   data() {
     return {
-      form: this.$formData.policyHolder.contact,
+      form: this.$formData.policyHolder.contactDetails,
       countryCodes: countryCodes,
     }
   },

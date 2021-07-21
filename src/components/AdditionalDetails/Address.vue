@@ -89,7 +89,7 @@
               <label class="form-label required" for="AdditionalDetails.ResidenceAddress.CountryId">Country</label>
               <Multiselect
                 id="AdditionalDetails.ResidenceAddress.CountryId"
-                v-model="additionalDetails.countryResidenceAddress.countryId"
+                v-model="additionalDetails.countryResidenceAddress.nationalityCountryId"
                 :options="countries"
                 track-by="value"
                 placeholder="Please select"
@@ -190,7 +190,7 @@
               <div>
                 <Multiselect
                   id="AdditionalDetails.CountryAddress.CountryId"
-                  v-model="additionalDetails.homeCountryAddress.countryId"
+                  v-model="additionalDetails.homeCountryAddress.nationalityCountryId"
                   :options="countries"
                   track-by="value"
                   placeholder="Please select"

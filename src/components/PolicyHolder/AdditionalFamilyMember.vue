@@ -105,7 +105,7 @@
                   <ValidationProvider v-slot="v" rules="required">
                     <label class="form-label required">Country of Nationality</label>
                     <select
-                      v-model="form.countryId"
+                      v-model="form.nationalityCountryId"
                       class="form-select form-control"
                       :class="v.classes"
                       aria-label=""
@@ -225,7 +225,7 @@ export default {
     )
 
     return {
-      form: this.$formData.policyHolder.familyMembers[this.memberIndex],
+      form: this.$formData.policyHolder.additionalFamilyMembers[this.memberIndex],
       isOpen: false,
 
       helperModal,

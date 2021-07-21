@@ -27,7 +27,11 @@
         </div>
 
         <div id="additional-family-members" class="accordion mt-3">
-          <div v-for="(familyData, index) in form.familyMembers" :key="index" class="accordion-item mt-2 border">
+          <div
+            v-for="(familyData, index) in form.additionalFamilyMembers"
+            :key="index"
+            class="accordion-item mt-2 border"
+          >
             <AdditionalFamilyMember :member-index="index" />
           </div>
         </div>
@@ -139,10 +143,10 @@ export default {
   },
   methods: {
     addFamilyMember() {
-      this.form.familyMembers.push(this.getInitialFamilyMember())
+      this.form.additionalFamilyMembers.push(this.getInitialFamilyMember())
     },
     deleteFamilyMember() {
-      this.form.familyMembers.splice(this.form.currentSelectedFamilyIndex, 1)
+      this.form.additionalFamilyMembers.splice(this.form.currentSelectedFamilyIndex, 1)
     },
     getInitialFamilyMember() {
       return {
@@ -153,7 +157,7 @@ export default {
         genderId: '',
         residenceCountryId: '',
         occupationIds: [],
-        countryId: '',
+        nationalityCountryId: '',
         relationshipId: '',
         isAnUnmarriedChildAndInFurtherEducation: false,
       }
