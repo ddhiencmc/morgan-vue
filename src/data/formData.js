@@ -6,8 +6,8 @@ const formData = new Vue({
   data() {
     return {
       currentStep: parseInt(queryParams.get('step') || 1),
-      policyHolderDetails: {
-        applicationId: 0,
+      applicationId: 0,
+      policyHolder: {
         details: {
           salutationId: '',
           surname: '',

@@ -5,7 +5,7 @@
         <!-- <input asp-for="ApplicationId" class="form-control" /> -->
         <h2 class="text-header">Policy Holder Details</h2>
         <p class="fw-bold">Please tell us a bit about the policy holder:</p>
-        <PolicyHolderDetailInfo />
+        <PolicyHolderDetail />
         <h2>Contact Details</h2>
         <p class="fw-bold">
           We require your contact details. Please provide at least one of the below. Without this information we will
@@ -112,7 +112,7 @@
 </template>
 
 <script>
-import PolicyHolderDetailInfo from './PolicyHolderDetailInfo.vue'
+import PolicyHolderDetail from './PolicyHolderDetail.vue'
 import AdditionalFamilyMember from './AdditionalFamilyMember'
 import ContactDetail from './ContactDetail'
 
@@ -121,9 +121,9 @@ import { currencies } from '../../data/optionData'
 import DatePicker from 'vue2-datepicker'
 
 export default {
-  name: 'PolicyHolderDetail',
+  name: 'PolicyHolder',
   components: {
-    PolicyHolderDetailInfo,
+    PolicyHolderDetail,
     AdditionalFamilyMember,
     ContactDetail,
     DatePicker,
@@ -133,19 +133,16 @@ export default {
   },
   data() {
     return {
-      form: this.$formData.policyHolderDetails,
+      form: this.$formData.policyHolder,
       currencies: currencies,
     }
   },
   methods: {
     addFamilyMember() {
-      this.$formData.policyHolderDetails.familyMembers.push(this.getInitialFamilyMember())
+      this.form.familyMembers.push(this.getInitialFamilyMember())
     },
     deleteFamilyMember() {
-      this.$formData.policyHolderDetails.familyMembers.splice(
-        this.$formData.policyHolderDetails.currentSelectedFamilyIndex,
-        1,
-      )
+      this.form.familyMembers.splice(this.form.currentSelectedFamilyIndex, 1)
     },
     getInitialFamilyMember() {
       return {

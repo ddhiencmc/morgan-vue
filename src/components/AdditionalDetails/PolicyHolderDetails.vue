@@ -310,8 +310,8 @@ export default {
       pastimes: pastimes,
 
       metricUnit: true, // false -> imperial
-      forename: this.$formData.policyHolderDetails.details.forename,
-      surname: this.$formData.policyHolderDetails.details.surname,
+      forename: this.$formData.policyHolder.details.forename,
+      surname: this.$formData.policyHolder.details.surname,
     }
   },
   mounted() {

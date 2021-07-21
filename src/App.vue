@@ -2,7 +2,7 @@
   <div id="app">
     <ValidationObserver v-slot="{ validate }">
       <div class="container">
-        <PolicyHolderDetail v-if="$formData.currentStep === 1" :go-to-next-step="goToNextStep" />
+        <PolicyHolder v-if="$formData.currentStep === 1" :go-to-next-step="goToNextStep" />
 
         <EvolutionHealth
           v-if="$formData.currentStep === 2"
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import PolicyHolderDetail from './components/PolicyHolderDetails'
+import PolicyHolder from './components/PolicyHolder'
 import EvolutionHealth from './components/SelectQuote'
 import AdditionalDetails from './components/AdditionalDetails'
 import UnderwritingQuestions from './components/UnderwritingQuestions'
@@ -47,7 +47,7 @@ import Summary from './components/ConfirmAndBuy'
 export default {
   name: 'App',
   components: {
-    PolicyHolderDetail,
+    PolicyHolder,
     EvolutionHealth,
     AdditionalDetails,
     UnderwritingQuestions,
