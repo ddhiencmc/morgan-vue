@@ -60,6 +60,7 @@
           :options="occupations"
           track-by="value"
           placeholder="Please select"
+          :class="v.classes"
           label="text"
         >
         </Multiselect>
@@ -74,6 +75,7 @@
           :options="countries"
           track-by="value"
           placeholder="Please select"
+          :class="v.classes"
           label="text"
         >
         </Multiselect>
@@ -89,6 +91,7 @@
           :options="countries"
           track-by="value"
           placeholder="Please select"
+          :class="v.classes"
           label="text"
         >
         </Multiselect>

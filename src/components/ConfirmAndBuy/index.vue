@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto">
+  <div class="mx-auto mb-5">
     <div>
       <h2>Summary</h2>
 

@@ -67,12 +67,11 @@
                 <div class="col-md-6 mb-3">
                   <ValidationProvider v-slot="v" rules="required">
                     <label class="form-label required">Date Of Birth</label>
-                    <input
+                    <DatePicker
                       v-model="form.dateOfBirth"
-                      class="form-control"
+                      class="w-100"
                       :class="v.classes"
                       name="FamilyMember.DateOfBirth"
-                      type="date"
                     />
                     <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
                   </ValidationProvider>
@@ -174,16 +173,13 @@
                   class="form-check-input"
                   type="checkbox"
                   name="FamilyMember.ConfirmChecked"
+                  :class="v.classes"
                 />
+                Please confirm that the child is unmarried and in full-time further education at the policy start date.
                 <label
                   :for="'isAnUnmarriedChildAndInFurtherEducation-' + memberIndex"
                   class="form-check-label required"
-                  data-val="true"
-                  data-val-required="The Please confirm that the child is unmarried and in full-time
-           further education at the policy start date. field is required."
                 >
-                  Please confirm that the child is unmarried and in full-time further education at the policy start
-                  date.
                 </label>
                 <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
               </ValidationProvider>
@@ -208,11 +204,16 @@
 
 <script>
 import { titles, genders, countries, occupations, relationships } from '../../data/optionData.js'
+import DatePicker from 'vue2-datepicker'
 
 export default {
   name: 'AdditionalFamilyMember',
-  components: {},
-  props: ['memberIndex'],
+  components: {
+    DatePicker,
+  },
+  props: {
+    memberIndex: String,
+  },
   data() {
     const helperModal = new window.bootstrap.Modal(
       document.getElementById('isAnUnmarriedChildAndInFurtherEducationModal'),
@@ -225,6 +226,8 @@ export default {
     )
 
     return {
+      family: this.familyMember,
+
       form: this.$formData.policyHolder.additionalFamilyMembers[this.memberIndex],
       isOpen: false,
 

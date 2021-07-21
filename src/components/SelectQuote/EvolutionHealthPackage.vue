@@ -178,7 +178,6 @@ export default {
     })
 
     this.refreshEvolutionHealthServices()
-    console.log('evolutionHealthServices', this.evolutionHealthServices)
   },
   methods: {
     selectArea(index) {

@@ -48,6 +48,7 @@
                   placeholder="Please select"
                   name="AdditionalDetails.Bmi.MetricHeight"
                   style="flex:1"
+                  :class="v.classes"
                 >
                 </Multiselect>
                 <div class="input-group-append">
@@ -69,6 +70,7 @@
                   placeholder="Please select"
                   name="AdditionalDetails.Bmi.MetricWeight"
                   style="flex:1"
+                  :class="v.classes"
                 >
                 </Multiselect>
                 <div class="input-group-append">
@@ -95,6 +97,7 @@
                   placeholder="Please select"
                   name="AdditionalDetails.Bmi.ImperialHeightFeet"
                   style="flex:1"
+                  :class="v.classes"
                 >
                 </Multiselect>
                 <div class="input-group-append">
@@ -104,11 +107,12 @@
                 <!-- inches -->
                 <Multiselect
                   id="AdditionalDetails.Bmi.ImperialHeightInches"
-                  v-model="additionalDetails.bmi.heightBonus"
+                  v-model="additionalDetails.bmi.height"
                   :options="heightInches"
                   placeholder="Please select"
                   name="AdditionalDetails.Bmi.ImperialHeightInches"
                   style="flex:1"
+                  :class="v.classes"
                 >
                 </Multiselect>
                 <div class="input-group-append">
@@ -132,6 +136,7 @@
                   placeholder="Please select"
                   name="AdditionalDetails.Bmi.ImperialWeightStone"
                   style="flex:1"
+                  :class="v.classes"
                 >
                 </Multiselect>
                 <div class="input-group-append">
@@ -141,11 +146,12 @@
                 <!-- Pounds -->
                 <Multiselect
                   id="AdditionalDetails.Bmi.ImperialHeightInches"
-                  v-model="additionalDetails.bmi.weightBonus"
+                  v-model="additionalDetails.bmi.weight"
                   :options="weightPounds"
                   placeholder="Please select"
                   name="AdditionalDetails.Bmi.ImperialWeightPounds"
                   style="flex:1"
+                  :class="v.classes"
                 >
                 </Multiselect>
                 <div class="input-group-append">
@@ -190,6 +196,7 @@
                     type="radio"
                     name="SportOrPastimeRadio"
                     :value="false"
+                    :class="v.classes"
                   />
                   <label class="form-check-label" for="SportOrPastimeRadio-no">No</label>
                 </div>
@@ -243,6 +250,7 @@
                   type="radio"
                   name="RefusedCoverOrAcceptedOnSpecialTerms"
                   :value="false"
+                  :class="v.classes"
                 />
                 <label class="form-check-label" for="RefusedCoverOrAcceptedOnSpecialTerms-no">No</label>
               </div>
@@ -256,7 +264,7 @@
           <div class="form-group p-3 border-start border-primary">
             <!-- Date -->
             <div>
-              <label class="required" for="refusedCoverAdditionalDetailDate">Date</label>
+              <label class="form-label" for="refusedCoverAdditionalDetailDate">Date</label>
               <DatePicker
                 id="refusedCoverAdditionalDetailDate"
                 v-model="additionalDetails.refusedCoverOrAcceptedOnSpecialTermsDate"
@@ -268,7 +276,7 @@
             <!-- Enter Details -->
             <div class="row mt-3">
               <div class="col">
-                <label class="required" for="RefusedCoverOrAcceptedOnSpecialTermsDetails">Enter Details</label>
+                <label class="form-label" for="RefusedCoverOrAcceptedOnSpecialTermsDetails">Enter Details</label>
                 <input
                   id="RefusedCoverOrAcceptedOnSpecialTermsDetails"
                   v-model="additionalDetails.refusedCoverOrAcceptedOnSpecialTermsDetails"
@@ -325,6 +333,9 @@ export default {
   },
   methods: {
     changeUnit(isMetric) {
+      this.additionalDetails.bmi.height = null
+      this.additionalDetails.bmi.weight = null
+
       this.metricUnit = isMetric
     },
   },
