@@ -95,6 +95,7 @@
                 placeholder="Please select"
                 label="text"
                 name="AdditionalDetails.ResidenceAddress.Country"
+                :class="v.classes"
               >
               </Multiselect>
               <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
@@ -196,6 +197,7 @@
                   placeholder="Please select"
                   label="text"
                   name="AdditionalDetails.CountryAddress.Country"
+                  :class="v.classes"
                 >
                 </Multiselect>
                 <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>

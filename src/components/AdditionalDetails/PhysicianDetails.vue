@@ -17,6 +17,7 @@
             placeholder="Please select"
             label="text"
             name="PhysicianDetails.Title"
+            :class="v.classes"
           >
           </Multiselect>
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
@@ -59,6 +60,7 @@
             class="form-control"
             type="text"
             name="PhysicianDetails.PracticeName"
+            :class="v.classes"
             value=""
           />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
@@ -91,7 +93,7 @@
             class="form-control"
             type="email"
             name="PhysicianDetails.Email"
-            value=""
+            :class="v.classes"
           />
           <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
         </ValidationProvider>
@@ -206,8 +208,10 @@
               placeholder="Please select"
               label="text"
               name="PhysicianDetails.Address.Country"
+              :class="v.classes"
             >
             </Multiselect>
+
             <span v-if="v.invalid" class="input-error">{{ v.errors[0] }}</span>
           </ValidationProvider>
         </div>
@@ -230,7 +234,7 @@
     <div class="row mt-3">
       <!-- Title -->
       <div class="col mb-3">
-        <label class="form-label required" for="RefusedCoverOrAcceptedOnSpecialTerms"
+        <label class="form-label" for="RefusedCoverOrAcceptedOnSpecialTerms"
           >Do you have Existing Health Insurance Policies?</label
         >
       </div>
