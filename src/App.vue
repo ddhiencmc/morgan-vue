@@ -26,21 +26,19 @@
           :go-to-previous-step="goToPreviousStep"
         />
 
-        <div class="fixed-bottom">
-          <div class="footer">
-            <div class="d-flex justify-content-center mt-1">
-              <button v-show="$formData.currentStep > 1" class="btn btn-secondary mx-2" @click="goToPreviousStep()">
-                Previous
-              </button>
-              <button
-                v-show="$formData.currentStep < 5"
-                type="submit"
-                class="btn btn-primary mx-2"
-                @click="goToNextStep(validate)"
-              >
-                Next
-              </button>
-            </div>
+        <div class="fixed-bottom bg-footer">
+          <div class="d-flex justify-content-center my-3">
+            <button v-show="$formData.currentStep > 1" class="btn btn-secondary mx-2" @click="goToPreviousStep()">
+              Previous
+            </button>
+            <button
+              v-show="$formData.currentStep < 5"
+              type="submit"
+              class="btn btn-primary mx-2"
+              @click="goToNextStep(validate)"
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -113,9 +111,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer {
-  height: 45px;
-  width: 100%;
-  background: rgba($color: #fff, $alpha: 0.9);
+.bg-footer {
+  background: rgba($color: #fff, $alpha: 1);
 }
 </style>
