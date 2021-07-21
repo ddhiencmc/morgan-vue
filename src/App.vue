@@ -54,11 +54,20 @@ export default {
     Summary,
   },
   data() {
-    return {}
+    return {
+      ignoreValidation: true,
+    }
   },
   methods: {
+    validateForm(validate) {
+      if (this.ignoreValidation) {
+        return Promise.resolve(true)
+      }
+
+      return validate()
+    },
     goToNextStep(validate) {
-      validate().then(isvalid => {
+      this.validateForm(validate).then(isvalid => {
         if (isvalid) {
           this.$formData.currentStep++
           this.scrollToTop()
