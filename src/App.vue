@@ -116,6 +116,6 @@ export default {
 .footer {
   height: 45px;
   width: 100%;
-  background: rgba($color: #fffcfc, $alpha: 0.9);
+  background: rgba($color: #fff, $alpha: 0.9);
 }
 </style>
