@@ -241,7 +241,7 @@
         <div class="form-check form-check-inline">
           <input
             id="ExistingHealthInsurancePoliciesRadio-yes"
-            v-model="form.haveExistingHealthInsurance"
+            v-model="form.insuranceProvider.haveExistingHealthInsurance"
             class="form-check-input"
             type="radio"
             name="ExistingHealthInsurancePoliciesRadio"
@@ -254,7 +254,7 @@
         <div class="form-check form-check-inline">
           <input
             id="ExistingHealthInsurancePoliciesRadio-no"
-            v-model="form.haveExistingHealthInsurance"
+            v-model="form.insuranceProvider.haveExistingHealthInsurance"
             class="form-check-input"
             type="radio"
             name="ExistingHealthInsurancePoliciesRadio"
@@ -266,13 +266,18 @@
       </div>
 
       <!-- Addtional form -->
-      <div v-if="form.haveExistingHealthInsurance === 'Yes'" id="additional-information">
-        <div id="additionalHealthCareInsuranceProviders" class="p-3 border-start my-3 border-primary">
+      <div v-if="form.insuranceProvider.haveExistingHealthInsurance === 'Yes'">
+        <div class="p-3 border-start my-3 border-primary">
           <div class="form-group">
             <div class="row">
               <div class="col">
                 <label class="form-label required" for="CoverEndDate">Date Cover Ends</label>
-                <DatePicker id="CoverEndDate" v-model="form.dateCoverEnd" class="w-100" name="CoverEndDate" />
+                <DatePicker
+                  id="CoverEndDate"
+                  v-model="form.insuranceProvider.coverEndDate"
+                  class="w-100"
+                  name="CoverEndDate"
+                />
               </div>
             </div>
 
@@ -281,7 +286,7 @@
                 <label class="form-label required" for="ProviderCompanyName">Provider company name </label>
                 <input
                   id="ProviderCompanyName"
-                  v-model="form.providerCompanyName"
+                  v-model="form.insuranceProvider.providerCompanyName"
                   class="form-control"
                   type="text"
                   name="ProviderCompanyName"

@@ -54,7 +54,7 @@
           <div class="form-check form-check-inline">
             <input
               :id="`ExistingHealthInsurancePoliciesRadio_${index}-yes`"
-              v-model="answer.hospitalRelationToCondition"
+              v-model="answer.hasHospitalRelationToCondition"
               class="form-check-input"
               type="radio"
               :name="`ExistingHealthInsurancePoliciesRadio_${index}`"
@@ -65,7 +65,7 @@
           <div class="form-check form-check-inline">
             <input
               :id="`ExistingHealthInsurancePoliciesRadio_${index}-no`"
-              v-model="answer.hospitalRelationToCondition"
+              v-model="answer.hasHospitalRelationToCondition"
               class="form-check-input"
               type="radio"
               :name="`ExistingHealthInsurancePoliciesRadio_${index}`"

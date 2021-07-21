@@ -65,7 +65,7 @@ const formData = new Vue({
           state: '',
           city: '',
           zipCode: '',
-          nationalityCountryId: '',
+          countryId: '',
         },
         homeCountryAddress: {
           address1: '',
@@ -74,7 +74,7 @@ const formData = new Vue({
           state: '',
           city: '',
           zipCode: '',
-          nationalityCountryId: '',
+          countryId: '',
         },
         physicianDetails: {
           salutationId: null,
@@ -94,16 +94,11 @@ const formData = new Vue({
             countryId: '',
             zipCode: '',
           },
-          haveExistingHealthInsurance: null,
-          dateCoverEnd: null,
-          providerCompanyName: '',
-          insuranceProviders: [
-            {
-              healthCareInsuranceProviderId: '',
-              otherHealthCareInsuranceProvider: '',
-              coverEndDate: null,
-            },
-          ],
+          insuranceProvider: {
+            haveExistingHealthInsurance: null,
+            coverEndDate: null,
+            providerCompanyName: '',
+          },
           documents: {
             files: [
               {

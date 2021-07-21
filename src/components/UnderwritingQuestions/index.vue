@@ -99,7 +99,7 @@ export default {
         dateStarted: null,
         dateEnded: null,
         currentMedicationName: '',
-        hospitalRelationToCondition: null, // true,false
+        hasHospitalRelationToCondition: null, // true,false
         currentConditionId: '', // List selection,
       }
     },
