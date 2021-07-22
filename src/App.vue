@@ -27,7 +27,7 @@
         />
 
         <div class="fixed-bottom bg-footer">
-          <div class="d-flex justify-content-center my-3">
+          <div class="d-flex justify-content-center">
             <button v-show="$formData.currentStep > 1" class="btn btn-secondary mx-2" @click="goToPreviousStep()">
               Previous
             </button>
@@ -113,5 +113,7 @@ export default {
 <style lang="scss" scoped>
 .bg-footer {
   background: rgba($color: #fff, $alpha: 1);
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
 }
 </style>
